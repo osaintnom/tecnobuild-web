@@ -45,7 +45,7 @@ Página en español, 8 secciones en 4 actos:
 1. **Hero** (carbón) — rótulo + "Construimos con el mundo." + línea naranja.
 2. **Prólogo: el origen** (carbón, fijado, horizontal en desktop) — Asia → Hong Kong → Miami.
    - Transición "Llegada a la obra": la línea baja, se vuelve el suelo y el fondo pasa de carbón a hueso.
-3. **El edificio** (hueso) — corte técnico transparente: PB + 7 pisos + azotea. Al bajar, cada categoría se enciende en naranja en todo el edificio, con fichas de modelo al costado. Orden: pisos y revestimientos → puertas → cocinas → baños.
+3. **El edificio** (hueso) — corte técnico transparente: PB + 7 pisos + azotea. Cada categoría ocupa sus propios pisos (hoy dos por categoría, de abajo hacia arriba: pisos y revestimientos PB–P1 → puertas P2–P3 → cocinas P4–P5 → baños P6–P7) para que los productos no se mezclen. Al bajar, los pisos de la categoría se encienden en naranja con glow y rótulos; el resto se atenúa. El reparto se edita en `FLOORS` (`src/content/catalog.ts`) y se ajusta cuando esté el catálogo real.
 4. **Un solo responsable** (fijado) — cuatro líneas de proveedores convergen en una línea naranja.
 5. **Cómo trabajamos** — 5 pasos: consulta, selección, importación, entrega, instalación.
 6. **Tus dudas** — las tres objeciones con respuesta concreta.

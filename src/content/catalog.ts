@@ -95,6 +95,24 @@ export const MODELS: Model[] = [
     { id: 'vidrio', label: 'Vidrio', opts: ['Transparente', 'Esmerilado'] }] },
 ];
 
+// Qué muestra cada nivel del corte del edificio (0 = planta baja). Una categoría por piso, de abajo
+// hacia arriba en el mismo orden que el scroll. Los productos de tipo piso (tile, plank) se dibujan
+// como el solado del nivel; las griferías se montan sobre la bacha o el vanitory del mismo piso.
+export interface FloorPlan { nivel: number; cat: CatId; models: string[] }
+
+export const FLOORS: FloorPlan[] = [
+  { nivel: 0, cat: 'pisos', models: ['pr-01', 'rv-01'] },
+  { nivel: 1, cat: 'pisos', models: ['pr-02'] },
+  { nivel: 2, cat: 'puertas', models: ['pu-01', 'pu-02'] },
+  { nivel: 3, cat: 'puertas', models: ['pu-03'] },
+  { nivel: 4, cat: 'cocinas', models: ['ba-01', 'gr-01'] },
+  { nivel: 5, cat: 'cocinas', models: ['ba-02'] },
+  { nivel: 6, cat: 'banos', models: ['va-01', 'gl-01'] },
+  { nivel: 7, cat: 'banos', models: ['ma-01'] },
+];
+
+export const floorName = (n: number) => (n === 0 ? 'PB' : `P${n}`);
+
 export const modelById: Record<string, Model> = Object.fromEntries(MODELS.map((m) => [m.id, m]));
 export const catById = Object.fromEntries(CATS.map((c) => [c.id, c])) as Record<CatId, Category>;
 

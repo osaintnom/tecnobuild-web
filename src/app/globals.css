@@ -179,19 +179,30 @@ button{font:inherit;color:inherit}
 .bld text{font-family:var(--mono);font-size:10.5px;fill:var(--gris-osc)}
 .bld .lv{font-size:12px;font-weight:500;fill:var(--carbon)}
 .bld .hs{cursor:pointer}
-.bld .hs path{stroke:#5E5D58;stroke-width:1.15;transition:stroke .35s,opacity .35s,stroke-width .35s}
-.bld[data-cat] .hs path{opacity:.4}
-.bld[data-cat="pisos"] .c-pisos path,.bld[data-cat="puertas"] .c-puertas path,.bld[data-cat="cocinas"] .c-cocinas path,.bld[data-cat="banos"] .c-banos path{stroke:var(--naranja);stroke-width:1.8;opacity:1}
-.bld .hs:hover path{stroke:var(--naranja);stroke-width:2.2;opacity:1}
+.bld .hs path{stroke:#5E5D58;stroke-width:1.15;transition:stroke .35s,stroke-width .35s}
+.bld .hs path.f{fill:var(--hueso)}
+.bld .hs path.g{fill:#E4ECEC;fill-opacity:.55}
 .bld .hs path.hit{fill:transparent;stroke:none;pointer-events:all}
-.bld .co{opacity:0;pointer-events:none;transition:opacity .45s var(--ease);cursor:pointer}
-.bld[data-cat="pisos"] .co[data-cat="pisos"],.bld[data-cat="puertas"] .co[data-cat="puertas"],.bld[data-cat="cocinas"] .co[data-cat="cocinas"],.bld[data-cat="banos"] .co[data-cat="banos"]{opacity:1;pointer-events:auto}
-.bld .co path{stroke:var(--naranja);stroke-width:1;stroke-dasharray:3 3}
-.bld .co circle{fill:var(--naranja);stroke:var(--hueso);stroke-width:2}
-.bld .co .cc{font-size:13px;font-weight:500;fill:var(--naranja-btn)}
-.bld .co .cn{font-family:var(--body);font-size:12.5px;fill:var(--carbon)}
-.bld .co:hover .cn{text-decoration:underline}
-.bld .co .chit{fill:transparent;stroke:none}
+.bld .room{transition:opacity .45s var(--ease)}
+.bld[data-cat] .room{opacity:.32}
+.bld[data-cat="pisos"] .room[data-cat="pisos"],.bld[data-cat="puertas"] .room[data-cat="puertas"],.bld[data-cat="cocinas"] .room[data-cat="cocinas"],.bld[data-cat="banos"] .room[data-cat="banos"]{opacity:1}
+/* Productos encendidos: trazo naranja y glow */
+.bld[data-cat="pisos"] .c-pisos,.bld[data-cat="puertas"] .c-puertas,.bld[data-cat="cocinas"] .c-cocinas,.bld[data-cat="banos"] .c-banos,.bld .hs:hover,.bld .hs.sel{filter:url(#bglow)}
+.bld[data-cat="pisos"] .c-pisos path,.bld[data-cat="puertas"] .c-puertas path,.bld[data-cat="cocinas"] .c-cocinas path,.bld[data-cat="banos"] .c-banos path,.bld .hs.sel path{stroke:var(--naranja);stroke-width:1.6}
+.bld .hs:hover path{stroke:var(--naranja);stroke-width:2.2}
+.bld .room:has(.hs:hover){opacity:1}
+/* Rótulos y llaves por categoría */
+.bld .lbl{opacity:0;pointer-events:none;transition:opacity .45s var(--ease);cursor:pointer}
+.bld[data-cat="pisos"] .lbl[data-cat="pisos"],.bld[data-cat="puertas"] .lbl[data-cat="puertas"],.bld[data-cat="cocinas"] .lbl[data-cat="cocinas"],.bld[data-cat="banos"] .lbl[data-cat="banos"]{opacity:1;pointer-events:auto}
+.bld .lbl text{paint-order:stroke;stroke:var(--hueso);stroke-width:4px;stroke-linejoin:round}
+.bld .lbl .cc{font-size:11px;font-weight:500;fill:var(--naranja-btn)}
+.bld .lbl .cn{font-family:var(--body);font-size:12px;fill:var(--carbon)}
+.bld .lbl:hover .cn{text-decoration:underline}
+.bld .brk path{stroke:var(--gris);stroke-width:1;transition:stroke .35s}
+.bld .brk text{font-size:9.5px;letter-spacing:.06em;fill:var(--gris-osc);transition:fill .35s}
+.bld .brk .bk{font-weight:500}
+.bld[data-cat="pisos"] .brk[data-cat="pisos"] path,.bld[data-cat="puertas"] .brk[data-cat="puertas"] path,.bld[data-cat="cocinas"] .brk[data-cat="cocinas"] path,.bld[data-cat="banos"] .brk[data-cat="banos"] path{stroke:var(--naranja);stroke-width:1.6}
+.bld[data-cat="pisos"] .brk[data-cat="pisos"] text,.bld[data-cat="puertas"] .brk[data-cat="puertas"] text,.bld[data-cat="cocinas"] .brk[data-cat="cocinas"] text,.bld[data-cat="banos"] .brk[data-cat="banos"] text{fill:var(--naranja-btn)}
 .anim .bld .fl{opacity:.1;transform:translateY(12px);transition:opacity .7s var(--ease) calc(var(--i) * 90ms),transform .7s var(--ease) calc(var(--i) * 90ms)}
 .anim .bld.up .fl{opacity:1;transform:none}
 .b-levels{display:grid}
@@ -218,7 +229,7 @@ button{font:inherit;color:inherit}
   .b-stage{position:sticky;top:var(--hdr);z-index:5;background:var(--hueso);border-bottom:1px solid var(--hueso-line);margin-inline:calc(var(--gut) * -1);padding-inline:var(--gut)}
   .b-stage-in{position:static;height:236px;flex-direction:row;align-items:center;gap:14px;padding:8px 0;background-size:20px 20px}
   .bld-mount{flex:none;height:220px}
-  .bld .co{display:none}
+  .bld .lbl,.bld .brk text{display:none}
   .lvl-panel,.lvl-panel:last-child{min-height:0;padding-block:44px 28px;scroll-margin-top:calc(var(--hdr) + 250px)}
 }
 @media (max-width:560px){.models{grid-template-columns:1fr}}

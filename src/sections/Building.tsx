@@ -1,7 +1,7 @@
 'use client';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { CATS, MODELS, defaults } from '@/content/catalog';
-import { buildingInner } from '@/lib/building';
+import { buildingInner, floorsLabel } from '@/lib/building';
 import { ScrollTrigger, useGSAP } from '@/lib/motion';
 import { useSelection } from '@/state/selection';
 import { ModelPreview } from '@/components/ModelPreview';
@@ -33,6 +33,11 @@ export function Building() {
     });
   }, { scope: ref });
 
+  // Los productos que ya están en la selección quedan encendidos en el corte.
+  useEffect(() => {
+    bldRef.current?.querySelectorAll<SVGGElement>('.hs').forEach((g) => g.classList.toggle('sel', selection.has(g.dataset.model ?? '')));
+  }, [selection]);
+
   function onStageClick(e: React.MouseEvent) {
     const hit = (e.target as Element).closest<SVGElement>('[data-model]');
     if (hit?.dataset.model) openConfigurator(hit.dataset.model);
@@ -53,16 +58,16 @@ export function Building() {
               <svg
                 ref={bldRef}
                 className="bld"
-                viewBox="-20 100 860 880"
+                viewBox="-20 100 690 880"
                 preserveAspectRatio="xMidYMid meet"
                 role="img"
-                aria-label="Corte de un edificio de planta baja, siete pisos y azotea. En cada piso se ven las terminaciones: pisos, revestimientos, puertas, cocina y baño."
+                aria-label="Corte de un edificio de planta baja, siete pisos y azotea. Cada par de pisos muestra una categoría: pisos y revestimientos abajo, después puertas, cocinas y baños arriba."
                 data-cat={cat?.id}
                 dangerouslySetInnerHTML={{ __html: svg }}
               />
             </div>
             <p className="b-ind" aria-live="polite">
-              {cat ? <><b>{cat.nombre}</b> · en todo el edificio</> : 'Corte · planta baja, 7 pisos y azotea'}
+              {cat ? <><b>{cat.nombre}</b> · {floorsLabel(cat.id)}</> : 'Corte · planta baja, 7 pisos y azotea'}
             </p>
           </div>
         </div>
