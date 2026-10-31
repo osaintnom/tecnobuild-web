@@ -83,6 +83,12 @@ No es una traducción. Es una página propia para **fábricas y proveedores chin
 - Próximas etapas: 6 design system · 7 copy definitivo · 8 frontend (stack recomendado: Next.js + TypeScript, GSAP/ScrollTrigger, Lenis para smooth scroll en desktop) · 9 responsive · 10 performance y accesibilidad.
 - Datos pendientes: catálogo 2026 por modelo, año de inicio de Eurotechnologie, plazos por etapa, número de WhatsApp, logo en vector, fotos.
 
+## Flujo de trabajo
+
+- Cada cambio terminado y verificado se commitea y se sube a `main`: así se publica solo en GitHub Pages (https://osaintnom.github.io/tecnobuild-web/) y se revisa ahí.
+- Antes de subir: `npm run build` sin errores y una revisión en el navegador (desktop y mobile).
+- Después de subir: confirmar que el workflow "Publicar en GitHub Pages" terminó bien.
+
 ## Documentos de referencia (claude.ai)
 
 - Estrategia (Etapa 2): https://claude.ai/artifact/WQTsMND4MLxDUPjSPjciLt
