@@ -26,8 +26,8 @@ export function HeroBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
   useEffect(() => {
-    const root = rootRef.current, canvas = canvasRef.current, host = root?.parentElement;
-    if (!root || !canvas || !host) return;
+    const root = rootRef.current, canvas = canvasRef.current;
+    if (!root || !canvas) return;
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
@@ -46,13 +46,13 @@ export function HeroBackground() {
     function fitWord() {
       root!.querySelectorAll<HTMLElement>('.hb-word').forEach((el) => {
         el.style.fontSize = '100px';
-        el.style.fontSize = `${(100 * host!.clientWidth * 0.94) / el.scrollWidth}px`;
+        el.style.fontSize = `${(100 * root!.clientWidth * 0.94) / el.scrollWidth}px`;
       });
     }
 
     function build() {
       fitWord();
-      const r = host!.getBoundingClientRect();
+      const r = root!.getBoundingClientRect();
       const dpr = Math.min(devicePixelRatio || 1, 2);
       w = r.width; h = r.height;
       canvas!.width = Math.round(w * dpr); canvas!.height = Math.round(h * dpr);
@@ -172,7 +172,9 @@ export function HeroBackground() {
     const redraw = () => { if (reduce) requestAnimationFrame(() => { presence = ptr.active ? 1 : 0; ptr.x = ptr.tx; ptr.y = ptr.ty; draw(1); }); else start(); };
 
     const onMove = (e: PointerEvent) => {
-      const r = host.getBoundingClientRect();
+      const r = root.getBoundingClientRect();
+      const inside = e.clientX >= r.left && e.clientX <= r.right && e.clientY >= r.top && e.clientY <= r.bottom;
+      if (!inside) { if (ptr.active) onLeave(); return; }
       ptr.tx = e.clientX - r.left; ptr.ty = e.clientY - r.top;
       if (ptr.first || presence < 0.02) { ptr.x = ptr.tx; ptr.y = ptr.ty; ptr.first = false; }
       ptr.active = true;
@@ -184,15 +186,16 @@ export function HeroBackground() {
 
     // Solo anima mientras el hero está en pantalla.
     const io = new IntersectionObserver(([en]) => { visible = en.isIntersecting; if (visible) start(); });
-    io.observe(host);
+    io.observe(root);
     const ro = new ResizeObserver(() => { build(); redraw(); });
-    ro.observe(host);
+    ro.observe(root);
     const onVis = () => { if (!document.hidden) start(); };
 
-    host.addEventListener('pointermove', onMove, { passive: true });
-    host.addEventListener('pointerdown', onMove, { passive: true });
-    host.addEventListener('pointerup', onUp, { passive: true });
-    host.addEventListener('pointerleave', onLeave);
+    // El fondo no recibe eventos (queda debajo del contenido): se escucha en la ventana.
+    addEventListener('pointermove', onMove, { passive: true });
+    addEventListener('pointerdown', onMove, { passive: true });
+    addEventListener('pointerup', onUp, { passive: true });
+    document.documentElement.addEventListener('pointerleave', onLeave);
     document.addEventListener('visibilitychange', onVis);
     build();
     if (reduce) redraw(); else start();
@@ -200,10 +203,10 @@ export function HeroBackground() {
 
     return () => {
       cancelAnimationFrame(raf); clearTimeout(touchTimer); io.disconnect(); ro.disconnect();
-      host.removeEventListener('pointermove', onMove);
-      host.removeEventListener('pointerdown', onMove);
-      host.removeEventListener('pointerup', onUp);
-      host.removeEventListener('pointerleave', onLeave);
+      removeEventListener('pointermove', onMove);
+      removeEventListener('pointerdown', onMove);
+      removeEventListener('pointerup', onUp);
+      document.documentElement.removeEventListener('pointerleave', onLeave);
       document.removeEventListener('visibilitychange', onVis);
     };
   }, []);
@@ -211,8 +214,9 @@ export function HeroBackground() {
   return (
     <div className="hb" ref={rootRef} aria-hidden="true">
       <canvas className="hb-canvas" ref={canvasRef} />
-      <div className="hb-word hb-word-blur">TECNO<span>.</span>BUILD</div>
-      <div className="hb-word hb-word-lit">TECNO<span>.</span>BUILD</div>
+      {/* Cada capa ocupa todo el fondo: así la máscara del cursor usa las mismas coordenadas que el canvas. */}
+      <div className="hb-layer hb-blur"><div className="hb-word">TECNO<span>.</span>BUILD</div></div>
+      <div className="hb-layer hb-lit"><div className="hb-word">TECNO<span>.</span>BUILD</div></div>
       <div className="hb-fade" />
     </div>
   );

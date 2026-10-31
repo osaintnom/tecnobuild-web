@@ -423,19 +423,24 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
 .mcard .thumb,.sel-item .thumb{overflow:hidden}
 .pv{width:100%}
 
-/* Fondo interactivo del hero: grilla con flujo + TECNO.BUILD difuminado que se enfoca bajo el cursor */
-.hero{overflow:hidden;isolation:isolate}
+/* Fondo interactivo del hero: grilla con flujo + TECNO.BUILD difuminado que se enfoca bajo el cursor.
+   Se extiende por debajo del hero hasta la barra de progreso del origen y se funde justo ahí. */
+:root{--hb-ext:96px}
+.pin-on{--hb-ext:calc(var(--hdr) + clamp(118px,19vh,170px))}
+.hero{isolation:isolate}
 .hero>.wrap{position:relative;z-index:1}
-.hb{position:absolute;inset:0;z-index:0;pointer-events:none;--mx:50%;--my:50%;--ml:0}
+.hb{position:absolute;inset:0 0 calc(-1 * var(--hb-ext)) 0;z-index:0;pointer-events:none;--mx:50%;--my:50%;--ml:0;
+  -webkit-mask-image:linear-gradient(#000 calc(100% - 70px),transparent);mask-image:linear-gradient(#000 calc(100% - 70px),transparent)}
 .hb-canvas{position:absolute;inset:0;width:100%;height:100%}
-.hb-word{position:absolute;left:50%;bottom:.04em;transform:translateX(-50%);white-space:nowrap;
-  font-family:var(--display);font-stretch:125%;font-weight:800;font-size:10vw;line-height:1;letter-spacing:-.03em;color:var(--hueso);user-select:none}
+/* La palabra vive en el espacio libre entre el texto del hero y la barra del origen */
+.hb-layer{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center;padding-bottom:calc(var(--hb-ext) * .32)}
+.hb-word{white-space:nowrap;font-family:var(--display);font-stretch:125%;font-weight:800;font-size:10vw;line-height:.78;letter-spacing:-.03em;color:var(--hueso);user-select:none}
 .hb-word span{color:var(--naranja)}
-.hb-word-blur{opacity:.07;filter:blur(12px)}
+.hb-blur{opacity:.07;filter:blur(12px)}
 /* Copia nítida, visible solo en un círculo alrededor del cursor */
-.hb-word-lit{opacity:calc(.03 + .6 * var(--ml));filter:blur(.8px);
+.hb-lit{opacity:calc(.03 + .6 * var(--ml));filter:blur(.8px);
   -webkit-mask-image:radial-gradient(circle 280px at var(--mx) var(--my),#000 0%,rgba(0,0,0,.5) 50%,transparent 100%);
   mask-image:radial-gradient(circle 280px at var(--mx) var(--my),#000 0%,rgba(0,0,0,.5) 50%,transparent 100%)}
-/* Funde la base del fondo con el carbón para que el texto del hero siga leyéndose */
-.hb-fade{position:absolute;inset:0;background:radial-gradient(120% 90% at 18% 55%,rgba(28,28,28,.55),transparent 60%)}
-@media (prefers-reduced-motion:reduce){.hb-word-lit{transition:none}}
+/* Oscurece detrás del texto del hero para que siga leyéndose */
+.hb-fade{position:absolute;inset:0;background:radial-gradient(110% 70% at 18% 40%,rgba(28,28,28,.55),transparent 60%)}
+@media (max-width:700px){.hb-blur{opacity:.1;filter:blur(4px)}}
