@@ -422,3 +422,20 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
 .cfg-nota-label{font:500 .72rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase}
 .mcard .thumb,.sel-item .thumb{overflow:hidden}
 .pv{width:100%}
+
+/* Fondo interactivo del hero: grilla con flujo + TECNO.BUILD difuminado que se enfoca bajo el cursor */
+.hero{overflow:hidden;isolation:isolate}
+.hero>.wrap{position:relative;z-index:1}
+.hb{position:absolute;inset:0;z-index:0;pointer-events:none;--mx:50%;--my:50%;--ml:0}
+.hb-canvas{position:absolute;inset:0;width:100%;height:100%}
+.hb-word{position:absolute;left:50%;bottom:.04em;transform:translateX(-50%);white-space:nowrap;
+  font-family:var(--display);font-stretch:125%;font-weight:800;font-size:10vw;line-height:1;letter-spacing:-.03em;color:var(--hueso);user-select:none}
+.hb-word span{color:var(--naranja)}
+.hb-word-blur{opacity:.07;filter:blur(12px)}
+/* Copia nítida, visible solo en un círculo alrededor del cursor */
+.hb-word-lit{opacity:calc(.03 + .6 * var(--ml));filter:blur(.8px);
+  -webkit-mask-image:radial-gradient(circle 280px at var(--mx) var(--my),#000 0%,rgba(0,0,0,.5) 50%,transparent 100%);
+  mask-image:radial-gradient(circle 280px at var(--mx) var(--my),#000 0%,rgba(0,0,0,.5) 50%,transparent 100%)}
+/* Funde la base del fondo con el carbón para que el texto del hero siga leyéndose */
+.hb-fade{position:absolute;inset:0;background:radial-gradient(120% 90% at 18% 55%,rgba(28,28,28,.55),transparent 60%)}
+@media (prefers-reduced-motion:reduce){.hb-word-lit{transition:none}}

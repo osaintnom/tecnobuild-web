@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { ScrollTrigger, useGSAP, gsap, MQ_ANIM } from '@/lib/motion';
+import { HeroBackground } from '@/components/HeroBackground';
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -27,6 +28,7 @@ export function Hero() {
 
   return (
     <section className="hero tone-dark" id="top" data-tone="dark" ref={ref}>
+      <HeroBackground />
       <div className="wrap">
         <p className="eyebrow">Terminaciones de edificios</p>
         <h1 className="hero-title">
