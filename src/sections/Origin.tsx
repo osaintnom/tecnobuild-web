@@ -28,7 +28,11 @@ export function Origin() {
         const vw = document.documentElement.clientWidth;
         const tx = -progress * Math.max(0, track.scrollWidth - vw);
         track.style.transform = `translate3d(${tx}px,0,0)`;
-        const w = Math.min(track.scrollWidth, -tx + vw * 0.6);
+        // La línea va al 60 % de la pantalla, pero se asegura de llegar a la última parada
+        // al 85 % del tramo: en pantallas anchas Miami queda más a la derecha que ese 60 %.
+        const last = stops[stops.length - 1];
+        const lastDot = oStops.offsetLeft + last.offsetLeft + 40;
+        const w = Math.min(track.scrollWidth, Math.max(-tx + vw * 0.6, clamp(progress / 0.85) * (lastDot + 24)));
         fill.style.width = `${w}px`;
         stops.forEach((s) => s.classList.toggle('on', oStops.offsetLeft + s.offsetLeft + 40 <= w));
       };
