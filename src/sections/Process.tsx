@@ -5,7 +5,7 @@ import { ScrollTrigger, useGSAP, gsap, MQ_ANIM } from '@/lib/motion';
 const STEPS = [
   { title: 'Consulta', body: 'Nos contás la obra y qué terminaciones necesitás. Si ya armaste tu selección en esta página, partimos de ahí.', who: 'equipo comercial, Buenos Aires' },
   { title: 'Selección', body: 'Te proponemos modelos de fábricas que ya visitamos y cuyas muestras probamos. Definimos variantes y cotizamos producto e instalación.', who: 'búsqueda de fábricas, Hong Kong' },
-  { title: 'Importación', body: 'Compramos en origen y coordinamos producción, compras y logística hasta la Argentina.', who: 'compras y logística, Miami' },
+  { title: 'Importación', body: 'Compramos en origen y coordinamos la producción y el envío directo de la fábrica a la Argentina.', who: 'administración y logística, Miami' },
   { title: 'Entrega', body: 'El material llega a tu obra según el plan de entrega que acordamos para cada etapa.', who: 'Buenos Aires' },
   { title: 'Instalación', body: 'Nos hacemos cargo de la instalación. Si algo no queda bien, nos llamás a nosotros.', who: 'Buenos Aires' },
 ];

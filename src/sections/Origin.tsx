@@ -5,7 +5,7 @@ import { ScrollTrigger, useGSAP, gsap, MQ_PIN, MQ_ANIM, clamp } from '@/lib/moti
 const STOPS = [
   { n: '01', place: 'Asia', coord: '', title: 'Fábricas que conocemos', body: 'Visitamos cada fábrica antes de trabajar con ella y probamos muestras antes de comprar en volumen.', img: 'visita a fábrica en Asia' },
   { n: '02', place: 'Hong Kong', coord: '22.32°N 114.17°E', title: 'Búsqueda de fábricas', body: 'Desde Hong Kong buscamos, evaluamos y seleccionamos las fábricas con las que trabajamos.', img: 'evaluación de muestras' },
-  { n: '03', place: 'Miami', coord: '25.76°N 80.19°W', title: 'Compras y logística', body: 'Desde Miami coordinamos las compras y la logística hasta que el material llega a la Argentina.', img: 'logística y embarque' },
+  { n: '03', place: 'Miami', coord: '25.76°N 80.19°W', title: 'Administración y logística', body: 'En Miami está nuestro centro de administración y logística. El material viaja directo de la fábrica a la Argentina.', img: 'centro de administración y logística' },
 ];
 
 /** Prólogo (fijado y horizontal en desktop) + transición "Llegamos a tu obra". */
@@ -95,7 +95,7 @@ export function Origin() {
       <section className="arrive" id="llegada" data-tone="dark" data-ch="origen" aria-labelledby="arrTitle">
         <div className="arr-v" aria-hidden="true" />
         <div className="arr-h" aria-hidden="true" />
-        <div className="arr-top"><div className="wrap">Hong Kong → Miami → Buenos Aires</div></div>
+        <div className="arr-top"><div className="wrap">Asia → Buenos Aires · directo de fábrica</div></div>
         <div className="arr-txt">
           <div className="wrap arr-txt-in">
             <p className="coord"><b>04</b> &nbsp;Buenos Aires &nbsp;·&nbsp; 34.60°S 58.38°W</p>
