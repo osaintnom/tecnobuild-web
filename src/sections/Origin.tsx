@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN, MQ_ANIM, clamp } from '@/lib/motion';
 
 const STOPS = [
-  { n: '01', place: 'Asia', coord: '', title: 'Fábricas que conocemos', body: 'Visitamos cada fábrica antes de trabajar con ella y probamos muestras antes de comprar en volumen.', img: 'visita a fábrica en Asia' },
+  { n: '01', place: 'Shenzhen, China', coord: '22.54°N 114.06°E', title: 'Fábricas que conocemos', body: 'Muchas de las fábricas con las que trabajamos están en Shenzhen. Visitamos cada una antes de trabajar con ella y probamos muestras antes de comprar en volumen.', img: 'zona de fábricas, Shenzhen' },
   { n: '02', place: 'Hong Kong', coord: '22.32°N 114.17°E', title: 'Búsqueda de fábricas', body: 'Desde Hong Kong buscamos, evaluamos y seleccionamos las fábricas con las que trabajamos.', img: 'evaluación de muestras' },
   { n: '03', place: 'Miami', coord: '25.76°N 80.19°W', title: 'Administración y logística', body: 'En Miami está nuestro centro de administración y logística. El material viaja directo de la fábrica a la Argentina.', img: 'centro de administración y logística' },
 ];

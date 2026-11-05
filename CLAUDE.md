@@ -6,7 +6,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 
 - **TECNO.BUILD by Eurotechnologie Group.** Proveedor de terminaciones de edificios: producto importado + instalación, con un solo responsable.
 - **Categorías:** pisos y revestimientos, puertas, cocinas, baños.
-- **Origen:** selección de fábricas en Asia. Visitan las fábricas y prueban muestras antes de comprar en volumen. No hay inspección pre-embarque ni certificaciones: no afirmarlas.
+- **Origen:** selección de fábricas en Asia. Shenzhen (China) es la zona donde están muchas de las fábricas con las que trabajan; no es una oficina. Visitan las fábricas y prueban muestras antes de comprar en volumen. No hay inspección pre-embarque ni certificaciones: no afirmarlas.
 - **Oficinas:** Hong Kong (búsqueda de fábricas), Miami (centro de administración y logística; no es centro de compras). El producto viaja **directo de la fábrica a la Argentina**, no pasa por Miami, Buenos Aires (venta e instalación).
 - **Alcance:** AMBA.
 - **Respaldo:** Eurotechnologie Group, grupo importador con más de 10 años (el año exacto está pendiente; usar "más de diez años").
@@ -43,7 +43,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 Página en español, 8 secciones en 4 actos:
 
 1. **Hero** (carbón) — rótulo + "Construimos con el mundo." + línea naranja.
-2. **Prólogo: el origen** (carbón, fijado, horizontal en desktop) — Asia → Hong Kong → Miami (administración y logística). La llegada aclara que el material viaja directo de fábrica a Buenos Aires.
+2. **Prólogo: el origen** (carbón, fijado, horizontal en desktop) — Shenzhen (zona de fábricas) → Hong Kong → Miami (administración y logística). La llegada aclara que el material viaja directo de fábrica a Buenos Aires.
    - Transición "Llegada a la obra": la línea baja, se vuelve el suelo y el fondo pasa de carbón a hueso.
 3. **El edificio** (hueso) — corte técnico transparente: PB + 7 pisos + azotea. Cada categoría ocupa sus propios pisos (hoy dos por categoría, de abajo hacia arriba: pisos y revestimientos PB–P1 → puertas P2–P3 → cocinas P4–P5 → baños P6–P7) para que los productos no se mezclen. Al bajar, los pisos de la categoría se encienden en naranja con glow y rótulos; el resto se atenúa. El reparto se edita en `FLOORS` (`src/content/catalog.ts`) y se ajusta cuando esté el catálogo real.
 4. **Un solo responsable** (fijado) — cuatro líneas de proveedores convergen en una línea naranja.
