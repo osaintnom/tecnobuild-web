@@ -1,5 +1,5 @@
 'use client';
-import { catById, cfgText, modelById } from '@/content/catalog';
+import { ambById, famById } from '@/content/catalog';
 import { useSelection } from '@/state/selection';
 import { ModelPreview } from './ModelPreview';
 
@@ -9,20 +9,20 @@ export function SelectionList({ editable = true }: { editable?: boolean }) {
   return (
     <ul className="sel-list">
       {[...selection.values()].map((s) => {
-        const m = modelById[s.modelId], c = catById[m.cat];
+        const f = famById[s.familia];
         return (
-          <li className="sel-item" key={m.id}>
-            <ModelPreview className="thumb" model={m} cfg={s.cfg} />
+          <li className="sel-item" key={s.codigo}>
+            {f && <ModelPreview className="thumb" familia={f} />}
             <span>
-              <span className="k">{c.nombre}</span>
-              <span className="nm">{m.nombre} · {m.codigo}</span>
-              <span className="cf">{cfgText(m, s.cfg)}</span>
+              <span className="k">{ambById[s.ambiente]?.nombre} · {s.codigo}</span>
+              <span className="nm">{s.nombre}</span>
+              {s.detalle && <span className="cf">{s.detalle}</span>}
               {s.nota && <span className="nt">“{s.nota}”</span>}
             </span>
             {editable && (
               <span className="acts">
-                <button className="tbtn" type="button" onClick={() => openConfigurator(m.id)}>Editar</button>
-                <button className="tbtn" type="button" onClick={() => remove(m.id)} aria-label={`Quitar ${m.nombre}`}>Quitar</button>
+                <button className="tbtn" type="button" onClick={() => openConfigurator(s.familia, s.codigo)}>Editar</button>
+                <button className="tbtn" type="button" onClick={() => remove(s.codigo)} aria-label={`Quitar ${s.nombre} ${s.codigo}`}>Quitar</button>
               </span>
             )}
           </li>

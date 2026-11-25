@@ -1,4 +1,5 @@
 import { OFFICES } from '@/content/site';
+import { EtgLink } from './EtgLink';
 
 export function Footer() {
   return (
@@ -14,7 +15,7 @@ export function Footer() {
           ))}
         </div>
         <div className="foot-bottom">
-          <span><span className="lg">TECNO.BUILD</span>&nbsp; by Eurotechnologie Group</span>
+          <span><span className="lg">TECNO.BUILD</span>&nbsp; by <EtgLink /></span>
           <span>Quiénes Somos · textos y modelos de ejemplo</span>
           <span>© {new Date().getFullYear()} TECNO.BUILD</span>
         </div>

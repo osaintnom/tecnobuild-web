@@ -13,6 +13,18 @@ npm run dev      # http://localhost:3000
 npm run build    # sitio estático en out/
 ```
 
+## Catálogo desde el maestro
+
+El catálogo sale del maestro de modelos (Excel en Google Drive). El maestro tiene datos internos y **nunca** va al repo.
+
+```sh
+# 1. Bajar el maestro de Drive a data/TB-modelos-MAESTRO.xlsx
+# 2. Generar el catálogo público (solo columnas publicables y lo activo)
+npm run sync:catalogo
+```
+
+Genera `src/content/catalogo.json` y `public/catalogo/modelos/*.json`. Fotos opcionales en `public/catalogo/fotos/<FAMILIA>/principal.webp`.
+
 ## Estructura
 
 | Carpeta | Qué hay |
@@ -20,7 +32,8 @@ npm run build    # sitio estático en out/
 | `src/app/` | Layout (fuentes, metadatos), las dos páginas (`page.tsx`, `catalogo/page.tsx`) y estilos globales |
 | `src/sections/` | Una sección por archivo. Quiénes somos: Hero, About, Origin (+ llegada), Responsible, BuildingShowcase, Clients, Faq, Contact. Catálogo: CatalogView, Quote |
 | `src/components/` | Encabezado e índice de capítulos, configurador, resumen de selección, hojas, pie |
-| `src/content/` | Catálogo de ejemplo (`catalog.ts`) y datos de contacto/oficinas (`site.ts`) |
+| `src/content/` | Catálogo generado (`catalogo.json`), tipos y ambientes (`catalog.ts`), contacto y oficinas (`site.ts`) |
+| `scripts/` | `sync-catalogo.mjs`: maestro → catálogo público |
 | `src/lib/` | Dibujos SVG (corte del edificio y vistas previas), helpers de motion y scroll |
 | `src/state/` | Estado de la selección, configurador, resumen y avisos |
 | `docs/referencia/` | Prototipo navegable original (referencia de experiencia) |

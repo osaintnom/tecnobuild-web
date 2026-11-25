@@ -1,7 +1,7 @@
 'use client';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { CATS, type CatId } from '@/content/catalog';
+import { AMBIENTES, type AmbId } from '@/content/catalog';
 import { floorsLabel } from '@/lib/building';
 import { BuildingSVG } from '@/components/BuildingSVG';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN } from '@/lib/motion';
@@ -14,7 +14,7 @@ import { ScrollTrigger, useGSAP, gsap, MQ_PIN } from '@/lib/motion';
 export function BuildingShowcase() {
   const ref = useRef<HTMLElement>(null);
   const bldRef = useRef<SVGSVGElement>(null);
-  const [cat, setCat] = useState<CatId | undefined>();
+  const [cat, setCat] = useState<AmbId | undefined>();
 
   useGSAP(() => {
     const floors = [...bldRef.current!.querySelectorAll<SVGGElement>('.fl')];
@@ -24,7 +24,7 @@ export function BuildingShowcase() {
       floors.forEach((f, i) => { f.classList.toggle('on', i < k); f.classList.toggle('cur', i === k - 1); });
       // La categoría del último piso agregado se marca en la lista
       const room = floors[k - 1]?.querySelector<SVGGElement>('.room');
-      setCat((room?.dataset.cat as CatId | undefined) ?? undefined);
+      setCat((room?.dataset.cat as AmbId | undefined) ?? undefined);
     };
     const mm = gsap.matchMedia();
     mm.add(MQ_PIN, () => {
@@ -50,7 +50,7 @@ export function BuildingShowcase() {
             <h2 className="h2">Tu edificio, piso por piso.</h2>
             <p className="lead">En el catálogo elegís cada terminación sobre el corte del edificio, la configurás y la sumás a tu cotización.</p>
             <ul className="sc-cats">
-              {CATS.map((c) => (
+              {AMBIENTES.map((c) => (
                 <li key={c.id} className={cat === c.id ? 'on' : undefined}>
                   <span>{c.nombre}</span><small>{floorsLabel(c.id)}</small>
                 </li>

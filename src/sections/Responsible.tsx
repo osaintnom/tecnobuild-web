@@ -1,11 +1,10 @@
 'use client';
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { CATS } from '@/content/catalog';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN, clamp, easeInOut } from '@/lib/motion';
 
 // Una línea por categoría, más una por "todo lo demás": todas convergen en TECNO.BUILD.
-const LINES = [...CATS.map((c) => c.corto), '+ Más'];
+const LINES = ['Pisos', 'Puertas', 'Cocinas', 'Baños', '+ Más'];
 const CY = 180, YS = [40, 110, 180, 250, 320];
 
 /** Un solo responsable: cuatro líneas de proveedores convergen en una línea naranja. */

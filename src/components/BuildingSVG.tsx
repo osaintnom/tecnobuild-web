@@ -1,11 +1,11 @@
 'use client';
 import { forwardRef, useMemo } from 'react';
 import { buildingInner } from '@/lib/building';
-import type { CatId } from '@/content/catalog';
+import type { AmbId } from '@/content/catalog';
 
 interface Props {
-  /** Categoría encendida (pisos con glow y rótulos); sin valor, el edificio queda neutro. */
-  cat?: CatId;
+  /** Ambiente encendido (pisos con glow y rótulos); sin valor, el edificio queda neutro. */
+  cat?: AmbId;
   className?: string;
   onClick?: (e: React.MouseEvent<SVGSVGElement>) => void;
   onMouseOver?: (e: React.MouseEvent<SVGSVGElement>) => void;
@@ -18,10 +18,10 @@ export const BuildingSVG = forwardRef<SVGSVGElement, Props>(function BuildingSVG
     <svg
       ref={ref}
       className={`bld ${className}`}
-      viewBox="-20 100 690 880"
+      viewBox="-20 100 760 880"
       preserveAspectRatio="xMidYMid meet"
       role="img"
-      aria-label="Corte de un edificio de planta baja, siete pisos y azotea. Cada par de pisos muestra una categoría: pisos y revestimientos abajo, después puertas, cocinas y baños arriba."
+      aria-label="Corte de un edificio de planta baja, siete pisos y azotea. Cada par de pisos muestra un ambiente: balcones y escaleras abajo, después cocinas, baños y vestidores arriba."
       data-cat={cat}
       onClick={onClick}
       onMouseOver={onMouseOver}

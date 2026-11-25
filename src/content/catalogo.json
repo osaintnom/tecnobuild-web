@@ -1,0 +1,2264 @@
+{
+ "generado": "2026-11-25",
+ "prueba": true,
+ "familias": [
+  {
+   "codigo": "TB-BE01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre con escurridor",
+   "subtitulo": "1 bacha",
+   "descripcion": "Acero inoxidable estampado. Una bacha con escurridor de canales. Para mesada con calado.",
+   "modelos": 27,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre doble desigual con escurridor",
+   "subtitulo": "Bacha + bachita",
+   "descripcion": "Acero inoxidable estampado. Bacha principal, bachita auxiliar y escurridor de canales.",
+   "modelos": 28,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE03",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre doble con escurridor",
+   "subtitulo": "2 bachas iguales",
+   "descripcion": "Acero inoxidable estampado. Dos bachas iguales y escurridor de canales.",
+   "modelos": 12,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE04",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre con escurridor en abanico",
+   "subtitulo": "1 bacha",
+   "descripcion": "Acero inoxidable estampado. Escurridor con canales en abanico.",
+   "modelos": 9,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE05",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre doble con escurridor en abanico",
+   "subtitulo": "2 bachas",
+   "descripcion": "Acero inoxidable estampado. Dos bachas y escurridor con canales en abanico.",
+   "modelos": 22,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE06",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre con doble escurridor",
+   "subtitulo": "Escurridor a ambos lados",
+   "descripcion": "Acero inoxidable estampado. Escurridores a izquierda y derecha. Para mesadas largas.",
+   "modelos": 12,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE07",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de esquinas rectas con escurridor",
+   "subtitulo": "Esquinas R25 o R80",
+   "descripcion": "Acero inoxidable estampado con esquinas internas de radio chico (R25 o R80). Escurridor recto.",
+   "modelos": 10,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE08",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha de encastre triple",
+   "subtitulo": "3 bachas",
+   "descripcion": "Acero inoxidable estampado. Dos bachas grandes y una auxiliar.",
+   "modelos": 7,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BE09",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas con escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha doble con organizador",
+   "subtitulo": "2 bachas + bandejas",
+   "descripcion": "Acero inoxidable estampado. Dos bachas y sector con divisiones para escurrir y apoyar.",
+   "modelos": 6,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BS01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas sin escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha simple chica",
+   "subtitulo": "Hasta 400 mm de ancho",
+   "descripcion": "Acero inoxidable estampado. Para barra, auxiliar o mueble angosto.",
+   "modelos": 14,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BS02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas sin escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha simple",
+   "subtitulo": "Más de 400 mm de ancho",
+   "descripcion": "Acero inoxidable estampado. Una bacha, sin escurridor.",
+   "modelos": 22,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BS03",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas sin escurridor",
+   "linea": "Cocina",
+   "nombre": "Bacha doble",
+   "subtitulo": "2 bachas, sin escurridor",
+   "descripcion": "Acero inoxidable estampado. Dos bachas, iguales o desiguales.",
+   "modelos": 18,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BB01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas de esquinas rectas y bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Bacha de esquinas rectas",
+   "subtitulo": "1 bacha · R20 / R25",
+   "descripcion": "Acero inoxidable estampado con esquinas internas de radio chico. Para bajo mesada o encastre.",
+   "modelos": 10,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BB02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas de esquinas rectas y bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Bacha doble bajo mesada",
+   "subtitulo": "2 bachas",
+   "descripcion": "Acero inoxidable. Para montar debajo de mesada de piedra o cuarzo.",
+   "modelos": 9,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BR01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas redondas",
+   "linea": "Cocina",
+   "nombre": "Bacha redonda con escurridor",
+   "subtitulo": "1 o 2 bachas redondas",
+   "descripcion": "Acero inoxidable estampado. Bachas redondas y escurridor.",
+   "modelos": 5,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BR02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas redondas",
+   "linea": "Cocina",
+   "nombre": "Bacha redonda",
+   "subtitulo": "Sin escurridor",
+   "descripcion": "Acero inoxidable estampado. Redondas, ovaladas y dobles redondas.",
+   "modelos": 12,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BM01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas hechas a mano",
+   "linea": "Cocina",
+   "nombre": "Bacha hecha a mano con escurridor",
+   "subtitulo": "Esquinas rectas",
+   "descripcion": "Acero inoxidable soldado y pulido a mano, esquinas casi rectas. Escurridor liso o con canales.",
+   "modelos": 15,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BM02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas hechas a mano",
+   "linea": "Cocina",
+   "nombre": "Bacha hecha a mano",
+   "subtitulo": "1 bacha",
+   "descripcion": "Acero inoxidable soldado y pulido a mano, esquinas casi rectas. Medida y profundidad a pedido.",
+   "modelos": 10,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BM03",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas hechas a mano",
+   "linea": "Cocina",
+   "nombre": "Bacha hecha a mano doble",
+   "subtitulo": "2 bachas",
+   "descripcion": "Acero inoxidable soldado y pulido a mano, esquinas casi rectas.",
+   "modelos": 6,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-GC01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Grifería de cocina",
+   "linea": "Cocina",
+   "nombre": "Grifería monocomando de cocina",
+   "subtitulo": "Pico alto",
+   "descripcion": "Monocomando de mesada para cocina. Cromado.",
+   "modelos": 8,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-GC02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Grifería de cocina",
+   "linea": "Cocina",
+   "nombre": "Grifería de cocina con flexible",
+   "subtitulo": "Pico extraíble o con resorte",
+   "descripcion": "Monocomando con pico flexible o ducha extraíble.",
+   "modelos": 4,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-DE01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Despenseros",
+   "linea": "Cocina",
+   "nombre": "Despensero alto con canastos de vidrio",
+   "subtitulo": "4, 5 o 6 niveles · puerta y cuerpo",
+   "descripcion": "Para mueble alto de 300 a 600 mm. Canastos con baranda de vidrio en la puerta y en el cuerpo. Baranda de 90 mm.",
+   "modelos": 42,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    600
+   ]
+  },
+  {
+   "codigo": "TB-DE02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Despenseros",
+   "linea": "Cocina",
+   "nombre": "Despensero alto de aluminio",
+   "subtitulo": "4, 5 o 6 niveles · puerta y cuerpo",
+   "descripcion": "Para mueble alto de 300 a 600 mm. Canastos de aluminio en la puerta y en el cuerpo. Baranda de 90 mm.",
+   "modelos": 42,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    600
+   ]
+  },
+  {
+   "codigo": "TB-DE03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Despenseros",
+   "linea": "Cocina",
+   "nombre": "Despensero bajo con canastos de vidrio",
+   "subtitulo": "2 niveles · puerta y cuerpo",
+   "descripcion": "Para mueble bajo mesada de 300 a 600 mm. Canastos con baranda de vidrio en la puerta y en el cuerpo.",
+   "modelos": 14,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    600
+   ]
+  },
+  {
+   "codigo": "TB-DE04",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Despenseros",
+   "linea": "Cocina",
+   "nombre": "Despensero medio con canastos de vidrio",
+   "subtitulo": "3 niveles · puerta y cuerpo",
+   "descripcion": "Para mueble de 300 a 600 mm. Canastos con baranda de vidrio en la puerta y en el cuerpo.",
+   "modelos": 14,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    300,
+    350,
+    400,
+    450,
+    500,
+    550,
+    600
+   ]
+  },
+  {
+   "codigo": "TB-CO01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Columna extraíble con canastos de vidrio",
+   "subtitulo": "4, 5 o 6 niveles",
+   "descripcion": "Para mueble alto de 200 a 400 mm. Sale entera hacia adelante. Baranda de vidrio de 90 mm.",
+   "modelos": 30,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    200,
+    250,
+    300,
+    350,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-CO02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Columna extraíble de aluminio",
+   "subtitulo": "4, 5 o 6 niveles",
+   "descripcion": "Para mueble alto de 200 a 400 mm. Sale entera hacia adelante. Canastos de aluminio de 90 mm.",
+   "modelos": 30,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    200,
+    250,
+    300,
+    350,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-CO03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Lateral extraíble alto con canastos de vidrio",
+   "subtitulo": "4, 5 o 6 niveles",
+   "descripcion": "Para mueble alto angosto de 150 a 300 mm. Se fija al frente y sale con la puerta.",
+   "modelos": 30,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    180,
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-CO04",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Lateral extraíble alto de aluminio",
+   "subtitulo": "4, 5 o 6 niveles",
+   "descripcion": "Para mueble alto angosto de 150 a 300 mm. Se fija al frente y sale con la puerta.",
+   "modelos": 30,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    180,
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-CO05",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Lateral extraíble con canastos de vidrio",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para bajo mesada angosto de 150 a 300 mm. Se fija al frente y sale con la puerta.",
+   "modelos": 10,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    180,
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-CO06",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Lateral extraíble de aluminio",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para bajo mesada angosto de 150 a 300 mm. Se fija al frente y sale con la puerta.",
+   "modelos": 10,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    180,
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-CO07",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Lateral extraíble con canastos de vidrio",
+   "subtitulo": "3 niveles",
+   "descripcion": "Para mueble angosto de 150 a 300 mm. Se fija al frente y sale con la puerta.",
+   "modelos": 10,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    180,
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-CO08",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Columnas y laterales extraíbles",
+   "linea": "Cocina",
+   "nombre": "Lateral extraíble de aluminio",
+   "subtitulo": "3 niveles",
+   "descripcion": "Para mueble angosto de 150 a 300 mm. Se fija al frente y sale con la puerta.",
+   "modelos": 10,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    180,
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-CB01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Canasto para vajilla de aluminio, frente bajo",
+   "subtitulo": "Canasto A + canasto B",
+   "descripcion": "Para bajo mesada de 600 a 1000 mm. A: platos y cuencos. B: ollas.",
+   "modelos": 36,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-CB02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Canasto para vajilla de aluminio",
+   "subtitulo": "Canasto A + canasto B",
+   "descripcion": "Para bajo mesada de 600 a 1000 mm. A: platos y cuencos. B: ollas.",
+   "modelos": 36,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-CB03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Canasto para vajilla con laterales de vidrio",
+   "subtitulo": "Canasto A + canasto B",
+   "descripcion": "Para bajo mesada de 600 a 1000 mm. A: platos y cuencos. B: ollas.",
+   "modelos": 36,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-CB04",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Bandeja extraíble para utensilios",
+   "subtitulo": "1 nivel · 3 divisiones",
+   "descripcion": "Para bajo mesada de 600 a 1000 mm. Bandeja baja de aluminio para cubiertos y utensilios.",
+   "modelos": 18,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-CB05",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos bajo mesada",
+   "linea": "Cocina",
+   "nombre": "Canasto en U para bajo pileta",
+   "subtitulo": "2 niveles · grande o chico",
+   "descripcion": "Para bajo mesada de pileta de 800 o 900 mm. La forma en U deja paso a la cañería.",
+   "modelos": 8,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    800,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-EQ01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Esquineros",
+   "linea": "Cocina",
+   "nombre": "Esquinero de apertura total con canastos de vidrio",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para esquina de bajo mesada de 700 a 1000 mm. Los canastos salen completos hacia afuera.",
+   "modelos": 8,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    700,
+    800,
+    900,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-EQ02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Esquineros",
+   "linea": "Cocina",
+   "nombre": "Esquinero extraíble de aluminio",
+   "subtitulo": "2 niveles · izquierda o derecha",
+   "descripcion": "Para esquina de bajo mesada de 900 o 1000 mm. Apertura a izquierda o derecha.",
+   "modelos": 4,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    900,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-EQ03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Esquineros",
+   "linea": "Cocina",
+   "nombre": "Esquinero extraíble con canastos de vidrio",
+   "subtitulo": "2 niveles · izquierda o derecha",
+   "descripcion": "Para esquina de bajo mesada de 900 o 1000 mm. Apertura a izquierda o derecha.",
+   "modelos": 4,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    900,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-AL01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Alacenas",
+   "linea": "Cocina",
+   "nombre": "Elevador de alacena con canastos de vidrio",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para alacena de 400 a 900 mm. Baja a la altura de la mano con la manija.",
+   "modelos": 11,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    400,
+    450,
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-AL02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Alacenas",
+   "linea": "Cocina",
+   "nombre": "Elevador de alacena con canastos de vidrio",
+   "subtitulo": "3 niveles",
+   "descripcion": "Para alacena de 450 a 900 mm. Baja a la altura de la mano con la manija.",
+   "modelos": 10,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    450,
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-AL03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Alacenas",
+   "linea": "Cocina",
+   "nombre": "Elevador de alacena doble",
+   "subtitulo": "2 cuerpos sincronizados",
+   "descripcion": "Para alacena de 600 o 900 mm. Los dos cuerpos bajan juntos. Se monta a izquierda o derecha.",
+   "modelos": 2,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Aluminio · ABS · Acero al carbono"
+   ],
+   "muebles": [
+    600,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-AL04",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Alacenas",
+   "linea": "Cocina",
+   "nombre": "Elevador de alacena escurreplatos",
+   "subtitulo": "2 niveles · inoxidable o hierro",
+   "descripcion": "Para alacena de 450 a 900 mm. Platos y cuencos. Marco de acero inoxidable 304 o de hierro.",
+   "modelos": 20,
+   "colores": [
+    "Cromado",
+    "Nano plata"
+   ],
+   "materiales": [
+    "Marco de acero inoxidable 304 · ABS",
+    "Hierro · ABS"
+   ],
+   "muebles": [
+    450,
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-AL05",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Alacenas",
+   "linea": "Cocina",
+   "nombre": "Estante abatible bajo alacena",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para alacena de 400 a 900 mm. Se monta debajo del mueble y baja con amortiguación. Cerrado ocupa 100 mm de alto.",
+   "modelos": 6,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Acero al carbono · Marco de aluminio · Doble riel con amortiguación"
+   ],
+   "muebles": [
+    400,
+    500,
+    600,
+    700,
+    800,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-ES01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Especieros",
+   "linea": "Cocina",
+   "nombre": "Especiero extraíble con canastos de vidrio",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para bajo mesada de 150 a 400 mm. Baranda de vidrio.",
+   "modelos": 12,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    200,
+    250,
+    300,
+    350,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-ES02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Especieros",
+   "linea": "Cocina",
+   "nombre": "Especiero extraíble con canastos de vidrio",
+   "subtitulo": "3 niveles",
+   "descripcion": "Para bajo mesada de 150 a 400 mm. Baranda de vidrio.",
+   "modelos": 12,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    200,
+    250,
+    300,
+    350,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-ES03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Especieros",
+   "linea": "Cocina",
+   "nombre": "Especiero extraíble de aluminio",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para bajo mesada de 150 a 400 mm. Canastos de aluminio de 80 mm.",
+   "modelos": 12,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    200,
+    250,
+    300,
+    350,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-ES04",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Especieros",
+   "linea": "Cocina",
+   "nombre": "Especiero extraíble de aluminio",
+   "subtitulo": "3 niveles",
+   "descripcion": "Para bajo mesada de 150 a 400 mm. Canastos de aluminio de 80 mm.",
+   "modelos": 12,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Aluminio · Canasto de aluminio · ABS"
+   ],
+   "muebles": [
+    150,
+    200,
+    250,
+    300,
+    350,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-PP01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Paneles perforados extraíbles",
+   "linea": "Cocina",
+   "nombre": "Panel perforado extraíble",
+   "subtitulo": "2 niveles",
+   "descripcion": "Para mueble de 200 a 300 mm. Panel perforado con ganchos y canasto con baranda de vidrio.",
+   "modelos": 6,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-PP02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Paneles perforados extraíbles",
+   "linea": "Cocina",
+   "nombre": "Panel perforado extraíble",
+   "subtitulo": "3 niveles",
+   "descripcion": "Para mueble de 200 a 300 mm. Panel perforado con ganchos y canasto con baranda de vidrio.",
+   "modelos": 6,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-PP03",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Paneles perforados extraíbles",
+   "linea": "Cocina",
+   "nombre": "Panel perforado extraíble alto",
+   "subtitulo": "4, 5 o 6 niveles",
+   "descripcion": "Para mueble alto de 200 a 300 mm. Panel perforado con ganchos y canasto con baranda de vidrio.",
+   "modelos": 18,
+   "colores": [
+    "Gris nube",
+    "Blanco nube"
+   ],
+   "materiales": [
+    "Canasto de vidrio · Aluminio · ABS"
+   ],
+   "muebles": [
+    200,
+    250,
+    300
+   ]
+  },
+  {
+   "codigo": "TB-PU01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos de puerta",
+   "linea": "Cocina y vestidor",
+   "nombre": "Canastos de puerta con baranda de vidrio",
+   "subtitulo": "2 a 6 niveles",
+   "descripcion": "Se cuelgan del interior de la puerta. Baranda de vidrio templado de 9 cm.",
+   "modelos": 5,
+   "colores": [
+    "Gris nube"
+   ],
+   "materiales": [
+    "Baranda de vidrio templado · Marco de aluminio · Base reforzada antivuelco · Soporte de acero al carbono pintado"
+   ],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PU02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Canastos de puerta",
+   "linea": "Cocina y vestidor",
+   "nombre": "Canastos de puerta para placard",
+   "subtitulo": "2 a 8 niveles · altura regulable",
+   "descripcion": "Para puerta de placard de 300 a 600 mm. Profundidad de 120 o 170 mm.",
+   "modelos": 1,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Baranda de vidrio templado · Marco de aluminio · Base reforzada antivuelco · Soporte de acero al carbono pintado"
+   ],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-RE01",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Cestos de residuos",
+   "linea": "Cocina",
+   "nombre": "Cesto de residuos extraíble con tapa",
+   "subtitulo": "2, 3 o 4 baldes",
+   "descripcion": "Para bajo mesada de 300 a 600 mm. Baldes de 5 a 30 L según medida.",
+   "modelos": 7,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Marco de aluminio · ABS"
+   ],
+   "muebles": [
+    300,
+    400,
+    450,
+    500,
+    600
+   ]
+  },
+  {
+   "codigo": "TB-RE02",
+   "ambiente": "cocina",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Cestos de residuos",
+   "linea": "Cocina",
+   "nombre": "Cesto de residuos doble oculto",
+   "subtitulo": "2 baldes",
+   "descripcion": "Para bajo mesada de 300 o 400 mm. Riel con amortiguación. Se instala como cajón o como canasto extraíble.",
+   "modelos": 2,
+   "colores": [
+    "Gris"
+   ],
+   "materiales": [
+    "Acero · Aro de tiro metálico · Riel con amortiguación"
+   ],
+   "muebles": [
+    300,
+    400
+   ]
+  },
+  {
+   "codigo": "TB-BA01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Mesadas de acero",
+   "linea": "Cocina",
+   "nombre": "Mesada de acero con bacha",
+   "subtitulo": "Apoyo sobre mueble",
+   "descripcion": "Acero inoxidable. Se apoya sobre el mueble, sin mesada de piedra. Algunas con zócalo trasero.",
+   "modelos": 18,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-LV01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Lavadero",
+   "linea": "Lavadero",
+   "nombre": "Pileta de lavadero",
+   "subtitulo": "27 a 45 L",
+   "descripcion": "Acero inoxidable. Pileta profunda para lavadero, simple o doble.",
+   "modelos": 22,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-LV02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Lavadero",
+   "linea": "Lavadero",
+   "nombre": "Pileta de lavadero con mueble",
+   "subtitulo": "Mueble blanco incluido",
+   "descripcion": "Pileta de acero inoxidable sobre mueble blanco con puerta o cajones.",
+   "modelos": 9,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-LV03",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Lavadero",
+   "linea": "Lavadero",
+   "nombre": "Soportes y rejilla para pileta",
+   "subtitulo": "Para piletas de apoyo",
+   "descripcion": "Ménsulas, patas y rejilla de acero inoxidable.",
+   "modelos": 5,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-VA01",
+   "ambiente": "bano",
+   "rubro": "Bachas y grifería",
+   "categoria": "Bachas de baño",
+   "linea": "Baño",
+   "nombre": "Bacha de apoyo para baño",
+   "subtitulo": "Vanitory",
+   "descripcion": "Acero inoxidable. Bacha de apoyo sobre mesada. Varias terminaciones de color.",
+   "modelos": 4,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-GB01",
+   "ambiente": "bano",
+   "rubro": "Bachas y grifería",
+   "categoria": "Grifería de baño",
+   "linea": "Baño",
+   "nombre": "Grifería monocomando de lavatorio",
+   "subtitulo": "Baja o alta",
+   "descripcion": "Monocomando de mesada para baño. Cromado.",
+   "modelos": 4,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-GB02",
+   "ambiente": "bano",
+   "rubro": "Bachas y grifería",
+   "categoria": "Grifería de baño",
+   "linea": "Baño",
+   "nombre": "Grifería de pared y de 3 piezas",
+   "subtitulo": "Lavatorio",
+   "descripcion": "Para empotrar en pared o de mesada en 3 piezas. Cromado, negro u oro cepillado.",
+   "modelos": 6,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-GB03",
+   "ambiente": "bano",
+   "rubro": "Bachas y grifería",
+   "categoria": "Grifería de baño",
+   "linea": "Baño",
+   "nombre": "Grifería de ducha",
+   "subtitulo": "Empotrada",
+   "descripcion": "Ducha de techo cuadrada y monocomandos de ducha empotrados.",
+   "modelos": 3,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-MP01",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Mamparas de baño",
+   "linea": "Baño",
+   "nombre": "Mampara fija",
+   "subtitulo": "Paño de vidrio walk-in",
+   "descripcion": "Paño fijo de vidrio templado, con o sin perfil de pared. Para duchas abiertas.",
+   "modelos": 4,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-MP02",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Mamparas de baño",
+   "linea": "Baño",
+   "nombre": "Mampara con puerta batiente",
+   "subtitulo": "Frente o box",
+   "descripcion": "Vidrio templado de 6 u 8 mm con bisagras y manija. Frentes, boxes rectangulares, cuadrados y pentagonales.",
+   "modelos": 11,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-MP03",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Mamparas de baño",
+   "linea": "Baño",
+   "nombre": "Mampara corrediza y de bañera",
+   "subtitulo": "Corrediza o pivotante",
+   "descripcion": "Frentes corredizos para ducha y mamparas pivotantes para bañera. Vidrio templado.",
+   "modelos": 5,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB01",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Kit corredizo para mampara",
+   "subtitulo": "Kit completo",
+   "descripcion": "Rodamientos, conectores, guía inferior y manija para mampara corrediza de vidrio 8-10 mm. Hasta 65 kg.",
+   "modelos": 15,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB02",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Rodamientos para mampara",
+   "subtitulo": "Carros y ruedas",
+   "descripcion": "Carros, ruedas y guías de acero inoxidable 304 para mamparas corredizas.",
+   "modelos": 13,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB03",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Barral estabilizador",
+   "subtitulo": "Vidrio-pared y vidrio-vidrio",
+   "descripcion": "Barrales de acero inoxidable 304 para fijar el paño. Vidrio 8-10 mm.",
+   "modelos": 10,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB04",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Conectores para caño de mampara",
+   "subtitulo": "Codos, terminales y soportes",
+   "descripcion": "Conectores de acero inoxidable 304 para caños 30x10, 25x25, 26x26 y Ø25.",
+   "modelos": 27,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB05",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Bisagras para puerta de vidrio",
+   "subtitulo": "Vidrio-pared, vidrio-vidrio y 90°/135°/180°",
+   "descripcion": "Bisagras de acero inoxidable, bronce o zamak. Brillo, satinado o cromo. Vidrio 6-12 mm.",
+   "modelos": 81,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB06",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Grampas para paño fijo",
+   "subtitulo": "Vidrio-pared y vidrio-vidrio",
+   "descripcion": "Grampas de acero inoxidable, bronce o zamak para paños fijos. Vidrio 8-10 mm.",
+   "modelos": 50,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB07",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Burletes para mampara",
+   "subtitulo": "PVC y magnéticos",
+   "descripcion": "Burletes de PVC para cierre de mampara. 0°, 90°, 135° y 180°. Vidrio 6-12 mm.",
+   "modelos": 8,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-HB08",
+   "ambiente": "bano",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de mampara",
+   "linea": "Baño",
+   "nombre": "Manijas, perillas y conectores de baño",
+   "subtitulo": "Para puerta de vidrio",
+   "descripcion": "Manijas embutidas, perillas dobles, cerraduras, conectores de caño Ø19 y separadores.",
+   "modelos": 44,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-VE01",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Set de vestidor, 4 piezas",
+   "subtitulo": "Alhajero · ropa interior · canasto · pantalonero",
+   "descripcion": "Para placard de 500 a 1000 mm. Cuatro bandejas extraíbles.",
+   "modelos": 11,
+   "colores": [],
+   "materiales": [],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE02",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Set de vestidor en cuero, 4 piezas",
+   "subtitulo": "Alhajero · ropa interior · canasto · pantalonero",
+   "descripcion": "Para placard de 500 a 1000 mm. Bandejas con revestimiento símil cuero y cierre suave.",
+   "modelos": 44,
+   "colores": [
+    "Naranja",
+    "Gris claro",
+    "Gris oscuro",
+    "Verde Moran"
+   ],
+   "materiales": [],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE03",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Set de vestidor, 4 piezas",
+   "subtitulo": "Alhajero · ropa interior · canasto · pantalonero",
+   "descripcion": "Para placard de 600 a 900 mm.",
+   "modelos": 7,
+   "colores": [],
+   "materiales": [],
+   "muebles": [
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-VE04",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Alhajero extraíble",
+   "subtitulo": "Línea cuero · 85 mm de alto",
+   "descripcion": "Para placard de 500 a 1000 mm. Divisiones para alhajas y accesorios. Cierre suave.",
+   "modelos": 55,
+   "colores": [
+    "Naranja",
+    "Café claro",
+    "Gris claro",
+    "Gris oscuro",
+    "Verde Moran"
+   ],
+   "materiales": [
+    "Aluminio · Cierre suave · Cuero · MDF · ABS"
+   ],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE05",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Organizador extraíble de ropa interior",
+   "subtitulo": "Línea cuero · 105 mm de alto",
+   "descripcion": "Para placard de 500 a 1000 mm. Divisiones para ropa interior y medias. Cierre suave.",
+   "modelos": 55,
+   "colores": [
+    "Naranja",
+    "Café claro",
+    "Gris claro",
+    "Gris oscuro",
+    "Verde Moran"
+   ],
+   "materiales": [
+    "Aluminio · Cierre suave · Cuero · MDF · ABS"
+   ],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE06",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Canasto profundo extraíble",
+   "subtitulo": "Línea cuero · 165 mm de alto",
+   "descripcion": "Para placard de 500 a 1000 mm. Carteras, mantas y prendas. Cierre suave.",
+   "modelos": 55,
+   "colores": [
+    "Naranja",
+    "Café claro",
+    "Gris claro",
+    "Gris oscuro",
+    "Verde Moran"
+   ],
+   "materiales": [
+    "Aluminio · Cierre suave · Cuero · MDF · ABS"
+   ],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE07",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Pantalonero extraíble",
+   "subtitulo": "Línea cuero · 80 mm de alto",
+   "descripcion": "Para placard de 500 a 1000 mm. Barras para colgar pantalones. Cierre suave.",
+   "modelos": 55,
+   "colores": [
+    "Naranja",
+    "Café claro",
+    "Gris claro",
+    "Gris oscuro",
+    "Verde Moran"
+   ],
+   "materiales": [
+    "Aluminio · Cierre suave · Cuero · MDF · ABS"
+   ],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE08",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Canasto extraíble de malla metálica",
+   "subtitulo": "1 nivel",
+   "descripcion": "Para placard de 500 a 900 mm. Marco de aluminio y malla metálica.",
+   "modelos": 9,
+   "colores": [
+    "Gris grafito"
+   ],
+   "materiales": [
+    "Marco de aluminio · Malla metálica"
+   ],
+   "muebles": [
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900
+   ]
+  },
+  {
+   "codigo": "TB-VE09",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Canasto extraíble símil ratán",
+   "subtitulo": "1 nivel · ancho regulable",
+   "descripcion": "Para placard de 450 a 1000 mm. Marco de aluminio y canasto tejido. Admite frente propio, que se compra aparte.",
+   "modelos": 12,
+   "colores": [],
+   "materiales": [
+    "Marco de aluminio · Canasto tejido símil ratán"
+   ],
+   "muebles": [
+    450,
+    500,
+    550,
+    600,
+    650,
+    700,
+    750,
+    800,
+    850,
+    900,
+    950,
+    1000
+   ]
+  },
+  {
+   "codigo": "TB-VE10",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Corbatero extraíble",
+   "subtitulo": "Superior o lateral",
+   "descripcion": "Riel con amortiguación. Versión superior de 20 barras o lateral de 10 barras.",
+   "modelos": 8,
+   "colores": [
+    "Gris claro",
+    "Gris oscuro",
+    "Naranja",
+    "Verde"
+   ],
+   "materiales": [
+    "Doble riel con amortiguación hidráulica · Base de aluminio · Barras con flocado"
+   ],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-VE11",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Perchero rebatible",
+   "subtitulo": "Chico, mediano o grande",
+   "descripcion": "Baja el barral a la altura de la mano. Carga hasta 22 kg.",
+   "modelos": 3,
+   "colores": [
+    "Negro"
+   ],
+   "materiales": [
+    "Triple amortiguación · Aluminio · ABS"
+   ],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-VE12",
+   "ambiente": "vestidor",
+   "rubro": "Herrajes de cocina y vestidor",
+   "categoria": "Vestidor",
+   "linea": "Vestidor",
+   "nombre": "Zapatero giratorio 360°",
+   "subtitulo": "4 a 14 niveles",
+   "descripcion": "Ancho 720 mm. Gira sobre su eje. De 16 a 56 pares según niveles.",
+   "modelos": 44,
+   "colores": [
+    "Naranja",
+    "Gris claro",
+    "Gris oscuro",
+    "Verde Moran"
+   ],
+   "materiales": [
+    "Aluminio"
+   ],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BV01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Barandas de vidrio",
+   "linea": "Barandas",
+   "nombre": "Perfil U de aluminio para vidrio",
+   "subtitulo": "Baranda de vidrio sin postes",
+   "descripcion": "Perfil de aluminio que toma el vidrio desde abajo. Anodizado o pintado. Algunos con ranura para tira LED. Vidrio 10 a 21,52 mm.",
+   "modelos": 15,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BV02",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Barandas de vidrio",
+   "linea": "Barandas",
+   "nombre": "Spigots para vidrio",
+   "subtitulo": "Baranda de vidrio sin postes",
+   "descripcion": "Pinzas de acero inoxidable que sostienen el vidrio desde el piso. Para balcones, escaleras y piletas.",
+   "modelos": 27,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BV03",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Barandas de vidrio",
+   "linea": "Barandas",
+   "nombre": "Puntos de fijación de vidrio",
+   "subtitulo": "Vidrio fijado de canto",
+   "descripcion": "Separadores y puntos de fijación de inox para vidrio atornillado al canto de losa o escalera.",
+   "modelos": 24,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BV04",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Barandas de vidrio",
+   "linea": "Barandas",
+   "nombre": "Grampas de vidrio para baranda",
+   "subtitulo": "Vidrio a poste",
+   "descripcion": "Grampas de acero inoxidable para tomar el vidrio al poste. Redondas, cuadradas y con apertura inferior.",
+   "modelos": 54,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-BV05",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Barandas de vidrio",
+   "linea": "Barandas",
+   "nombre": "Cerraduras y bisagras para cerco de vidrio",
+   "subtitulo": "Puertas de pileta y cercos",
+   "descripcion": "Cerraduras y bisagras de acero inoxidable para puertas de vidrio en cercos de pileta.",
+   "modelos": 18,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-CA01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Barandas de cable",
+   "linea": "Barandas",
+   "nombre": "Accesorios para baranda de cable",
+   "subtitulo": "Terminales y tensores",
+   "descripcion": "Terminales, tensores y kits con traba automática para cable de acero de 1/8\" a 1/4\". Inox 304/316.",
+   "modelos": 45,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-RL01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Rellenos y barandas de aluminio",
+   "linea": "Barandas",
+   "nombre": "Paneles de relleno",
+   "subtitulo": "Malla, chapa y varillas",
+   "descripcion": "Mallas tejidas, chapas perforadas o caladas y paneles de varillas para relleno de baranda.",
+   "modelos": 26,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-RL02",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Rellenos y barandas de aluminio",
+   "linea": "Barandas",
+   "nombre": "Barandas de aluminio",
+   "subtitulo": "Sistema completo",
+   "descripcion": "Barandas de aluminio con paño de vidrio o barrotes. Pintado en polvo o PVDF.",
+   "modelos": 13,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PO01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Postes de baranda",
+   "linea": "Barandas",
+   "nombre": "Postes redondos",
+   "subtitulo": "Para vidrio, cable o varillas",
+   "descripcion": "Postes de acero inoxidable de sección redonda. Satinado, pulido o dorado.",
+   "modelos": 14,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PO02",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Postes de baranda",
+   "linea": "Barandas",
+   "nombre": "Postes cuadrados",
+   "subtitulo": "Para vidrio, cable o varillas",
+   "descripcion": "Postes de acero inoxidable de 40x40 mm. Satinado, pulido o dorado.",
+   "modelos": 20,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PO03",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Postes de baranda",
+   "linea": "Barandas",
+   "nombre": "Postes planos y de diseño",
+   "subtitulo": "Para vidrio templado",
+   "descripcion": "Postes de planchuela de acero inoxidable, rectos o curvos. Satinado, pulido o dorado.",
+   "modelos": 41,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PO04",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Postes de baranda",
+   "linea": "Barandas",
+   "nombre": "Postes para baranda de cable",
+   "subtitulo": "Perforados",
+   "descripcion": "Postes de inox 304 perforados para pasar cable de acero.",
+   "modelos": 4,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PO05",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Postes de baranda",
+   "linea": "Barandas",
+   "nombre": "Postes pintados y con madera",
+   "subtitulo": "Hierro, acero o madera",
+   "descripcion": "Postes de hierro o acero pintados y postes de inox con revestimiento de madera.",
+   "modelos": 15,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PA01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Pasamanos y accesorios",
+   "linea": "Barandas",
+   "nombre": "Soportes de pasamanos",
+   "subtitulo": "A pared, a vidrio o a poste",
+   "descripcion": "Soportes de acero inoxidable para pasamanos redondo, cuadrado o ranurado.",
+   "modelos": 77,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PA02",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Pasamanos y accesorios",
+   "linea": "Barandas",
+   "nombre": "Accesorios de pasamanos",
+   "subtitulo": "Curvas, uniones y tapas",
+   "descripcion": "Curvas, uniones, codos regulables, bridas y tapas de acero inoxidable para pasamanos redondo, cuadrado, rectangular y ranurado.",
+   "modelos": 101,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PA03",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Pasamanos y accesorios",
+   "linea": "Barandas",
+   "nombre": "Bases y bridas de poste",
+   "subtitulo": "Anclaje a piso o lateral",
+   "descripcion": "Bases, bridas y tapas embellecedoras de acero inoxidable para fijar postes.",
+   "modelos": 30,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PA04",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Pasamanos y accesorios",
+   "linea": "Barandas",
+   "nombre": "Caños y perfiles de inox",
+   "subtitulo": "Para pasamanos",
+   "descripcion": "Caños redondos, cuadrados, rectangulares, elípticos y ranurados, y perfiles U de acero inoxidable.",
+   "modelos": 14,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-EC01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Escaleras",
+   "linea": "Escaleras",
+   "nombre": "Escaleras a medida",
+   "subtitulo": "Diseños de referencia",
+   "descripcion": "Escaleras rectas, curvas y caracol con peldaños de madera, vidrio o metal. Se cotizan a medida.",
+   "modelos": 29,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-FV01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Fachadas y aleros de vidrio",
+   "linea": "Vidrio estructural",
+   "nombre": "Arañas para vidrio",
+   "subtitulo": "Fachadas y techos",
+   "descripcion": "Arañas (spiders) de 1, 2, 3 o 4 brazos y bulones articulados de acero inoxidable para vidrio estructural.",
+   "modelos": 87,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-FV02",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Fachadas y aleros de vidrio",
+   "linea": "Vidrio estructural",
+   "nombre": "Aleros de vidrio",
+   "subtitulo": "Ménsulas",
+   "descripcion": "Ménsulas de acero inoxidable para aleros de vidrio. Medida a pedido.",
+   "modelos": 2,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PV01",
+   "ambiente": "balcon",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de puertas de vidrio y corredizas",
+   "linea": "Puertas",
+   "nombre": "Kit de puerta corrediza de vidrio",
+   "subtitulo": "Caño Ø25",
+   "descripcion": "Kits completos para puertas corredizas de vidrio colgadas de caño de acero inoxidable.",
+   "modelos": 5,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PV02",
+   "ambiente": "balcon",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de puertas de vidrio y corredizas",
+   "linea": "Puertas",
+   "nombre": "Herrajes de puerta corrediza",
+   "subtitulo": "Carros, soportes y topes",
+   "descripcion": "Carros colgantes hasta 300 kg, soportes de caño, guías y topes. Acero inoxidable 304.",
+   "modelos": 28,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PV03",
+   "ambiente": "balcon",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de puertas de vidrio y corredizas",
+   "linea": "Puertas",
+   "nombre": "Herrajes de puerta pivotante",
+   "subtitulo": "Pivotes y conectores",
+   "descripcion": "Kit, pivotes de piso y de pared, ejes y conectores para puertas de vidrio con paño superior.",
+   "modelos": 23,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PV04",
+   "ambiente": "balcon",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de puertas de vidrio y corredizas",
+   "linea": "Puertas",
+   "nombre": "Herrajes de puerta plegadiza",
+   "subtitulo": "Vidrio plegadizo",
+   "descripcion": "Carros colgantes y zapatas para puertas plegadizas de vidrio. Acero inoxidable 304.",
+   "modelos": 9,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PV05",
+   "ambiente": "balcon",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de puertas de vidrio y corredizas",
+   "linea": "Puertas",
+   "nombre": "Conectores de vidrio",
+   "subtitulo": "Articulados",
+   "descripcion": "Conectores vidrio-vidrio y pared-vidrio articulados, barras de conexión. Acero inoxidable 304.",
+   "modelos": 15,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-PV06",
+   "ambiente": "balcon",
+   "rubro": "Mamparas y herrajes de baño",
+   "categoria": "Herrajes de puertas de vidrio y corredizas",
+   "linea": "Puertas",
+   "nombre": "Kit de puerta granero",
+   "subtitulo": "Puerta de madera",
+   "descripcion": "Kits de riel y ruedas para puertas corredizas de madera tipo granero. Negro.",
+   "modelos": 8,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-MA01",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Madera y materia prima",
+   "linea": "Barandas",
+   "nombre": "Piezas de madera para baranda",
+   "subtitulo": "Conectores y balaustres",
+   "descripcion": "Conectores de pasamanos y balaustres de madera torneada.",
+   "modelos": 31,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-MA02",
+   "ambiente": "balcon",
+   "rubro": "Barandas",
+   "categoria": "Madera y materia prima",
+   "linea": "Barandas",
+   "nombre": "Barras y chapas de inox",
+   "subtitulo": "Materia prima",
+   "descripcion": "Barras macizas, ángulos, planchuelas y chapas de acero inoxidable.",
+   "modelos": 3,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-AB01",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Accesorios de bacha",
+   "linea": "Cocina",
+   "nombre": "Coladores y bandejas para bacha",
+   "subtitulo": "Acero inoxidable",
+   "descripcion": "Coladores, bandejas escurridoras y bandejas perforadas a medida de la bacha.",
+   "modelos": 13,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-AB02",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Accesorios de bacha",
+   "linea": "Cocina",
+   "nombre": "Canastos y esterillas",
+   "subtitulo": "Para escurrir",
+   "descripcion": "Canastos de alambre y esterillas enrollables. Varias terminaciones.",
+   "modelos": 6,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-AB03",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Accesorios de bacha",
+   "linea": "Cocina",
+   "nombre": "Tablas de picar",
+   "subtitulo": "Madera",
+   "descripcion": "Tablas de madera a medida de la bacha.",
+   "modelos": 8,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-AB04",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Accesorios de bacha",
+   "linea": "Cocina",
+   "nombre": "Válvulas y sifones",
+   "subtitulo": "Desagüe",
+   "descripcion": "Válvulas de desagüe, rebalses y sifones plásticos.",
+   "modelos": 23,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  },
+  {
+   "codigo": "TB-AB05",
+   "ambiente": "cocina",
+   "rubro": "Bachas y grifería",
+   "categoria": "Accesorios de bacha",
+   "linea": "Cocina",
+   "nombre": "Accesorios de instalación",
+   "subtitulo": "Grampas, dosificadores y más",
+   "descripcion": "Grampas de fijación, cinta selladora, dosificadores de jabón y tapas de válvula.",
+   "modelos": 8,
+   "colores": [],
+   "materiales": [],
+   "muebles": []
+  }
+ ]
+}

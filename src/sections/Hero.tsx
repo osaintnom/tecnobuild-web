@@ -3,6 +3,7 @@ import { useRef } from 'react';
 import { ScrollTrigger, useGSAP, gsap, MQ_ANIM } from '@/lib/motion';
 import Link from 'next/link';
 import { HeroBackground } from '@/components/HeroBackground';
+import { EtgLink } from '@/components/EtgLink';
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
@@ -44,7 +45,7 @@ export function Hero() {
           <Link className="btn btn-primary" href="/catalogo/">Armá tu obra</Link>
           <a className="btn btn-ghost" href="#contacto">Contactanos</a>
         </div>
-        <p className="hero-sign">TECNO.BUILD by Eurotechnologie Group &nbsp;·&nbsp; Hong Kong &nbsp;·&nbsp; Shenzhen &nbsp;·&nbsp; Buenos Aires</p>
+        <p className="hero-sign">TECNO.BUILD by <EtgLink /> &nbsp;·&nbsp; Hong Kong &nbsp;·&nbsp; Shenzhen &nbsp;·&nbsp; Buenos Aires</p>
       </div>
     </section>
   );

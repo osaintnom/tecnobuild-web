@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { CATS, catById, modelById, type CatId } from '@/content/catalog';
+import { AMBIENTES, ambById, type AmbId } from '@/content/catalog';
 import { CONTACT } from '@/content/site';
 import { useSelection } from '@/state/selection';
 import { SelectionList } from '@/components/SelectionList';
@@ -15,7 +15,7 @@ type Required = keyof typeof RULES;
 /** Pedí tu cotización: formulario con la selección precargada. Todavía no envía datos (falta backend). */
 export function Quote() {
   const { selection, showToast } = useSelection();
-  const [cats, setCats] = useState<Set<CatId>>(new Set());
+  const [cats, setCats] = useState<Set<AmbId>>(new Set());
   const [errors, setErrors] = useState<Partial<Record<Required, string>>>({});
   const [sent, setSent] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
@@ -25,7 +25,7 @@ export function Quote() {
   useEffect(() => {
     setCats((prev) => {
       const next = new Set(prev);
-      selection.forEach((s) => next.add(modelById[s.modelId].cat));
+      selection.forEach((s) => next.add(s.ambiente));
       return next;
     });
   }, [selection]);
@@ -48,15 +48,15 @@ export function Quote() {
       `${valueOf('nombre')}${valueOf('empresa') ? ', ' + valueOf('empresa') : ''}`,
       `Obra en ${valueOf('ubic')}`,
       valueOf('tam'),
-      [...cats].map((c) => catById[c].nombre).join(', '),
-      `${n} ${n === 1 ? 'modelo seleccionado' : 'modelos seleccionados'}`,
+      [...cats].map((c) => ambById[c].nombre).join(', '),
+      n ? `${n} ${n === 1 ? 'modelo' : 'modelos'}: ${[...selection.keys()].join(', ')}` : 'Sin modelos elegidos',
     ].filter(Boolean);
     setSent(parts.join(' · ') + '.');
   }
 
   function again() {
     formRef.current?.reset();
-    setCats(new Set([...selection.values()].map((s) => modelById[s.modelId].cat)));
+    setCats(new Set([...selection.values()].map((s) => s.ambiente)));
     setErrors({});
     setSent(null);
     requestAnimationFrame(() => (formRef.current?.elements.namedItem('nombre') as HTMLElement | null)?.focus());
@@ -116,9 +116,9 @@ export function Quote() {
               <input id="q-tam" name="tam" placeholder="Ej.: 24 unidades o 1.800 m²" />
             </div>
             <fieldset className="field">
-              <legend>Categorías que te interesan</legend>
+              <legend>Ambientes que te interesan</legend>
               <div className="chips">
-                {CATS.map((c) => (
+                {AMBIENTES.map((c) => (
                   <label className="chip" key={c.id}>
                     <input type="checkbox" name="cats" value={c.id} checked={cats.has(c.id)}
                       onChange={(e) => setCats((s) => { const n = new Set(s); if (e.target.checked) n.add(c.id); else n.delete(c.id); return n; })} />

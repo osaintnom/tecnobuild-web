@@ -10,6 +10,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 - **Oficinas:** Hong Kong (búsqueda de fábricas), Miami (administración; **no** es centro de compras ni de logística: no mencionar logística en Miami), Buenos Aires (venta e instalación). El producto viaja **directo de la fábrica a la Argentina**.
 - **Alcance:** AMBA.
 - **Respaldo:** Eurotechnologie Group, grupo importador con más de 10 años (el año exacto está pendiente; usar "más de diez años").
+- **Link a Eurotechnologie Group:** cada vez que aparezca "Eurotechnologie Group" en el sitio (hero, quiénes somos, tus dudas, pie de las dos páginas y cualquier sección nueva) va como link a https://www.eurotechnologie.co/ en pestaña nueva. Usar el componente `EtgLink` (`src/components/EtgLink.tsx`); la URL está en `src/content/site.ts`.
 - **Cliente principal:** desarrolladoras y constructoras. Decide el dueño o director.
 - **Competencia:** fabricantes nacionales y distribuidores locales.
 - **Objeciones a responder:** "no los conozco", "¿y si se atrasa?", "¿y si algo falla?".
@@ -54,23 +55,38 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 8. **Contacto** (carbón) — consulta corta (nombre, teléfono, empresa, obra) + mail y WhatsApp.
 
 ### `/catalogo/` Catálogo
-- **Edificio interactivo + grilla filtrable**, conectados: filtrar por categoría enciende sus pisos; pasar por una tarjeta marca el modelo en el corte; tocar el corte (o la llave de una categoría) abre el configurador o filtra. Búsqueda por nombre o código.
-- Corte técnico: PB + 7 pisos + azotea, una categoría por par de pisos (PB–P1 pisos y revestimientos → P2–P3 puertas → P4–P5 cocinas → P6–P7 baños). El reparto se edita en `FLOORS` (`src/content/catalog.ts`).
-- **Pedí tu cotización** al final, con la selección precargada.
+- **Una tarjeta por FAMILIA** del maestro (`TB-XX01`). Si la familia tiene foto se muestra la foto; si no, el dibujo de su categoría (`src/lib/preview.ts`).
+- **Filtros:** rubro, categoría, color y ancho de mueble, más buscador por nombre o código TB. Aviso visible de "Datos de prueba" mientras `prueba: true`.
+- **Edificio interactivo por ambientes**, conectado con la grilla: PB–P1 balcones y escaleras → P2–P3 cocinas → P4–P5 baños → P6–P7 vestidores. Cada elemento del corte es una categoría real (tocarlo filtra esa categoría); la llave de un ambiente filtra el ambiente; pasar por una tarjeta marca su categoría en el corte. El dibujo está en `src/lib/building.ts`.
+- **Configurador por familia:** medida o modelo → opciones de esa medida (niveles, color, variante) → nota. El resultado es un **código TB real**, que viaja en el pedido de cotización.
+- **Pedí tu cotización** al final, con la selección precargada (códigos TB y ambientes).
 - La selección se guarda en el navegador y sigue al pasar de una página a otra.
+
+## Datos del catálogo
+
+- **Fuente:** maestro de modelos `TB-modelos-MAESTRO.xlsx` en Google Drive (https://docs.google.com/spreadsheets/d/1vYpnhjEOooUanQZTBZ0ZnlMYpQCUTuNG/edit). Hojas: Familias (una fila por familia) y Modelos (una fila por código TB). Todavía no está confirmado: son todos los modelos.
+- **El repo es público: el maestro nunca va al repo** (`data/*.xlsx` está en `.gitignore`). Tiene columnas internas que **jamás se publican**: proveedor, código de proveedor, costo y precio.
+- **Sincronizar:** bajar el maestro a `data/TB-modelos-MAESTRO.xlsx` y correr `npm run sync:catalogo`. El script (`scripts/sync-catalogo.mjs`) copia solo una lista cerrada de columnas públicas y solo lo activo, y genera:
+  - `src/content/catalogo.json`: índice de familias (va dentro de la página).
+  - `public/catalogo/modelos/<FAMILIA>.json`: modelos de cada familia (se cargan al abrir el configurador).
+- **Ambiente** de cada familia: columna "Ambiente" del maestro si existe; si no, sale de "Línea" (Cocina/Lavadero → cocinas, Baño → baños, Vestidor → vestidores, Barandas/Escaleras/Vidrio estructural/Puertas → balcones y escaleras).
+- **Orden:** columna "Orden" del maestro si existe; si no, por categoría (bachas y grifería primero, accesorios al final).
+- **Fotos:** `public/catalogo/fotos/<FAMILIA>/principal.(webp|jpg|png)`; el script las detecta. Sin foto se ve el dibujo.
+- **Colores:** muestra aproximada en `COLOR_HEX` (`src/content/catalog.ts`) hasta que el maestro tenga una hoja Colores.
+- **Mensaje de quiénes somos:** sigue nombrando pisos y revestimientos, puertas, cocinas y baños (categorías confirmadas). El maestro de prueba todavía no tiene pisos ni puertas: revisar cuando se confirme.
 
 Elementos globales: encabezado con "Quiénes somos", "Catálogo", "Tu selección (n)" y "Cotizar"; índice lateral de capítulos solo en quiénes somos (desktop); selector ES/EN.
 
 ## Configurador ("armá tu 0 km")
 
-- Por categoría: **modelo → configuración con opciones acotadas** (2–3 atributos, máx. 6 opciones c/u, la vista previa cambia) **→ campo libre de personalización → "Agregar a mi cotización"** → siguiente categoría o cerrar.
+- Por familia: **medida o modelo → opciones de esa medida (niveles, color, variante; las combinaciones que no existen se ven apagadas) → campo libre de personalización → "Agregar a mi cotización"** → otra medida, ver la selección o seguir eligiendo.
 - **Sin precios** ("Precio a cotizar") y **sin cantidades** (el volumen sale del tamaño de obra del formulario).
 - Vive en el catálogo; desde quiénes somos se llega con "Armá tu obra" o "Cotizar".
-- **Los modelos actuales son de ejemplo.** Reemplazar por el catálogo 2026 estructurado: categoría, línea, modelo, código, atributos, opciones, muestra de color/textura e imagen.
+- Los modelos salen del maestro (ver "Datos del catálogo").
 
 ## Formulario de cotización
 
-- **Cotización (catálogo):** nombre*, empresa, teléfono o WhatsApp*, ubicación de la obra*, tamaño aproximado (unidades o m²), categorías (precargadas desde la selección), mensaje.
+- **Cotización (catálogo):** nombre*, empresa, teléfono o WhatsApp*, ubicación de la obra*, tamaño aproximado (unidades o m²), ambientes (precargados desde la selección), mensaje. Lleva los códigos TB elegidos.
 - **Contacto (quiénes somos):** nombre*, teléfono o WhatsApp*, empresa, obra.
 - Hoy ninguno envía datos: falta definir backend o servicio.
 
@@ -90,7 +106,7 @@ No es una traducción. Es una página propia para **fábricas y proveedores chin
 - `docs/referencia/prototipo-quienes-somos.html`: prototipo navegable en un solo archivo (HTML + CSS + JS sin dependencias). Referencia de experiencia, no código final.
 - **Frontend (etapa 8) en curso:** Next.js + TypeScript + GSAP/ScrollTrigger + Lenis, export estático (`out/`). Dos páginas (quiénes somos y catálogo); estructura en `README.md`.
 - Próximas etapas: 6 design system · 7 copy definitivo · 8 frontend (stack recomendado: Next.js + TypeScript, GSAP/ScrollTrigger, Lenis para smooth scroll en desktop) · 9 responsive · 10 performance y accesibilidad.
-- Datos pendientes: catálogo 2026 por modelo, año de inicio de Eurotechnologie, plazos por etapa, número de WhatsApp, logo en vector, fotos.
+- Datos pendientes: confirmar el maestro (qué se publica), hoja Colores, fotos por familia, año de inicio de Eurotechnologie, plazos por etapa, número de WhatsApp, logo en vector, fotos.
 
 ## Flujo de trabajo
 

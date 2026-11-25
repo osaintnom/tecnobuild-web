@@ -1,3 +1,5 @@
+import { EtgLink } from '@/components/EtgLink';
+
 /** Tus dudas: las tres objeciones, con respuesta concreta. */
 export function Faq() {
   return (
@@ -7,7 +9,7 @@ export function Faq() {
         <ul className="faq">
           <li>
             <q className="rv">No los conozco.</q>
-            <p>Es razonable. <b>TECNO.BUILD es parte de Eurotechnologie Group, un grupo que importa hace más de diez años</b>, con oficinas en Hong Kong, Miami y Buenos Aires. Y quien te cotiza es quien después responde por la obra.</p>
+            <p>Es razonable. <b>TECNO.BUILD es parte de <EtgLink />, un grupo que importa hace más de diez años</b>, con oficinas en Hong Kong, Miami y Buenos Aires. Y quien te cotiza es quien después responde por la obra.</p>
           </li>
           <li>
             <q className="rv">¿Y si se atrasa?</q>

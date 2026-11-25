@@ -180,24 +180,24 @@ button{font:inherit;color:inherit}
 .bld .hs path.hit{fill:transparent;stroke:none;pointer-events:all}
 .bld .room{transition:opacity .45s var(--ease)}
 .bld[data-cat] .room{opacity:.32}
-.bld[data-cat="pisos"] .room[data-cat="pisos"],.bld[data-cat="puertas"] .room[data-cat="puertas"],.bld[data-cat="cocinas"] .room[data-cat="cocinas"],.bld[data-cat="banos"] .room[data-cat="banos"]{opacity:1}
+.bld[data-cat="balcon"] .room[data-cat="balcon"],.bld[data-cat="cocina"] .room[data-cat="cocina"],.bld[data-cat="bano"] .room[data-cat="bano"],.bld[data-cat="vestidor"] .room[data-cat="vestidor"]{opacity:1}
 /* Productos encendidos: trazo naranja y glow */
-.bld[data-cat="pisos"] .c-pisos,.bld[data-cat="puertas"] .c-puertas,.bld[data-cat="cocinas"] .c-cocinas,.bld[data-cat="banos"] .c-banos,.bld .hs:hover,.bld .hs.sel{filter:url(#bglow)}
-.bld[data-cat="pisos"] .c-pisos path,.bld[data-cat="puertas"] .c-puertas path,.bld[data-cat="cocinas"] .c-cocinas path,.bld[data-cat="banos"] .c-banos path,.bld .hs.sel path{stroke:var(--naranja);stroke-width:1.6}
+.bld[data-cat="balcon"] .c-balcon,.bld[data-cat="cocina"] .c-cocina,.bld[data-cat="bano"] .c-bano,.bld[data-cat="vestidor"] .c-vestidor,.bld .hs:hover,.bld .hs.sel{filter:url(#bglow)}
+.bld[data-cat="balcon"] .c-balcon path,.bld[data-cat="cocina"] .c-cocina path,.bld[data-cat="bano"] .c-bano path,.bld[data-cat="vestidor"] .c-vestidor path,.bld .hs.sel path{stroke:var(--naranja);stroke-width:1.6}
 .bld .hs:hover path{stroke:var(--naranja);stroke-width:2.2}
 .bld .room:has(.hs:hover){opacity:1}
 /* Rótulos y llaves por categoría */
 .bld .lbl{opacity:0;pointer-events:none;transition:opacity .45s var(--ease);cursor:pointer}
-.bld[data-cat="pisos"] .lbl[data-cat="pisos"],.bld[data-cat="puertas"] .lbl[data-cat="puertas"],.bld[data-cat="cocinas"] .lbl[data-cat="cocinas"],.bld[data-cat="banos"] .lbl[data-cat="banos"]{opacity:1;pointer-events:auto}
+.bld[data-cat="balcon"] .lbl[data-cat="balcon"],.bld[data-cat="cocina"] .lbl[data-cat="cocina"],.bld[data-cat="bano"] .lbl[data-cat="bano"],.bld[data-cat="vestidor"] .lbl[data-cat="vestidor"]{opacity:1;pointer-events:auto}
 .bld .lbl text{paint-order:stroke;stroke:var(--hueso);stroke-width:4px;stroke-linejoin:round}
 .bld .lbl .cc{font-size:11px;font-weight:500;fill:var(--naranja-btn)}
-.bld .lbl .cn{font-family:var(--body);font-size:12px;fill:var(--carbon)}
+.bld .lbl .cn{font-family:var(--body);font-size:12px;font-weight:500;fill:var(--naranja-btn)}
 .bld .lbl:hover .cn{text-decoration:underline}
 .bld .brk path{stroke:var(--gris);stroke-width:1;transition:stroke .35s}
 .bld .brk text{font-size:9.5px;letter-spacing:.06em;fill:var(--gris-osc);transition:fill .35s}
 .bld .brk .bk{font-weight:500}
-.bld[data-cat="pisos"] .brk[data-cat="pisos"] path,.bld[data-cat="puertas"] .brk[data-cat="puertas"] path,.bld[data-cat="cocinas"] .brk[data-cat="cocinas"] path,.bld[data-cat="banos"] .brk[data-cat="banos"] path{stroke:var(--naranja);stroke-width:1.6}
-.bld[data-cat="pisos"] .brk[data-cat="pisos"] text,.bld[data-cat="puertas"] .brk[data-cat="puertas"] text,.bld[data-cat="cocinas"] .brk[data-cat="cocinas"] text,.bld[data-cat="banos"] .brk[data-cat="banos"] text{fill:var(--naranja-btn)}
+.bld[data-cat="balcon"] .brk[data-cat="balcon"] path,.bld[data-cat="cocina"] .brk[data-cat="cocina"] path,.bld[data-cat="bano"] .brk[data-cat="bano"] path,.bld[data-cat="vestidor"] .brk[data-cat="vestidor"] path{stroke:var(--naranja);stroke-width:1.6}
+.bld[data-cat="balcon"] .brk[data-cat="balcon"] text,.bld[data-cat="cocina"] .brk[data-cat="cocina"] text,.bld[data-cat="bano"] .brk[data-cat="bano"] text,.bld[data-cat="vestidor"] .brk[data-cat="vestidor"] text{fill:var(--naranja-btn)}
 .anim .bld .fl{opacity:.1;transform:translateY(12px);transition:opacity .7s var(--ease) calc(var(--i) * 90ms),transform .7s var(--ease) calc(var(--i) * 90ms)}
 .anim .bld.up .fl{opacity:1;transform:none}
 @media (max-width:900px){
@@ -509,3 +509,43 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
   .cat-stage-in{height:320px}
 }
 @media (max-width:480px){.cat-cards{grid-template-columns:1fr}}
+
+/* Link a Eurotechnologie Group: discreto, con el subrayado naranja de la marca */
+a.etg{color:inherit;text-decoration:underline;text-decoration-color:var(--naranja);text-decoration-thickness:1px;text-underline-offset:3px;transition:color .2s}
+a.etg:hover{color:var(--naranja-btn)}
+.tone-dark a.etg:hover,.foot a.etg:hover{color:var(--naranja-txt)}
+
+/* Catálogo real: filtros por categoría, ancho, color y búsqueda */
+.cat-row{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.7fr) minmax(0,1fr);gap:10px}
+.cat-sel,.cat-search{display:grid;gap:4px;min-width:0}
+.cat-sel span,.cat-search span{font:500 .66rem/1.2 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gris-osc)}
+.cat-sel select{width:100%;min-height:42px;padding:0 10px;border:1px solid var(--hueso-line);border-radius:2px;background:#fff;font:400 .9rem/1 var(--body);color:var(--carbon)}
+.cat-sel select:focus{outline:none;border-color:var(--naranja)}
+.cat-colors{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.cat-color{width:28px;height:28px;padding:3px;border:1px solid transparent;border-radius:50%;background:none;cursor:pointer}
+.cat-color span{display:block;width:100%;height:100%;border-radius:50%;border:1px solid rgba(28,28,28,.2)}
+.cat-color[aria-pressed="true"]{border-color:var(--naranja);box-shadow:0 0 0 1px var(--naranja)}
+.cat-color-name{font:500 .72rem/1 var(--mono);color:var(--gris-osc);margin-left:4px}
+.cat-meta{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px}
+.cat-pill{border:1px solid var(--naranja);background:none;border-radius:2px;padding:4px 8px;font:500 .72rem/1 var(--mono);color:var(--naranja-btn);cursor:pointer}
+.pcard-sub{font-size:.82rem;color:var(--gris-osc);line-height:1.35}
+.pcard-sw{display:flex;gap:4px;margin-top:4px}
+.pcard-sw i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(28,28,28,.2)}
+.pcard-pv img,.pv img,.sel-item .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+.cat-more{display:flex;justify-content:center;margin-top:20px}
+.cat-chips .cat-chip{white-space:nowrap}
+@media (max-width:700px){.cat-row{grid-template-columns:1fr 1fr}.cat-search{grid-column:1/-1}}
+
+/* Configurador con modelos reales */
+.cfg-desc{font:400 .9rem/1.5 var(--body)!important;color:var(--gris-osc)}
+.cfg-count{margin-left:6px;color:var(--gris-osc)}
+.cfg-search{width:100%;min-height:40px;padding:0 12px;border:1px solid var(--hueso-line);border-radius:2px;background:#fff;font:400 .9rem/1 var(--body)}
+.cfg-search:focus{outline:none;border-color:var(--naranja)}
+.mlist{max-height:320px;overflow:auto;padding-right:4px}
+.mlist .o .seg{flex-direction:column;align-items:flex-start;justify-content:center;gap:2px;padding-block:8px;text-align:left}
+.seg-main{font-weight:500}
+.seg-main em{font-style:normal;color:var(--gris-osc);font-weight:400}
+.seg-sub{font-size:.78rem;opacity:.75}
+.o.off{opacity:.35}
+.cfg-mat{margin:0;font-size:.85rem;color:var(--gris-osc)}
+.cfg-mat b{color:var(--carbon);font-weight:500}

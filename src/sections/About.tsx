@@ -1,3 +1,5 @@
+import { EtgLink } from '@/components/EtgLink';
+
 /** Quiénes somos: qué hacemos, quién nos respalda y dónde estamos. */
 const PILLARS = [
   { k: 'Origen', title: 'Elegimos las fábricas', body: 'Desde Hong Kong buscamos fábricas y en Shenzhen las visitamos. Probamos muestras antes de comprar en volumen.' },
@@ -20,7 +22,7 @@ export function About() {
           <p className="eyebrow">Quiénes somos</p>
           <h2 className="h2 rv">Importamos las terminaciones de tu obra.</h2>
           <p className="lead">
-            TECNO.BUILD es parte de Eurotechnologie Group, un grupo que importa hace más de diez años.
+            TECNO.BUILD es parte de <EtgLink />, un grupo que importa hace más de diez años.
             Trabajamos con desarrolladoras y constructoras: pisos y revestimientos, puertas, cocinas, baños y más.
           </p>
         </div>

@@ -1,52 +1,89 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
-import { CATS, MODELS, catById, cfgText, defaults, modelById, optValue, type Cfg } from '@/content/catalog';
+import { useEffect, useMemo, useRef, useState } from 'react';
+import { COLOR_HEX, cargarModelos, describir, famById, type Modelo } from '@/content/catalog';
 import { useSelection } from '@/state/selection';
 import { prefersReduced } from '@/lib/motion';
-import { scrollToId } from '@/lib/smooth';
 import { Sheet } from './Sheet';
 import { ModelPreview } from './ModelPreview';
 
-interface Draft { modelId: string; cfg: Cfg; nota: string }
+type Attr = 'niveles' | 'color' | 'variante';
+const ATTRS: [Attr, string][] = [['niveles', 'Niveles'], ['color', 'Color'], ['variante', 'Variante']];
+type Pick = Partial<Record<Attr, string>>;
+const val = (m: Modelo, a: Attr) => (m[a] == null ? undefined : String(m[a]));
+const dims = (m?: Modelo) => (m?.dim ? `${m.dim.map((d) => d ?? '—').join(' × ')} mm` : undefined);
 
-/** Configurador: modelo → configuración acotada → nota libre → "Agregar a mi cotización". Sin precios ni cantidades. */
+/**
+ * Configurador de una familia: medida o modelo → opciones de esa medida (niveles, color, variante) →
+ * nota libre → "Agregar a mi cotización". El resultado es un código TB real. Sin precios ni cantidades.
+ */
 export function Configurator() {
-  const { cfgModel, closeConfigurator, selection, upsert, pulse, setSummaryOpen, setCatFilter } = useSelection();
-  const [cur, setCur] = useState<Draft | null>(null);
+  const { cfgFamilia, cfgCodigo, closeConfigurator, selection, upsert, pulse, setSummaryOpen } = useSelection();
+  const fam = cfgFamilia ? famById[cfgFamilia] : undefined;
+  const [modelos, setModelos] = useState<Modelo[] | null>(null);
+  const [error, setError] = useState(false);
+  const [base, setBase] = useState<string | null>(null);
+  const [pick, setPick] = useState<Pick>({});
+  const [nota, setNota] = useState('');
+  const [query, setQuery] = useState('');
   const [done, setDone] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
   const addRef = useRef<HTMLButtonElement>(null);
-  const nextRef = useRef<HTMLButtonElement>(null);
+  const doneRef = useRef<HTMLButtonElement>(null);
 
-  const draftFor = (id: string, nota = ''): Draft => {
-    const s = selection.get(id);
-    return { modelId: id, cfg: s ? { ...s.cfg } : defaults(modelById[id]), nota: s ? s.nota : nota };
-  };
-
+  // Al abrir: cargar los modelos y preseleccionar (el modelo a editar o el primero)
   useEffect(() => {
-    if (!cfgModel) return;
-    setCur(draftFor(cfgModel));
-    setDone(false);
+    if (!cfgFamilia) return;
+    setModelos(null); setError(false); setDone(false); setQuery('');
     bodyRef.current?.scrollTo(0, 0);
+    let alive = true;
+    cargarModelos(cfgFamilia).then((ms) => {
+      if (!alive) return;
+      setModelos(ms);
+      const m = ms.find((x) => x.codigo === cfgCodigo) ?? ms[0];
+      setBase(m.base);
+      setPick(Object.fromEntries(ATTRS.map(([a]) => [a, val(m, a)])));
+      setNota((cfgCodigo && selection.get(cfgCodigo)?.nota) || '');
+    }).catch(() => alive && setError(true));
+    return () => { alive = false; };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [cfgModel]);
+  }, [cfgFamilia, cfgCodigo]);
 
-  useEffect(() => { if (done) nextRef.current?.focus(); }, [done]);
+  useEffect(() => { if (done) doneRef.current?.focus(); }, [done]);
 
-  const m = cur ? modelById[cur.modelId] : null;
-  const c = m ? catById[m.cat] : null;
-  const idx = c ? CATS.findIndex((x) => x.id === c.id) : -1;
-  const next = CATS[idx + 1];
-  const n = selection.size;
+  // Medidas / modelos de la familia (un "código base" puede tener varias variantes)
+  const bases = useMemo(() => {
+    const seen = new Map<string, Modelo[]>();
+    modelos?.forEach((m) => seen.set(m.base, [...(seen.get(m.base) ?? []), m]));
+    return [...seen.entries()];
+  }, [modelos]);
+  const q = query.trim().toLowerCase();
+  const shownBases = q ? bases.filter(([b, ms]) => `${b} ${ms[0].medida ?? ''} ${ms[0].detalle ?? ''}`.toLowerCase().includes(q)) : bases;
+  const variants = bases.find(([b]) => b === base)?.[1] ?? [];
 
-  function setAttr(id: string, v: string) {
-    setCur((d) => d && { ...d, cfg: { ...d.cfg, [id]: v } });
+  // Opciones que cambian dentro de la medida elegida, y cuáles están disponibles con lo ya elegido
+  const options = ATTRS.map(([a, label]) => ({ a, label, vals: [...new Set(variants.map((m) => val(m, a)).filter(Boolean))] as string[] }))
+    .filter((o) => o.vals.length > 0);
+  const available = (a: Attr, v: string) => variants.some((m) => val(m, a) === v && ATTRS.every(([b]) => b === a || !pick[b] || val(m, b) === pick[b]));
+  const model = variants.find((m) => ATTRS.every(([a]) => !pick[a] || val(m, a) === pick[a])) ?? variants[0];
+
+  function chooseBase(b: string) {
+    const first = bases.find(([x]) => x === b)?.[1][0];
+    setBase(b);
+    if (first) setPick(Object.fromEntries(ATTRS.map(([a]) => [a, val(first, a)])));
+    setDone(false);
+  }
+  function choose(a: Attr, v: string) {
+    // Si la combinación no existe, se toma la primera variante que tenga ese valor
+    const next = { ...pick, [a]: v };
+    const exact = variants.find((m) => ATTRS.every(([b]) => !next[b] || val(m, b) === next[b]));
+    const fallback = variants.find((m) => val(m, a) === v);
+    setPick(exact ? next : Object.fromEntries(ATTRS.map(([b]) => [b, fallback ? val(fallback, b) : undefined])));
     setDone(false);
   }
 
   function add() {
-    if (!cur) return;
-    upsert({ modelId: cur.modelId, cfg: { ...cur.cfg }, nota: cur.nota.trim() });
+    if (!fam || !model) return;
+    upsert({ codigo: model.codigo, familia: fam.codigo, nombre: fam.nombre, detalle: describir(model), ambiente: fam.ambiente, nota: nota.trim() });
     fly();
     setDone(true);
   }
@@ -68,93 +105,106 @@ export function Configurator() {
     ], { duration: 650, easing: 'cubic-bezier(.3,.6,.2,1)' }).onfinish = () => { d.remove(); pulse(); };
   }
 
-  function goNext() {
-    closeConfigurator();
-    // Siguiente categoría: el catálogo se filtra y vuelve a la grilla
-    if (next) { setCatFilter(next.id); requestAnimationFrame(() => scrollToId('catalogo')); }
-    else setSummaryOpen(true);
-  }
-
+  const n = selection.size;
+  const inSel = model && selection.has(model.codigo);
   const footer = !done ? (
     <div className="row">
-      <button className="btn btn-primary" type="button" ref={addRef} onClick={add}>
-        {m && selection.has(m.id) ? 'Actualizar en mi cotización' : 'Agregar a mi cotización'}
+      <button className="btn btn-primary" type="button" ref={addRef} onClick={add} disabled={!model}>
+        {inSel ? 'Actualizar en mi cotización' : 'Agregar a mi cotización'}
       </button>
       <span className="price">Precio a cotizar</span>
     </div>
   ) : (
     <div>
-      <p className="done-msg">✓ Sumado a tu cotización · {n} {n === 1 ? 'modelo' : 'modelos'} en tu selección</p>
+      <p className="done-msg">✓ {model?.codigo} sumado · {n} {n === 1 ? 'modelo' : 'modelos'} en tu selección</p>
       <div className="row">
-        <button className="btn btn-primary" type="button" ref={nextRef} onClick={goNext}>
-          {next ? `Siguiente: ${next.nombre} ↓` : 'Ver mi selección'}
-        </button>
-        <button className="btn btn-ghost" type="button" onClick={closeConfigurator}>Cerrar</button>
+        <button className="btn btn-primary" type="button" ref={doneRef} onClick={() => { closeConfigurator(); setSummaryOpen(true); }}>Ver mi selección</button>
+        <button className="btn btn-ghost" type="button" onClick={() => setDone(false)}>Otra medida</button>
+        <button className="btn btn-ghost" type="button" onClick={closeConfigurator}>Seguir eligiendo</button>
       </div>
     </div>
   );
 
   return (
     <Sheet
-      open={!!cfgModel}
+      open={!!cfgFamilia}
       onClose={closeConfigurator}
       labelledBy="cfgTitle"
-      kicker={c ? `${c.nombre} · ${c.nivel} de 4` : 'Nivel'}
+      kicker={fam ? `${fam.categoria} · ${fam.codigo}` : 'Familia'}
       closeLabel="Cerrar configurador"
       footer={footer}
       bodyRef={bodyRef}
     >
-      {cur && m && (
+      {fam && (
         <>
-          <ModelPreview className="pv" model={m} cfg={cur.cfg} />
+          <ModelPreview className="pv" familia={fam} color={model?.color} />
           <div className="cfg-name">
-            <h2 id="cfgTitle">{m.nombre}</h2>
-            <p><b>{m.codigo}</b> · <span>{cfgText(m, cur.cfg)}</span></p>
+            <h2 id="cfgTitle">{fam.nombre}</h2>
+            {fam.descripcion && <p className="cfg-desc">{fam.descripcion}</p>}
+            {model && <p>Código <b>{model.codigo}</b>{dims(model) && <> · {dims(model)}</>}</p>}
           </div>
 
-          <fieldset className="grp">
-            <legend>1 · Modelo</legend>
-            <div className="mlist">
-              {MODELS.filter((x) => x.cat === m.cat).map((x) => (
-                <label className="o" key={x.id}>
-                  <input type="radio" name="model" value={x.id} checked={x.id === m.id}
-                    onChange={() => { setCur(draftFor(x.id, cur.nota)); setDone(false); }} />
-                  <span className="seg">{x.nombre}<small>{x.codigo}</small></span>
-                </label>
-              ))}
-            </div>
-          </fieldset>
+          {error && <p className="err">No pudimos cargar los modelos. Revisá la conexión y volvé a abrir la familia.</p>}
+          {!modelos && !error && <p className="sum-empty">Cargando modelos…</p>}
 
-          <fieldset className="grp">
-            <legend>2 · Configuración</legend>
-            {m.attrs.map((a) => (
-              <div className="grp" role="radiogroup" aria-label={a.label} key={a.id}>
-                <p className="sub">{a.label}: <span>{cur.cfg[a.id]}</span></p>
-                <div className="opts">
-                  {a.opts.map((o) => {
-                    const v = optValue(o), checked = cur.cfg[a.id] === v;
-                    return typeof o !== 'string' ? (
-                      <label className="o" title={v} key={v}>
-                        <input type="radio" name={`a-${a.id}`} value={v} checked={checked} aria-label={v} onChange={() => setAttr(a.id, v)} />
-                        <span className="sw" style={{ background: o.hex }} />
-                      </label>
-                    ) : (
-                      <label className="o" key={v}>
-                        <input type="radio" name={`a-${a.id}`} value={v} checked={checked} onChange={() => setAttr(a.id, v)} />
-                        <span className="seg">{v}</span>
-                      </label>
-                    );
-                  })}
+          {modelos && (
+            <>
+              <fieldset className="grp">
+                <legend>1 · Medida o modelo <span className="cfg-count">{bases.length}</span></legend>
+                {bases.length > 8 && (
+                  <input className="cfg-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar medida, detalle o código" aria-label="Buscar medida" />
+                )}
+                <div className="mlist">
+                  {shownBases.map(([b, ms]) => (
+                    <label className="o" key={b}>
+                      <input type="radio" name="base" value={b} checked={b === base} onChange={() => chooseBase(b)} />
+                      <span className="seg">
+                        <span className="seg-main">{ms[0].medida ?? ms[0].detalle ?? b}{ms[0].modelo && <em> · {ms[0].modelo}</em>}</span>
+                        {ms[0].medida && ms[0].detalle && <span className="seg-sub">{ms[0].detalle}</span>}
+                        <small>{b}{ms.length > 1 ? ` · ${ms.length} variantes` : ''}</small>
+                      </span>
+                    </label>
+                  ))}
+                  {!shownBases.length && <p className="sum-empty">Ninguna medida coincide con «{query}».</p>}
                 </div>
-              </div>
-            ))}
-          </fieldset>
+              </fieldset>
 
-          <div className="grp">
-            <label className="sub cfg-nota-label" htmlFor="cfgNota">3 · ¿Necesitás algo distinto? Contanos</label>
-            <textarea className="nota" id="cfgNota" placeholder="Ej.: otra medida, otro color o cantidades por tipología."
-              value={cur.nota} onChange={(e) => setCur({ ...cur, nota: e.target.value })} />
-          </div>
+              {options.length > 0 && (
+                <fieldset className="grp">
+                  <legend>2 · Opciones</legend>
+                  {options.map(({ a, label, vals }) => (
+                    <div className="grp" role="radiogroup" aria-label={label} key={a}>
+                      <p className="sub">{label}: <span>{pick[a] ?? '—'}</span></p>
+                      <div className="opts">
+                        {vals.map((v) => {
+                          const checked = pick[a] === v, off = !available(a, v) && !checked;
+                          return a === 'color' && COLOR_HEX[v] ? (
+                            <label className={`o${off ? ' off' : ''}`} title={v} key={v}>
+                              <input type="radio" name={`a-${a}`} value={v} checked={checked} aria-label={v} onChange={() => choose(a, v)} />
+                              <span className="sw" style={{ background: COLOR_HEX[v] }} />
+                            </label>
+                          ) : (
+                            <label className={`o${off ? ' off' : ''}`} key={v}>
+                              <input type="radio" name={`a-${a}`} value={v} checked={checked} onChange={() => choose(a, v)} />
+                              <span className="seg">{a === 'niveles' ? `${v} niveles` : v}</span>
+                            </label>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  ))}
+                </fieldset>
+              )}
+
+              {model?.materiales && <p className="cfg-mat"><b>Materiales:</b> {model.materiales}</p>}
+
+              <div className="grp">
+                <label className="sub cfg-nota-label" htmlFor="cfgNota">{options.length ? '3' : '2'} · ¿Necesitás algo distinto? Contanos</label>
+                <textarea className="nota" id="cfgNota" placeholder="Ej.: otra medida, otro color o cantidades por tipología."
+                  value={nota} onChange={(e) => { setNota(e.target.value); }} />
+              </div>
+            </>
+          )}
         </>
       )}
     </Sheet>

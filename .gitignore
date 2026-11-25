@@ -5,3 +5,5 @@ next-env.d.ts
 *.tsbuildinfo
 .env*
 .DS_Store
+# El maestro tiene datos internos (proveedor, costos): nunca va al repo público
+data/*.xlsx

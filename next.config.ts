@@ -9,6 +9,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   images: { unoptimized: true },
   basePath,
+  // El catálogo pide /catalogo/modelos/*.json en el navegador: necesita conocer la ruta base
+  env: { NEXT_PUBLIC_BASE_PATH: basePath },
 };
 
 export default nextConfig;
