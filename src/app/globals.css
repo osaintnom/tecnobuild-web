@@ -449,6 +449,9 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
 /* Pisos que todavía no se levantaron */
 .anim .bld.build .fl:not(.on){opacity:.06;transform:translateY(16px)}
 .bld.build .fl{transition:opacity .45s var(--ease),transform .45s var(--ease)}
+/* Cada piso aparece con sus productos marcados; el último agregado, con glow */
+.bld.build .fl.on .hs path{stroke:var(--naranja);stroke-width:1.5}
+.bld.build .fl.cur .hs{filter:url(#bglow)}
 @media (max-width:900px){.sc-grid{grid-template-columns:1fr}.sc-stage{height:340px}}
 
 /* Empresas que confiaron */

@@ -48,7 +48,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 2. **Quiénes somos** (carbón) — qué hacen (origen, importación, obra) y dónde están: Hong Kong, Shenzhen (zona de fábricas), Miami (administración), Buenos Aires.
 3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
 4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu obra" y "Contactanos".
-5. **El edificio** (hueso, fijado) — solo para mostrar: se arma piso por piso al bajar y se encienden las categorías. Botón "Armá tu cotización" al catálogo.
+5. **El edificio** (hueso, fijado, ~200 vh) — solo para mostrar: se arma piso por piso al bajar y cada piso aparece con sus productos ya marcados (el último agregado, con glow). Sin un tramo extra para encender categorías. Botón "Armá tu cotización" al catálogo.
 6. **Empresas que confiaron en nosotros** — logos (pendientes).
 7. **Tus dudas** — las tres objeciones.
 8. **Contacto** (carbón) — consulta corta (nombre, teléfono, empresa, obra) + mail y WhatsApp.

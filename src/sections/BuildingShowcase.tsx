@@ -7,8 +7,9 @@ import { BuildingSVG } from '@/components/BuildingSVG';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN } from '@/lib/motion';
 
 /**
- * El edificio en quiénes somos: solo para mostrar. Al bajar se arma piso por piso y después se
- * encienden las categorías. Invita a armar la cotización en el catálogo, donde es interactivo.
+ * El edificio en quiénes somos: solo para mostrar. Al bajar se arma piso por piso y cada piso
+ * aparece con sus productos ya marcados (el último, con glow). Invita a armar la cotización en el
+ * catálogo, donde es interactivo.
  */
 export function BuildingShowcase() {
   const ref = useRef<HTMLElement>(null);
@@ -18,12 +19,12 @@ export function BuildingShowcase() {
   useGSAP(() => {
     const floors = [...bldRef.current!.querySelectorAll<SVGGElement>('.fl')];
     const build = (p: number) => {
-      // 0–60 %: se levantan los pisos de abajo hacia arriba (la azotea es el último grupo)
-      const k = Math.min(floors.length, Math.floor((p / 0.6) * floors.length + 0.0001));
-      floors.forEach((f, i) => f.classList.toggle('on', i < k));
-      // 60–100 %: una categoría por tramo
-      const c = p < 0.62 ? -1 : Math.min(CATS.length - 1, Math.floor(((p - 0.62) / 0.36) * CATS.length));
-      setCat(c >= 0 ? CATS[c].id : undefined);
+      // Los pisos se levantan de abajo hacia arriba (la azotea es el último grupo); termina al 85 %
+      const k = Math.min(floors.length, Math.floor((p / 0.85) * floors.length + 0.0001));
+      floors.forEach((f, i) => { f.classList.toggle('on', i < k); f.classList.toggle('cur', i === k - 1); });
+      // La categoría del último piso agregado se marca en la lista
+      const room = floors[k - 1]?.querySelector<SVGGElement>('.room');
+      setCat((room?.dataset.cat as CatId | undefined) ?? undefined);
     };
     const mm = gsap.matchMedia();
     mm.add(MQ_PIN, () => {
@@ -38,11 +39,11 @@ export function BuildingShowcase() {
   }, { scope: ref });
 
   return (
-    <section className="pin showcase" id="edificio" data-tone="light" data-ch="edificio" style={{ '--pin-h': '260vh' } as React.CSSProperties} ref={ref}>
+    <section className="pin showcase" id="edificio" data-tone="light" data-ch="edificio" style={{ '--pin-h': '200vh' } as React.CSSProperties} ref={ref}>
       <div className="pin-stick">
         <div className="wrap sc-grid">
           <Link className="sc-stage" href="/catalogo/" aria-label="Abrir el catálogo para armar tu obra">
-            <BuildingSVG ref={bldRef} cat={cat} className="up" />
+            <BuildingSVG ref={bldRef} className="up" />
           </Link>
           <div className="sc-text">
             <p className="eyebrow">Armá tu obra</p>
