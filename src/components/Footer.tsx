@@ -16,7 +16,7 @@ export function Footer() {
         </div>
         <div className="foot-bottom">
           <span><span className="lg">TECNO.BUILD</span>&nbsp; by <EtgLink /></span>
-          <span>Quiénes Somos · textos y modelos de ejemplo</span>
+          <span>Hong Kong · Shenzhen · Miami · Buenos Aires</span>
           <span>© {new Date().getFullYear()} TECNO.BUILD</span>
         </div>
       </div>
