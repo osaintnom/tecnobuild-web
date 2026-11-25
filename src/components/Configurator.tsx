@@ -11,7 +11,7 @@ interface Draft { modelId: string; cfg: Cfg; nota: string }
 
 /** Configurador: modelo → configuración acotada → nota libre → "Agregar a mi cotización". Sin precios ni cantidades. */
 export function Configurator() {
-  const { cfgModel, closeConfigurator, selection, upsert, pulse, setSummaryOpen } = useSelection();
+  const { cfgModel, closeConfigurator, selection, upsert, pulse, setSummaryOpen, setCatFilter } = useSelection();
   const [cur, setCur] = useState<Draft | null>(null);
   const [done, setDone] = useState(false);
   const bodyRef = useRef<HTMLDivElement>(null);
@@ -70,7 +70,8 @@ export function Configurator() {
 
   function goNext() {
     closeConfigurator();
-    if (next) requestAnimationFrame(() => scrollToId(`nivel-${next.id}`));
+    // Siguiente categoría: el catálogo se filtra y vuelve a la grilla
+    if (next) { setCatFilter(next.id); requestAnimationFrame(() => scrollToId('catalogo')); }
     else setSummaryOpen(true);
   }
 

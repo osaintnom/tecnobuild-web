@@ -1,6 +1,7 @@
 'use client';
 import { useRef } from 'react';
 import { ScrollTrigger, useGSAP, gsap, MQ_ANIM } from '@/lib/motion';
+import Link from 'next/link';
 import { HeroBackground } from '@/components/HeroBackground';
 
 export function Hero() {
@@ -30,20 +31,20 @@ export function Hero() {
     <section className="hero tone-dark" id="top" data-tone="dark" ref={ref}>
       <HeroBackground />
       <div className="wrap">
-        <p className="eyebrow">Terminaciones de edificios</p>
+        <p className="eyebrow">Importación de terminaciones para obra</p>
         <h1 className="hero-title">
           <span className="ln"><span>Construimos</span></span>
           <span className="ln"><span>con el mundo.</span></span>
         </h1>
         <div className="hero-line" ref={line} aria-hidden="true" />
-        <ul className="hero-cats" aria-label="Qué resolvemos">
-          <li>Pisos y revestimientos</li><li>Puertas</li><li>Cocinas</li><li>Baños</li>
+        <ul className="hero-cats" aria-label="Qué importamos">
+          <li>Pisos y revestimientos</li><li>Puertas</li><li>Cocinas</li><li>Baños</li><li className="more">+ Más</li>
         </ul>
         <div className="hero-cta">
-          <a className="btn btn-primary" href="#cotizar">Pedí tu cotización</a>
-          <a className="btn btn-ghost" href="#edificio">Armá tu selección</a>
+          <Link className="btn btn-primary" href="/catalogo/">Armá tu obra</Link>
+          <a className="btn btn-ghost" href="#contacto">Contactanos</a>
         </div>
-        <p className="hero-sign">TECNO.BUILD by Eurotechnologie Group &nbsp;·&nbsp; Hong Kong &nbsp;·&nbsp; Miami &nbsp;·&nbsp; Buenos Aires</p>
+        <p className="hero-sign">TECNO.BUILD by Eurotechnologie Group &nbsp;·&nbsp; Hong Kong &nbsp;·&nbsp; Shenzhen &nbsp;·&nbsp; Buenos Aires</p>
       </div>
     </section>
   );

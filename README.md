@@ -1,6 +1,6 @@
 # TECNO.BUILD — sitio web
 
-Página "Quiénes somos" (concepto **Corte**) en Next.js + TypeScript, con GSAP/ScrollTrigger y Lenis.
+Sitio en Next.js + TypeScript, con GSAP/ScrollTrigger y Lenis. Dos páginas: **quiénes somos** (`/`) y **catálogo** (`/catalogo/`, edificio interactivo, grilla filtrable y cotización).
 Contexto, tono y decisiones del proyecto: ver [`CLAUDE.md`](CLAUDE.md).
 
 ## Trabajar en local
@@ -17,8 +17,8 @@ npm run build    # sitio estático en out/
 
 | Carpeta | Qué hay |
 |---|---|
-| `src/app/` | Layout (fuentes, metadatos), página y estilos globales |
-| `src/sections/` | Una sección por archivo: Hero, Origin (+ llegada), Building, Responsible, Process, Faq, Quote |
+| `src/app/` | Layout (fuentes, metadatos), las dos páginas (`page.tsx`, `catalogo/page.tsx`) y estilos globales |
+| `src/sections/` | Una sección por archivo. Quiénes somos: Hero, About, Origin (+ llegada), Responsible, BuildingShowcase, Clients, Faq, Contact. Catálogo: CatalogView, Quote |
 | `src/components/` | Encabezado e índice de capítulos, configurador, resumen de selección, hojas, pie |
 | `src/content/` | Catálogo de ejemplo (`catalog.ts`) y datos de contacto/oficinas (`site.ts`) |
 | `src/lib/` | Dibujos SVG (corte del edificio y vistas previas), helpers de motion y scroll |

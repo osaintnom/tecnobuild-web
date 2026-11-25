@@ -1,16 +1,19 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
+import Link from 'next/link';
 import { useSelection } from '@/state/selection';
 
-const CHAPTERS = [
-  ['origen', 'Origen'], ['edificio', 'Edificio'], ['responsable', 'Responsable'],
-  ['proceso', 'Proceso'], ['dudas', 'Dudas'], ['cotizar', 'Cotizar'],
-] as const;
-
 type Tone = 'dark' | 'light';
+export type Chapters = readonly (readonly [id: string, label: string])[];
+
+interface Props {
+  page: 'home' | 'catalog';
+  /** Índice lateral de capítulos (desktop). Solo la página de quiénes somos lo usa. */
+  chapters?: Chapters;
+}
 
 /** Encabezado + índice de capítulos. El tono de ambos sigue a la sección que tienen debajo. */
-export function PageChrome() {
+export function PageChrome({ page, chapters = [] }: Props) {
   const { selection, setSummaryOpen, showToast, pulseKey } = useSelection();
   const [hdrTone, setHdrTone] = useState<Tone>('dark');
   const [chTone, setChTone] = useState<Tone>('dark');
@@ -49,11 +52,10 @@ export function PageChrome() {
     <>
       <header className="hdr" data-tone={hdrTone}>
         <div className="wrap hdr-in">
-          <a className="logo" href="#top" aria-label="TECNO.BUILD, inicio">TECNO<span className="dot">.</span>BUILD</a>
+          <Link className="logo" href="/" aria-label="TECNO.BUILD, inicio">TECNO<span className="dot">.</span>BUILD</Link>
           <nav className="hdr-nav" aria-label="Principal">
-            <a href="#top" aria-current="page">Quiénes somos</a>
-            <a href="#edificio" onClick={() => showToast('La página de Catálogo usa este mismo configurador, con todos los modelos.')}>Catálogo</a>
-            <a href="#proceso">Cómo trabajamos</a>
+            <Link href="/" aria-current={page === 'home' ? 'page' : undefined}>Quiénes somos</Link>
+            <Link href="/catalogo/" aria-current={page === 'catalog' ? 'page' : undefined}>Catálogo</Link>
           </nav>
           <div className="hdr-actions">
             <button className="lang" type="button" aria-label="English version for suppliers"
@@ -63,22 +65,25 @@ export function PageChrome() {
               <span className="sel-label">Tu selección</span>
               <span className="sel-count" id="selCount" ref={countRef}>{n}</span>
             </button>
-            <a className="btn btn-primary btn-sm" href="#cotizar">Pedí tu cotización</a>
+            {page === 'home' && <Link className="btn btn-ghost btn-sm hdr-cat" href="/catalogo/">Ver catálogo</Link>}
+            <Link className="btn btn-primary btn-sm" href="/catalogo/#cotizar">Cotizar</Link>
           </div>
         </div>
       </header>
 
-      <nav className={`chapters${chapter ? ' show' : ''}`} aria-label="Capítulos" data-tone={chTone}>
-        <ol>
-          {CHAPTERS.map(([id, label]) => (
-            <li key={id}>
-              <a href={`#${id}`} className={chapter === id ? 'on' : undefined} aria-current={chapter === id ? 'step' : undefined}>
-                <span>{label}</span>
-              </a>
-            </li>
-          ))}
-        </ol>
-      </nav>
+      {chapters.length > 0 && (
+        <nav className={`chapters${chapter ? ' show' : ''}`} aria-label="Capítulos" data-tone={chTone}>
+          <ol>
+            {chapters.map(([id, label]) => (
+              <li key={id}>
+                <a href={`#${id}`} className={chapter === id ? 'on' : undefined} aria-current={chapter === id ? 'step' : undefined}>
+                  <span>{label}</span>
+                </a>
+              </li>
+            ))}
+          </ol>
+        </nav>
+      )}
     </>
   );
 }

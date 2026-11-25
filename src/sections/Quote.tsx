@@ -82,13 +82,13 @@ export function Quote() {
     <section className="quote tone-dark" id="cotizar" data-tone="dark" data-ch="cotizar">
       <div className="wrap q-grid">
         <div className="q-side">
-          <p className="eyebrow">Pedí tu cotización</p>
-          <h2 className="h2 rv">Contanos tu obra.</h2>
+          <p className="eyebrow">Cotización</p>
+          <h2 className="h2 rv">Pedí tu cotización.</h2>
           <p className="lead">Con estos datos te preparamos una cotización de producto e instalación.</p>
           <div className="q-sel">
             <h3>Tu selección</h3>
             {selection.size ? <SelectionList /> : (
-              <p className="q-empty">Todavía no elegiste modelos. Podés cotizar igual o <a className="link" href="#edificio">armar tu selección en el edificio</a>.</p>
+              <p className="q-empty">Todavía no elegiste modelos. Podés cotizar igual o <a className="link" href="#catalogo">elegir modelos en el catálogo</a>.</p>
             )}
           </div>
           <div className="q-alt">

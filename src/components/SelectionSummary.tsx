@@ -1,4 +1,5 @@
 'use client';
+import { useRouter } from 'next/navigation';
 import { useSelection } from '@/state/selection';
 import { scrollToId } from '@/lib/smooth';
 import { Sheet } from './Sheet';
@@ -6,7 +7,14 @@ import { SelectionList } from './SelectionList';
 
 export function SelectionSummary() {
   const { selection, summaryOpen, setSummaryOpen } = useSelection();
+  const router = useRouter();
   const close = () => setSummaryOpen(false);
+  // En el catálogo baja al formulario; desde quiénes somos lleva al catálogo.
+  const goQuote = () => {
+    close();
+    if (document.getElementById('cotizar')) requestAnimationFrame(() => scrollToId('cotizar'));
+    else router.push('/catalogo/#cotizar');
+  };
   return (
     <Sheet
       open={summaryOpen}
@@ -17,7 +25,7 @@ export function SelectionSummary() {
       closeLabel="Cerrar resumen"
       footer={
         <div className="row">
-          <button className="btn btn-primary" type="button" onClick={() => { close(); requestAnimationFrame(() => scrollToId('cotizar')); }}>Pedí tu cotización</button>
+          <button className="btn btn-primary" type="button" onClick={goQuote}>Pedí tu cotización</button>
           <button className="btn btn-ghost" type="button" onClick={close}>Seguir eligiendo</button>
         </div>
       }

@@ -7,11 +7,11 @@ export function Faq() {
         <ul className="faq">
           <li>
             <q className="rv">No los conozco.</q>
-            <p>Es razonable. <b>TECNO.BUILD es parte de Eurotechnologie Group, un grupo que importa hace más de diez años</b>, con oficinas en Hong Kong y Miami. Y quien te cotiza es quien después responde por la obra.</p>
+            <p>Es razonable. <b>TECNO.BUILD es parte de Eurotechnologie Group, un grupo que importa hace más de diez años</b>, con oficinas en Hong Kong, Miami y Buenos Aires. Y quien te cotiza es quien después responde por la obra.</p>
           </li>
           <li>
             <q className="rv">¿Y si se atrasa?</q>
-            <p>Coordinamos la logística desde Miami y seguimos cada pedido de la fábrica a la obra. <b>Tenés un solo contacto</b> para saber en qué etapa está tu material.</p>
+            <p>Seguimos cada pedido de la fábrica a la obra: producción, embarque, tránsito y despacho. <b>Tenés un solo contacto</b> que te avisa en qué etapa está tu material.</p>
           </li>
           <li>
             <q className="rv">¿Y si algo falla?</q>

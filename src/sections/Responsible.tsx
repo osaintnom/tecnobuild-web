@@ -1,9 +1,12 @@
 'use client';
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 import { CATS } from '@/content/catalog';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN, clamp, easeInOut } from '@/lib/motion';
 
-const CY = 180, YS = [60, 140, 220, 300];
+// Una línea por categoría, más una por "todo lo demás": todas convergen en TECNO.BUILD.
+const LINES = [...CATS.map((c) => c.corto), '+ Más'];
+const CY = 180, YS = [40, 110, 180, 250, 320];
 
 /** Un solo responsable: cuatro líneas de proveedores convergen en una línea naranja. */
 export function Responsible() {
@@ -56,11 +59,11 @@ export function Responsible() {
         <div className="wrap r-grid">
           <div className="r-text">
             <p className="eyebrow">Un solo responsable</p>
-            <h2 className="h2">Cuatro categorías. Un solo responsable.</h2>
+            <h2 className="h2">Todas las terminaciones. Un solo responsable.</h2>
             <div className="contrast">
               <div className="c-many">
                 <h3>Con varios proveedores</h3>
-                <ul><li>4 cotizaciones</li><li>4 plazos de entrega</li><li>4 equipos de instalación</li><li>Nadie responde por el conjunto</li></ul>
+                <ul><li>Una cotización por rubro</li><li>Un plazo por rubro</li><li>Un equipo por rubro</li><li>Nadie responde por el conjunto</li></ul>
               </div>
               <div className="c-one">
                 <h3>Con TECNO.BUILD</h3>
@@ -68,13 +71,17 @@ export function Responsible() {
               </div>
             </div>
             <p className="r-price">Y como compramos en origen, la relación entre precio y calidad juega a favor de tu obra.</p>
+            <div className="r-cta">
+              <Link className="btn btn-primary" href="/catalogo/">Armá tu obra</Link>
+              <a className="btn btn-ghost" href="#contacto">Contactanos</a>
+            </div>
           </div>
           <div className="r-fig">
             <svg ref={svgRef} className="conv" viewBox="0 0 640 360" role="img"
-              aria-label="Cuatro líneas, una por categoría, que van a cuatro proveedores distintos y se unen en una sola línea naranja: TECNO.BUILD.">
-              {CATS.map((c, i) => (
-                <g key={c.id}>
-                  <text className="cat" x="0" y={YS[i] + 5}>{c.corto}</text>
+              aria-label="Una línea por categoría, cada una hacia un proveedor distinto, que se unen en una sola línea naranja: TECNO.BUILD.">
+              {LINES.map((label, i) => (
+                <g key={label} className={i === LINES.length - 1 ? 'more' : undefined}>
+                  <text className="cat" x="0" y={YS[i] + 5}>{label}</text>
                   <circle cx="168" cy={YS[i]} r="3.5" fill="#ADADA8" />
                   <path className="gl" id={`cv${i}`} />
                   <circle id={`ce${i}`} cx="470" r="3.5" fill="#ADADA8" />

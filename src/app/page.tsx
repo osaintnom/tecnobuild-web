@@ -7,29 +7,35 @@ import { SelectionSummary } from '@/components/SelectionSummary';
 import { Toast } from '@/components/Toast';
 import { Footer } from '@/components/Footer';
 import { Hero } from '@/sections/Hero';
+import { About } from '@/sections/About';
 import { Origin } from '@/sections/Origin';
-import { Building } from '@/sections/Building';
 import { Responsible } from '@/sections/Responsible';
-import { Process } from '@/sections/Process';
+import { BuildingShowcase } from '@/sections/BuildingShowcase';
+import { Clients } from '@/sections/Clients';
 import { Faq } from '@/sections/Faq';
-import { Quote } from '@/sections/Quote';
+import { Contact } from '@/sections/Contact';
 
-// Quiénes somos — concepto "Corte": 8 secciones en 4 actos (ver CLAUDE.md).
+const CHAPTERS = [
+  ['quienes', 'Quiénes somos'], ['origen', 'Recorrido'], ['responsable', 'Responsable'],
+  ['edificio', 'Edificio'], ['empresas', 'Empresas'], ['dudas', 'Dudas'], ['contacto', 'Contacto'],
+] as const;
+
+// Quiénes somos: quiénes son, cómo importan y quiénes confiaron. El catálogo y la cotización viven en /catalogo.
 export default function Page() {
   return (
     <SelectionProvider>
       <SmoothScroll />
       <Reveals />
-      <PageChrome />
+      <PageChrome page="home" chapters={CHAPTERS} />
       <main>
         <Hero />
+        <About />
         <Origin />
-        <Building />
         <Responsible />
-        <Process />
+        <BuildingShowcase />
+        <Clients />
         <Faq />
-        {/* 7 · Obras: oculto hasta tener la primera obra con fotos. */}
-        <Quote />
+        <Contact />
       </main>
       <Footer />
       <Configurator />

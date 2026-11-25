@@ -7,7 +7,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 - **TECNO.BUILD by Eurotechnologie Group.** Proveedor de terminaciones de edificios: producto importado + instalación, con un solo responsable.
 - **Categorías:** pisos y revestimientos, puertas, cocinas, baños.
 - **Origen:** selección de fábricas en Asia. Shenzhen (China) es la zona donde están muchas de las fábricas con las que trabajan; no es una oficina. Visitan las fábricas y prueban muestras antes de comprar en volumen. No hay inspección pre-embarque ni certificaciones: no afirmarlas.
-- **Oficinas:** Hong Kong (búsqueda de fábricas), Miami (centro de administración y logística; no es centro de compras). El producto viaja **directo de la fábrica a la Argentina**, no pasa por Miami, Buenos Aires (venta e instalación).
+- **Oficinas:** Hong Kong (búsqueda de fábricas), Miami (administración; **no** es centro de compras ni de logística: no mencionar logística en Miami), Buenos Aires (venta e instalación). El producto viaja **directo de la fábrica a la Argentina**.
 - **Alcance:** AMBA.
 - **Respaldo:** Eurotechnologie Group, grupo importador con más de 10 años (el año exacto está pendiente; usar "más de diez años").
 - **Cliente principal:** desarrolladoras y constructoras. Decide el dueño o director.
@@ -20,13 +20,14 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 - **Rótulo de categoría en el hero:** "Terminaciones de edificios".
 - **Esencia interna (no publicar como claim):** "Nos hacemos cargo."
 - **Registro:** español rioplatense con **vos** ("Pedí tu cotización", "Contanos tu obra").
-- **CTA principal:** "Pedí tu cotización" — usar siempre este texto. WhatsApp es canal secundario.
+- **Llamados a la acción:** "Armá tu obra" (lleva al catálogo) y "Contactanos" (contacto en quiénes somos). En el encabezado: "Ver catálogo" y "Cotizar". En el catálogo, el formulario se titula "Pedí tu cotización." WhatsApp es canal secundario.
 - **Estilo:** hechos antes que adjetivos, frases cortas, voz activa. Evitar "líderes del mercado", "soluciones integrales", "equipo altamente capacitado".
 
 ## Lo que NO se puede afirmar todavía
 
 - Garantía con años definidos, plazos en contrato, equipo propio de instalación (hoy hay subcontratistas: decir "nos hacemos cargo de la instalación", nunca "nuestro equipo de instaladores").
-- Obras, clientes, testimonios o cifras: no existen aún.
+- Obras, testimonios o cifras: no existen aún.
+- **Empresas que confiaron:** la sección existe (`src/sections/Clients.tsx`) con espacios rotulados. Los nombres y logos los pasa TECNO.BUILD; nunca inventarlos.
 - Plazos concretos de cada etapa ("a definir").
 - Confirmación del formulario: "Recibimos tu consulta. Te vamos a contactar." — **sin plazo**.
 - "Mejor precio" solo con cautela, sin números.
@@ -38,32 +39,40 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 - **Recurso de marca:** la barra/línea naranja del logo es el hilo de toda la página.
 - **Imágenes:** casi no hay material. Los espacios de imagen quedan rotulados. Se puede usar IA para ambientes y texturas; **nunca** para obras, fábricas o personas presentadas como reales.
 
-## Concepto y estructura (concepto "Corte", movimiento medio)
+## Estructura: dos páginas
 
-Página en español, 8 secciones en 4 actos:
+El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y cómo trabajan; el catálogo es donde se elige y se cotiza.
 
-1. **Hero** (carbón) — rótulo + "Construimos con el mundo." + línea naranja.
-2. **Prólogo: el origen** (carbón, fijado, horizontal en desktop) — Shenzhen (zona de fábricas) → Hong Kong → Miami (administración y logística). La llegada aclara que el material viaja directo de fábrica a Buenos Aires.
-   - Transición "Llegada a la obra": la línea baja, se vuelve el suelo y el fondo pasa de carbón a hueso.
-3. **El edificio** (hueso) — corte técnico transparente: PB + 7 pisos + azotea. Cada categoría ocupa sus propios pisos (hoy dos por categoría, de abajo hacia arriba: pisos y revestimientos PB–P1 → puertas P2–P3 → cocinas P4–P5 → baños P6–P7) para que los productos no se mezclen. Al bajar, los pisos de la categoría se encienden en naranja con glow y rótulos; el resto se atenúa. El reparto se edita en `FLOORS` (`src/content/catalog.ts`) y se ajusta cuando esté el catálogo real.
-4. **Un solo responsable** (fijado) — cuatro líneas de proveedores convergen en una línea naranja.
-5. **Cómo trabajamos** — 5 pasos: consulta, selección, importación, entrega, instalación.
-6. **Tus dudas** — las tres objeciones con respuesta concreta.
-7. **Obras** — módulo previsto, **oculto** hasta tener la primera obra con fotos.
-8. **Pedí tu cotización** (carbón) — formulario con la selección precargada; la línea termina subrayando "Enviar consulta".
+### `/` Quiénes somos (corta)
+1. **Hero** (carbón) — rótulo "Importación de terminaciones para obra" + "Construimos con el mundo." + categorías con "+ Más". Botones: "Armá tu obra" y "Contactanos". Fondo interactivo con TECNO.BUILD difuminado.
+2. **Quiénes somos** (carbón) — qué hacen (origen, importación, obra) y dónde están: Hong Kong, Shenzhen (zona de fábricas), Miami (administración), Buenos Aires.
+3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
+4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu obra" y "Contactanos".
+5. **El edificio** (hueso, fijado) — solo para mostrar: se arma piso por piso al bajar y se encienden las categorías. Botón "Armá tu cotización" al catálogo.
+6. **Empresas que confiaron en nosotros** — logos (pendientes).
+7. **Tus dudas** — las tres objeciones.
+8. **Contacto** (carbón) — consulta corta (nombre, teléfono, empresa, obra) + mail y WhatsApp.
 
-Elementos globales: encabezado con "Pedí tu cotización" siempre visible, contador "Tu selección (n)", índice de capítulos lateral (desktop), selector ES/EN.
+### `/catalogo/` Catálogo
+- **Edificio interactivo + grilla filtrable**, conectados: filtrar por categoría enciende sus pisos; pasar por una tarjeta marca el modelo en el corte; tocar el corte (o la llave de una categoría) abre el configurador o filtra. Búsqueda por nombre o código.
+- Corte técnico: PB + 7 pisos + azotea, una categoría por par de pisos (PB–P1 pisos y revestimientos → P2–P3 puertas → P4–P5 cocinas → P6–P7 baños). El reparto se edita en `FLOORS` (`src/content/catalog.ts`).
+- **Pedí tu cotización** al final, con la selección precargada.
+- La selección se guarda en el navegador y sigue al pasar de una página a otra.
+
+Elementos globales: encabezado con "Quiénes somos", "Catálogo", "Tu selección (n)" y "Cotizar"; índice lateral de capítulos solo en quiénes somos (desktop); selector ES/EN.
 
 ## Configurador ("armá tu 0 km")
 
 - Por categoría: **modelo → configuración con opciones acotadas** (2–3 atributos, máx. 6 opciones c/u, la vista previa cambia) **→ campo libre de personalización → "Agregar a mi cotización"** → siguiente categoría o cerrar.
 - **Sin precios** ("Precio a cotizar") y **sin cantidades** (el volumen sale del tamaño de obra del formulario).
-- Mismo componente en "Quiénes Somos" (modelos destacados, hasta 6 por categoría) y en la futura página de Catálogo (todos).
+- Vive en el catálogo; desde quiénes somos se llega con "Armá tu obra" o "Cotizar".
 - **Los modelos actuales son de ejemplo.** Reemplazar por el catálogo 2026 estructurado: categoría, línea, modelo, código, atributos, opciones, muestra de color/textura e imagen.
 
 ## Formulario de cotización
 
-Campos: nombre*, empresa, teléfono o WhatsApp*, ubicación de la obra*, tamaño aproximado (unidades o m²), categorías (precargadas desde la selección), mensaje. Hoy no envía datos: falta definir backend o servicio.
+- **Cotización (catálogo):** nombre*, empresa, teléfono o WhatsApp*, ubicación de la obra*, tamaño aproximado (unidades o m²), categorías (precargadas desde la selección), mensaje.
+- **Contacto (quiénes somos):** nombre*, teléfono o WhatsApp*, empresa, obra.
+- Hoy ninguno envía datos: falta definir backend o servicio.
 
 ## Versión en inglés
 
@@ -79,7 +88,7 @@ No es una traducción. Es una página propia para **fábricas y proveedores chin
 ## Estado y pendientes
 
 - `docs/referencia/prototipo-quienes-somos.html`: prototipo navegable en un solo archivo (HTML + CSS + JS sin dependencias). Referencia de experiencia, no código final.
-- **Frontend (etapa 8) en curso:** Next.js + TypeScript + GSAP/ScrollTrigger + Lenis, export estático (`out/`). La página replica el prototipo; estructura en `README.md`.
+- **Frontend (etapa 8) en curso:** Next.js + TypeScript + GSAP/ScrollTrigger + Lenis, export estático (`out/`). Dos páginas (quiénes somos y catálogo); estructura en `README.md`.
 - Próximas etapas: 6 design system · 7 copy definitivo · 8 frontend (stack recomendado: Next.js + TypeScript, GSAP/ScrollTrigger, Lenis para smooth scroll en desktop) · 9 responsive · 10 performance y accesibilidad.
 - Datos pendientes: catálogo 2026 por modelo, año de inicio de Eurotechnologie, plazos por etapa, número de WhatsApp, logo en vector, fotos.
 
