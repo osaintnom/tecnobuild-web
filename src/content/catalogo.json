@@ -3,7 +3,7 @@
  "prueba": true,
  "familias": [
   {
-   "codigo": "TB-BE01",
+   "codigo": "TB-GR-BE01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -14,10 +14,11 @@
    "modelos": 27,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE01/principal.jpg"
   },
   {
-   "codigo": "TB-BE02",
+   "codigo": "TB-GR-BE02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -28,10 +29,11 @@
    "modelos": 28,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE02/principal.jpg"
   },
   {
-   "codigo": "TB-BE03",
+   "codigo": "TB-GR-BE03",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -42,10 +44,11 @@
    "modelos": 12,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE03/principal.jpg"
   },
   {
-   "codigo": "TB-BE04",
+   "codigo": "TB-GR-BE04",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -56,10 +59,11 @@
    "modelos": 9,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE04/principal.jpg"
   },
   {
-   "codigo": "TB-BE05",
+   "codigo": "TB-GR-BE05",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -70,10 +74,11 @@
    "modelos": 22,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE05/principal.jpg"
   },
   {
-   "codigo": "TB-BE06",
+   "codigo": "TB-GR-BE06",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -84,10 +89,11 @@
    "modelos": 12,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE06/principal.jpg"
   },
   {
-   "codigo": "TB-BE07",
+   "codigo": "TB-GR-BE07",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -98,10 +104,11 @@
    "modelos": 10,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE07/principal.jpg"
   },
   {
-   "codigo": "TB-BE08",
+   "codigo": "TB-GR-BE08",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -112,10 +119,11 @@
    "modelos": 7,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE08/principal.jpg"
   },
   {
-   "codigo": "TB-BE09",
+   "codigo": "TB-GR-BE09",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas con escurridor",
@@ -126,10 +134,11 @@
    "modelos": 6,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BE09/principal.jpg"
   },
   {
-   "codigo": "TB-BS01",
+   "codigo": "TB-GR-BS01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas sin escurridor",
@@ -140,10 +149,11 @@
    "modelos": 14,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BS01/principal.jpg"
   },
   {
-   "codigo": "TB-BS02",
+   "codigo": "TB-GR-BS02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas sin escurridor",
@@ -154,10 +164,11 @@
    "modelos": 22,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BS02/principal.jpg"
   },
   {
-   "codigo": "TB-BS03",
+   "codigo": "TB-GR-BS03",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas sin escurridor",
@@ -168,10 +179,11 @@
    "modelos": 18,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BS03/principal.jpg"
   },
   {
-   "codigo": "TB-BB01",
+   "codigo": "TB-GR-BB01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas de esquinas rectas y bajo mesada",
@@ -182,10 +194,11 @@
    "modelos": 10,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BB01/principal.jpg"
   },
   {
-   "codigo": "TB-BB02",
+   "codigo": "TB-GR-BB02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas de esquinas rectas y bajo mesada",
@@ -196,10 +209,11 @@
    "modelos": 9,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BB02/principal.jpg"
   },
   {
-   "codigo": "TB-BR01",
+   "codigo": "TB-GR-BR01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas redondas",
@@ -210,10 +224,11 @@
    "modelos": 5,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BR01/principal.jpg"
   },
   {
-   "codigo": "TB-BR02",
+   "codigo": "TB-GR-BR02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas redondas",
@@ -224,10 +239,11 @@
    "modelos": 12,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BR02/principal.jpg"
   },
   {
-   "codigo": "TB-BM01",
+   "codigo": "TB-GR-BM01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas hechas a mano",
@@ -238,10 +254,11 @@
    "modelos": 15,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BM01/principal.jpg"
   },
   {
-   "codigo": "TB-BM02",
+   "codigo": "TB-GR-BM02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas hechas a mano",
@@ -252,10 +269,11 @@
    "modelos": 10,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BM02/principal.jpg"
   },
   {
-   "codigo": "TB-BM03",
+   "codigo": "TB-GR-BM03",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas hechas a mano",
@@ -266,10 +284,11 @@
    "modelos": 6,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BM03/principal.jpg"
   },
   {
-   "codigo": "TB-GC01",
+   "codigo": "TB-GR-GC01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Grifería de cocina",
@@ -280,10 +299,11 @@
    "modelos": 8,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-GC01/principal.jpg"
   },
   {
-   "codigo": "TB-GC02",
+   "codigo": "TB-GR-GC02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Grifería de cocina",
@@ -294,10 +314,11 @@
    "modelos": 4,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-GC02/principal.jpg"
   },
   {
-   "codigo": "TB-DE01",
+   "codigo": "TB-HN-DE01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Despenseros",
@@ -321,10 +342,11 @@
     500,
     550,
     600
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-DE01/principal.jpg"
   },
   {
-   "codigo": "TB-DE02",
+   "codigo": "TB-HN-DE02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Despenseros",
@@ -348,10 +370,11 @@
     500,
     550,
     600
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-DE02/principal.jpg"
   },
   {
-   "codigo": "TB-DE03",
+   "codigo": "TB-HN-DE03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Despenseros",
@@ -375,10 +398,11 @@
     500,
     550,
     600
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-DE03/principal.jpg"
   },
   {
-   "codigo": "TB-DE04",
+   "codigo": "TB-HN-DE04",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Despenseros",
@@ -402,10 +426,11 @@
     500,
     550,
     600
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-DE04/principal.jpg"
   },
   {
-   "codigo": "TB-CO01",
+   "codigo": "TB-HN-CO01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -427,10 +452,11 @@
     300,
     350,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO01/principal.jpg"
   },
   {
-   "codigo": "TB-CO02",
+   "codigo": "TB-HN-CO02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -452,10 +478,11 @@
     300,
     350,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO02/principal.jpg"
   },
   {
-   "codigo": "TB-CO03",
+   "codigo": "TB-HN-CO03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -477,10 +504,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO03/principal.jpg"
   },
   {
-   "codigo": "TB-CO04",
+   "codigo": "TB-HN-CO04",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -502,10 +530,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO04/principal.jpg"
   },
   {
-   "codigo": "TB-CO05",
+   "codigo": "TB-HN-CO05",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -527,10 +556,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO05/principal.jpg"
   },
   {
-   "codigo": "TB-CO06",
+   "codigo": "TB-HN-CO06",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -552,10 +582,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO06/principal.jpg"
   },
   {
-   "codigo": "TB-CO07",
+   "codigo": "TB-HN-CO07",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -577,10 +608,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO07/principal.jpg"
   },
   {
-   "codigo": "TB-CO08",
+   "codigo": "TB-HN-CO08",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Columnas y laterales extraíbles",
@@ -602,10 +634,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CO08/principal.jpg"
   },
   {
-   "codigo": "TB-CB01",
+   "codigo": "TB-HN-CB01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos bajo mesada",
@@ -631,10 +664,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CB01/principal.jpg"
   },
   {
-   "codigo": "TB-CB02",
+   "codigo": "TB-HN-CB02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos bajo mesada",
@@ -660,10 +694,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CB02/principal.jpg"
   },
   {
-   "codigo": "TB-CB03",
+   "codigo": "TB-HN-CB03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos bajo mesada",
@@ -689,10 +724,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CB03/principal.jpg"
   },
   {
-   "codigo": "TB-CB04",
+   "codigo": "TB-HN-CB04",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos bajo mesada",
@@ -718,10 +754,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CB04/principal.jpg"
   },
   {
-   "codigo": "TB-CB05",
+   "codigo": "TB-HN-CB05",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos bajo mesada",
@@ -740,10 +777,11 @@
    "muebles": [
     800,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-CB05/principal.jpg"
   },
   {
-   "codigo": "TB-EQ01",
+   "codigo": "TB-HN-EQ01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Esquineros",
@@ -764,10 +802,11 @@
     800,
     900,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-EQ01/principal.jpg"
   },
   {
-   "codigo": "TB-EQ02",
+   "codigo": "TB-HN-EQ02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Esquineros",
@@ -786,10 +825,11 @@
    "muebles": [
     900,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-EQ02/principal.jpg"
   },
   {
-   "codigo": "TB-EQ03",
+   "codigo": "TB-HN-EQ03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Esquineros",
@@ -808,10 +848,11 @@
    "muebles": [
     900,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-EQ03/principal.jpg"
   },
   {
-   "codigo": "TB-AL01",
+   "codigo": "TB-HN-AL01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Alacenas",
@@ -838,10 +879,11 @@
     800,
     850,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-AL01/principal.jpg"
   },
   {
-   "codigo": "TB-AL02",
+   "codigo": "TB-HN-AL02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Alacenas",
@@ -867,10 +909,11 @@
     800,
     850,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-AL02/principal.jpg"
   },
   {
-   "codigo": "TB-AL03",
+   "codigo": "TB-HN-AL03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Alacenas",
@@ -888,10 +931,11 @@
    "muebles": [
     600,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-AL03/principal.jpg"
   },
   {
-   "codigo": "TB-AL04",
+   "codigo": "TB-HN-AL04",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Alacenas",
@@ -919,10 +963,11 @@
     800,
     850,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-AL04/principal.jpg"
   },
   {
-   "codigo": "TB-AL05",
+   "codigo": "TB-HN-AL05",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Alacenas",
@@ -944,10 +989,11 @@
     700,
     800,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-AL05/principal.jpg"
   },
   {
-   "codigo": "TB-ES01",
+   "codigo": "TB-HN-ES01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Especieros",
@@ -970,10 +1016,11 @@
     300,
     350,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-ES01/principal.jpg"
   },
   {
-   "codigo": "TB-ES02",
+   "codigo": "TB-HN-ES02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Especieros",
@@ -996,10 +1043,11 @@
     300,
     350,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-ES02/principal.jpg"
   },
   {
-   "codigo": "TB-ES03",
+   "codigo": "TB-HN-ES03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Especieros",
@@ -1022,10 +1070,11 @@
     300,
     350,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-ES03/principal.jpg"
   },
   {
-   "codigo": "TB-ES04",
+   "codigo": "TB-HN-ES04",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Especieros",
@@ -1048,10 +1097,11 @@
     300,
     350,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-ES04/principal.jpg"
   },
   {
-   "codigo": "TB-PP01",
+   "codigo": "TB-HN-PP01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Paneles perforados extraíbles",
@@ -1071,10 +1121,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-PP01/principal.jpg"
   },
   {
-   "codigo": "TB-PP02",
+   "codigo": "TB-HN-PP02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Paneles perforados extraíbles",
@@ -1094,10 +1145,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-PP02/principal.jpg"
   },
   {
-   "codigo": "TB-PP03",
+   "codigo": "TB-HN-PP03",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Paneles perforados extraíbles",
@@ -1117,10 +1169,11 @@
     200,
     250,
     300
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-PP03/principal.jpg"
   },
   {
-   "codigo": "TB-PU01",
+   "codigo": "TB-HN-PU01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos de puerta",
@@ -1135,10 +1188,11 @@
    "materiales": [
     "Baranda de vidrio templado · Marco de aluminio · Base reforzada antivuelco · Soporte de acero al carbono pintado"
    ],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-HN-PU01/principal.jpg"
   },
   {
-   "codigo": "TB-PU02",
+   "codigo": "TB-HN-PU02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Canastos de puerta",
@@ -1153,10 +1207,11 @@
    "materiales": [
     "Baranda de vidrio templado · Marco de aluminio · Base reforzada antivuelco · Soporte de acero al carbono pintado"
    ],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-HN-PU02/principal.jpg"
   },
   {
-   "codigo": "TB-RE01",
+   "codigo": "TB-HN-RE01",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Cestos de residuos",
@@ -1177,10 +1232,11 @@
     450,
     500,
     600
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-RE01/principal.jpg"
   },
   {
-   "codigo": "TB-RE02",
+   "codigo": "TB-HN-RE02",
    "ambiente": "cocina",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Cestos de residuos",
@@ -1198,10 +1254,11 @@
    "muebles": [
     300,
     400
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-RE02/principal.jpg"
   },
   {
-   "codigo": "TB-BA01",
+   "codigo": "TB-GR-BA01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Mesadas de acero",
@@ -1212,10 +1269,11 @@
    "modelos": 18,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-BA01/principal.jpg"
   },
   {
-   "codigo": "TB-LV01",
+   "codigo": "TB-GR-LV01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Lavadero",
@@ -1226,10 +1284,11 @@
    "modelos": 22,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-LV01/principal.jpg"
   },
   {
-   "codigo": "TB-LV02",
+   "codigo": "TB-GR-LV02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Lavadero",
@@ -1240,10 +1299,11 @@
    "modelos": 9,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-LV02/principal.jpg"
   },
   {
-   "codigo": "TB-LV03",
+   "codigo": "TB-GR-LV03",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Lavadero",
@@ -1254,10 +1314,11 @@
    "modelos": 5,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-LV03/principal.jpg"
   },
   {
-   "codigo": "TB-VA01",
+   "codigo": "TB-GR-VA01",
    "ambiente": "bano",
    "rubro": "Bachas y grifería",
    "categoria": "Bachas de baño",
@@ -1268,10 +1329,11 @@
    "modelos": 4,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-VA01/principal.jpg"
   },
   {
-   "codigo": "TB-GB01",
+   "codigo": "TB-GR-GB01",
    "ambiente": "bano",
    "rubro": "Bachas y grifería",
    "categoria": "Grifería de baño",
@@ -1282,10 +1344,11 @@
    "modelos": 4,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-GB01/principal.jpg"
   },
   {
-   "codigo": "TB-GB02",
+   "codigo": "TB-GR-GB02",
    "ambiente": "bano",
    "rubro": "Bachas y grifería",
    "categoria": "Grifería de baño",
@@ -1296,10 +1359,11 @@
    "modelos": 6,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-GB02/principal.jpg"
   },
   {
-   "codigo": "TB-GB03",
+   "codigo": "TB-GR-GB03",
    "ambiente": "bano",
    "rubro": "Bachas y grifería",
    "categoria": "Grifería de baño",
@@ -1310,10 +1374,11 @@
    "modelos": 3,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-GB03/principal.jpg"
   },
   {
-   "codigo": "TB-MP01",
+   "codigo": "TB-TK-MP01",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Mamparas de baño",
@@ -1324,10 +1389,11 @@
    "modelos": 4,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-MP01/principal.jpg"
   },
   {
-   "codigo": "TB-MP02",
+   "codigo": "TB-TK-MP02",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Mamparas de baño",
@@ -1338,10 +1404,11 @@
    "modelos": 11,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-MP02/principal.jpg"
   },
   {
-   "codigo": "TB-MP03",
+   "codigo": "TB-TK-MP03",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Mamparas de baño",
@@ -1352,10 +1419,11 @@
    "modelos": 5,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-MP03/principal.jpg"
   },
   {
-   "codigo": "TB-HB01",
+   "codigo": "TB-TK-HB01",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1366,10 +1434,11 @@
    "modelos": 15,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB01/principal.jpg"
   },
   {
-   "codigo": "TB-HB02",
+   "codigo": "TB-TK-HB02",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1380,10 +1449,11 @@
    "modelos": 13,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB02/principal.jpg"
   },
   {
-   "codigo": "TB-HB03",
+   "codigo": "TB-TK-HB03",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1394,10 +1464,11 @@
    "modelos": 10,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB03/principal.jpg"
   },
   {
-   "codigo": "TB-HB04",
+   "codigo": "TB-TK-HB04",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1408,10 +1479,11 @@
    "modelos": 27,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB04/principal.jpg"
   },
   {
-   "codigo": "TB-HB05",
+   "codigo": "TB-TK-HB05",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1422,10 +1494,11 @@
    "modelos": 81,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB05/principal.jpg"
   },
   {
-   "codigo": "TB-HB06",
+   "codigo": "TB-TK-HB06",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1436,10 +1509,11 @@
    "modelos": 50,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB06/principal.jpg"
   },
   {
-   "codigo": "TB-HB07",
+   "codigo": "TB-TK-HB07",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1450,10 +1524,11 @@
    "modelos": 8,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB07/principal.jpg"
   },
   {
-   "codigo": "TB-HB08",
+   "codigo": "TB-TK-HB08",
    "ambiente": "bano",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de mampara",
@@ -1464,10 +1539,11 @@
    "modelos": 44,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-HB08/principal.jpg"
   },
   {
-   "codigo": "TB-VE01",
+   "codigo": "TB-HN-VE01",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1490,10 +1566,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE01/principal.jpg"
   },
   {
-   "codigo": "TB-VE02",
+   "codigo": "TB-HN-VE02",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1521,10 +1598,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE02/principal.jpg"
   },
   {
-   "codigo": "TB-VE03",
+   "codigo": "TB-HN-VE03",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1543,10 +1621,11 @@
     800,
     850,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE03/principal.jpg"
   },
   {
-   "codigo": "TB-VE04",
+   "codigo": "TB-HN-VE04",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1577,10 +1656,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE04/principal.jpg"
   },
   {
-   "codigo": "TB-VE05",
+   "codigo": "TB-HN-VE05",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1611,10 +1691,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE05/principal.jpg"
   },
   {
-   "codigo": "TB-VE06",
+   "codigo": "TB-HN-VE06",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1645,10 +1726,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE06/principal.jpg"
   },
   {
-   "codigo": "TB-VE07",
+   "codigo": "TB-HN-VE07",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1679,10 +1761,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE07/principal.jpg"
   },
   {
-   "codigo": "TB-VE08",
+   "codigo": "TB-HN-VE08",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1707,10 +1790,11 @@
     800,
     850,
     900
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE08/principal.jpg"
   },
   {
-   "codigo": "TB-VE09",
+   "codigo": "TB-HN-VE09",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1736,10 +1820,11 @@
     900,
     950,
     1000
-   ]
+   ],
+   "foto": "/catalogo/fotos/TB-HN-VE09/principal.jpg"
   },
   {
-   "codigo": "TB-VE10",
+   "codigo": "TB-HN-VE10",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1757,10 +1842,11 @@
    "materiales": [
     "Doble riel con amortiguación hidráulica · Base de aluminio · Barras con flocado"
    ],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-HN-VE10/principal.jpg"
   },
   {
-   "codigo": "TB-VE11",
+   "codigo": "TB-HN-VE11",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1775,10 +1861,11 @@
    "materiales": [
     "Triple amortiguación · Aluminio · ABS"
    ],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-HN-VE11/principal.jpg"
   },
   {
-   "codigo": "TB-VE12",
+   "codigo": "TB-HN-VE12",
    "ambiente": "vestidor",
    "rubro": "Herrajes de cocina y vestidor",
    "categoria": "Vestidor",
@@ -1796,10 +1883,11 @@
    "materiales": [
     "Aluminio"
    ],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-HN-VE12/principal.jpg"
   },
   {
-   "codigo": "TB-BV01",
+   "codigo": "TB-TK-BV01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Barandas de vidrio",
@@ -1810,10 +1898,11 @@
    "modelos": 15,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-BV01/principal.jpg"
   },
   {
-   "codigo": "TB-BV02",
+   "codigo": "TB-TK-BV02",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Barandas de vidrio",
@@ -1824,10 +1913,11 @@
    "modelos": 27,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-BV02/principal.jpg"
   },
   {
-   "codigo": "TB-BV03",
+   "codigo": "TB-TK-BV03",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Barandas de vidrio",
@@ -1838,10 +1928,11 @@
    "modelos": 24,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-BV03/principal.jpg"
   },
   {
-   "codigo": "TB-BV04",
+   "codigo": "TB-TK-BV04",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Barandas de vidrio",
@@ -1852,10 +1943,11 @@
    "modelos": 54,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-BV04/principal.jpg"
   },
   {
-   "codigo": "TB-BV05",
+   "codigo": "TB-TK-BV05",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Barandas de vidrio",
@@ -1866,10 +1958,11 @@
    "modelos": 18,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-BV05/principal.jpg"
   },
   {
-   "codigo": "TB-CA01",
+   "codigo": "TB-TK-CA01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Barandas de cable",
@@ -1880,10 +1973,11 @@
    "modelos": 45,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-CA01/principal.jpg"
   },
   {
-   "codigo": "TB-RL01",
+   "codigo": "TB-TK-RL01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Rellenos y barandas de aluminio",
@@ -1894,10 +1988,11 @@
    "modelos": 26,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-RL01/principal.jpg"
   },
   {
-   "codigo": "TB-RL02",
+   "codigo": "TB-TK-RL02",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Rellenos y barandas de aluminio",
@@ -1908,10 +2003,11 @@
    "modelos": 13,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-RL02/principal.jpg"
   },
   {
-   "codigo": "TB-PO01",
+   "codigo": "TB-TK-PO01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Postes de baranda",
@@ -1922,10 +2018,11 @@
    "modelos": 14,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PO01/principal.jpg"
   },
   {
-   "codigo": "TB-PO02",
+   "codigo": "TB-TK-PO02",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Postes de baranda",
@@ -1936,10 +2033,11 @@
    "modelos": 20,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PO02/principal.jpg"
   },
   {
-   "codigo": "TB-PO03",
+   "codigo": "TB-TK-PO03",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Postes de baranda",
@@ -1950,10 +2048,11 @@
    "modelos": 41,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PO03/principal.jpg"
   },
   {
-   "codigo": "TB-PO04",
+   "codigo": "TB-TK-PO04",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Postes de baranda",
@@ -1964,10 +2063,11 @@
    "modelos": 4,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PO04/principal.jpg"
   },
   {
-   "codigo": "TB-PO05",
+   "codigo": "TB-TK-PO05",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Postes de baranda",
@@ -1978,10 +2078,11 @@
    "modelos": 15,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PO05/principal.jpg"
   },
   {
-   "codigo": "TB-PA01",
+   "codigo": "TB-TK-PA01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Pasamanos y accesorios",
@@ -1992,10 +2093,11 @@
    "modelos": 77,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PA01/principal.jpg"
   },
   {
-   "codigo": "TB-PA02",
+   "codigo": "TB-TK-PA02",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Pasamanos y accesorios",
@@ -2006,10 +2108,11 @@
    "modelos": 101,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PA02/principal.jpg"
   },
   {
-   "codigo": "TB-PA03",
+   "codigo": "TB-TK-PA03",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Pasamanos y accesorios",
@@ -2020,10 +2123,11 @@
    "modelos": 30,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PA03/principal.jpg"
   },
   {
-   "codigo": "TB-PA04",
+   "codigo": "TB-TK-PA04",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Pasamanos y accesorios",
@@ -2034,10 +2138,11 @@
    "modelos": 14,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PA04/principal.jpg"
   },
   {
-   "codigo": "TB-EC01",
+   "codigo": "TB-TK-EC01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Escaleras",
@@ -2048,10 +2153,11 @@
    "modelos": 29,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-EC01/principal.jpg"
   },
   {
-   "codigo": "TB-FV01",
+   "codigo": "TB-TK-FV01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Fachadas y aleros de vidrio",
@@ -2062,10 +2168,11 @@
    "modelos": 87,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-FV01/principal.jpg"
   },
   {
-   "codigo": "TB-FV02",
+   "codigo": "TB-TK-FV02",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Fachadas y aleros de vidrio",
@@ -2076,10 +2183,11 @@
    "modelos": 2,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-FV02/principal.jpg"
   },
   {
-   "codigo": "TB-PV01",
+   "codigo": "TB-TK-PV01",
    "ambiente": "balcon",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de puertas de vidrio y corredizas",
@@ -2090,10 +2198,11 @@
    "modelos": 5,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PV01/principal.jpg"
   },
   {
-   "codigo": "TB-PV02",
+   "codigo": "TB-TK-PV02",
    "ambiente": "balcon",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de puertas de vidrio y corredizas",
@@ -2104,10 +2213,11 @@
    "modelos": 28,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PV02/principal.jpg"
   },
   {
-   "codigo": "TB-PV03",
+   "codigo": "TB-TK-PV03",
    "ambiente": "balcon",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de puertas de vidrio y corredizas",
@@ -2118,10 +2228,11 @@
    "modelos": 23,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PV03/principal.jpg"
   },
   {
-   "codigo": "TB-PV04",
+   "codigo": "TB-TK-PV04",
    "ambiente": "balcon",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de puertas de vidrio y corredizas",
@@ -2132,10 +2243,11 @@
    "modelos": 9,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PV04/principal.jpg"
   },
   {
-   "codigo": "TB-PV05",
+   "codigo": "TB-TK-PV05",
    "ambiente": "balcon",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de puertas de vidrio y corredizas",
@@ -2146,10 +2258,11 @@
    "modelos": 15,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PV05/principal.jpg"
   },
   {
-   "codigo": "TB-PV06",
+   "codigo": "TB-TK-PV06",
    "ambiente": "balcon",
    "rubro": "Mamparas y herrajes de baño",
    "categoria": "Herrajes de puertas de vidrio y corredizas",
@@ -2160,10 +2273,11 @@
    "modelos": 8,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-PV06/principal.jpg"
   },
   {
-   "codigo": "TB-MA01",
+   "codigo": "TB-TK-MA01",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Madera y materia prima",
@@ -2174,10 +2288,11 @@
    "modelos": 31,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-MA01/principal.jpg"
   },
   {
-   "codigo": "TB-MA02",
+   "codigo": "TB-TK-MA02",
    "ambiente": "balcon",
    "rubro": "Barandas",
    "categoria": "Madera y materia prima",
@@ -2188,10 +2303,11 @@
    "modelos": 3,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-TK-MA02/principal.jpg"
   },
   {
-   "codigo": "TB-AB01",
+   "codigo": "TB-GR-AB01",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Accesorios de bacha",
@@ -2202,10 +2318,11 @@
    "modelos": 13,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-AB01/principal.jpg"
   },
   {
-   "codigo": "TB-AB02",
+   "codigo": "TB-GR-AB02",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Accesorios de bacha",
@@ -2216,10 +2333,11 @@
    "modelos": 6,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-AB02/principal.jpg"
   },
   {
-   "codigo": "TB-AB03",
+   "codigo": "TB-GR-AB03",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Accesorios de bacha",
@@ -2230,10 +2348,11 @@
    "modelos": 8,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-AB03/principal.jpg"
   },
   {
-   "codigo": "TB-AB04",
+   "codigo": "TB-GR-AB04",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Accesorios de bacha",
@@ -2244,10 +2363,11 @@
    "modelos": 23,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-AB04/principal.jpg"
   },
   {
-   "codigo": "TB-AB05",
+   "codigo": "TB-GR-AB05",
    "ambiente": "cocina",
    "rubro": "Bachas y grifería",
    "categoria": "Accesorios de bacha",
@@ -2258,7 +2378,8 @@
    "modelos": 8,
    "colores": [],
    "materiales": [],
-   "muebles": []
+   "muebles": [],
+   "foto": "/catalogo/fotos/TB-GR-AB05/principal.jpg"
   }
  ]
 }
