@@ -26,6 +26,10 @@ export function CatalogView() {
 
   const categorias = useMemo(() => [...new Set(FAMILIAS.filter((f) => (!filtro.rubro || f.rubro === filtro.rubro) && (!filtro.ambiente || f.ambiente === filtro.ambiente)).map((f) => f.categoria))].sort(), [filtro.rubro, filtro.ambiente]);
 
+  // Coincide por texto o por código; un código de modelo (TB-HN-AL03-60) encuentra su familia (TB-HN-AL03).
+  const matches = (f: (typeof FAMILIAS)[number], q: string) =>
+    !q || norm(`${f.nombre} ${f.subtitulo ?? ''} ${f.codigo} ${f.categoria} ${f.rubro}`).includes(q) || q.startsWith(norm(f.codigo));
+
   const results = useMemo(() => {
     const q = norm(query.trim());
     return FAMILIAS.filter((f) =>
@@ -34,8 +38,14 @@ export function CatalogView() {
       (!filtro.categoria || f.categoria === filtro.categoria) &&
       (!color || f.colores.includes(color)) &&
       (!ancho || f.muebles.includes(Number(ancho))) &&
-      (!q || norm(`${f.nombre} ${f.subtitulo ?? ''} ${f.codigo} ${f.categoria} ${f.rubro}`).includes(q)));
+      matches(f, q));
   }, [filtro, color, ancho, query]);
+
+  // Si la búsqueda no da nada con los filtros puestos, cuántas hay en todo el catálogo
+  const enTodo = useMemo(() => {
+    const q = norm(query.trim());
+    return q ? FAMILIAS.filter((f) => matches(f, q)).length : 0;
+  }, [query]);
 
   useEffect(() => setLimit(PAGE), [filtro, color, ancho, query]);
 
@@ -153,7 +163,7 @@ export function CatalogView() {
                         <span className="pcard-k">{f.categoria}</span>
                         <span className="pcard-nm">{f.nombre}</span>
                         {f.subtitulo && <span className="pcard-sub">{f.subtitulo}</span>}
-                        <span className="pcard-cd">{f.codigo} · {f.modelos} {f.modelos === 1 ? 'modelo' : 'modelos'}{f.colores.length ? ` · ${f.colores.length} colores` : ''}</span>
+                        <span className="pcard-cd">{f.codigo} · {f.modelos} {f.modelos === 1 ? 'modelo' : 'modelos'}{f.colores.length ? ` · ${f.colores.length} ${f.colores.length === 1 ? 'color' : 'colores'}` : ''}</span>
                         {f.colores.length > 0 && (
                           <span className="pcard-sw" aria-hidden="true">{f.colores.slice(0, 6).map((c) => <i key={c} style={{ background: COLOR_HEX[c] ?? '#ccc' }} />)}</span>
                         )}
@@ -169,8 +179,17 @@ export function CatalogView() {
             </>
           ) : (
             <div className="cat-empty">
-              <p>No encontramos familias con esos filtros.</p>
-              <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); setQuery(''); }}>Ver todo el catálogo</button>
+              {enTodo > 0 ? (
+                <>
+                  <p>“{query.trim()}” no está en los filtros elegidos, pero hay {enTodo} {enTodo === 1 ? 'familia' : 'familias'} en todo el catálogo.</p>
+                  <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); }}>Buscar en todo el catálogo</button>
+                </>
+              ) : (
+                <>
+                  <p>No encontramos familias con esos filtros.</p>
+                  <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); setQuery(''); }}>Ver todo el catálogo</button>
+                </>
+              )}
             </div>
           )}
         </div>

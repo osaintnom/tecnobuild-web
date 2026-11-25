@@ -58,8 +58,26 @@ button{font:inherit;color:inherit}
 
 /* Encabezado */
 .hdr{position:fixed;inset:0 0 auto 0;z-index:50;padding-top:env(safe-area-inset-top,0px);transition:background .35s,color .35s,border-color .35s;border-bottom:1px solid transparent}
-.hdr[data-tone="dark"]{background:rgba(28,28,28,.84);color:var(--hueso);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-.hdr[data-tone="light"]{background:rgba(250,250,245,.88);color:var(--carbon);border-color:var(--hueso-line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+/* Fondo casi opaco: el texto de las secciones no debe verse por detrás del encabezado */
+.hdr[data-tone="dark"]{background:rgba(28,28,28,.97);color:var(--hueso);border-color:rgba(173,173,168,.14);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.hdr[data-tone="light"]{background:rgba(250,250,245,.97);color:var(--carbon);border-color:var(--hueso-line);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+/* Menú mobile */
+.hdr-menu{display:none;position:relative;width:40px;height:40px;margin-right:-8px;background:none;border:0;color:inherit;cursor:pointer}
+.hdr-menu span,.hdr-menu span::before,.hdr-menu span::after{position:absolute;left:10px;width:20px;height:2px;background:currentColor;transition:transform .25s var(--ease),opacity .2s}
+.hdr-menu span{top:19px}
+.hdr-menu span::before,.hdr-menu span::after{content:"";left:0}
+.hdr-menu span::before{top:-6px}
+.hdr-menu span::after{top:6px}
+.hdr-menu[aria-expanded="true"] span{background:transparent}
+.hdr-menu[aria-expanded="true"] span::before{transform:translateY(6px) rotate(45deg);background:currentColor}
+.hdr-menu[aria-expanded="true"] span::after{transform:translateY(-6px) rotate(-45deg);background:currentColor}
+.hdr-drawer{display:grid;padding:8px var(--gut-r,16px) 20px;background:inherit;border-top:1px solid rgba(173,173,168,.2);max-height:calc(100svh - var(--hdr));overflow:auto}
+.hdr-drawer a{display:flex;align-items:center;min-height:48px;text-decoration:none;font-weight:600;font-size:1.05rem}
+.hdr-drawer a[aria-current="page"]{color:var(--naranja)}
+.hdr-drawer ul{list-style:none;margin:0 0 4px;padding:0 0 0 14px;border-left:2px solid var(--naranja)}
+.hdr-drawer ul a{min-height:40px;font:500 .78rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+@media (max-width:900px){.hdr-menu{display:block}}
+@media (min-width:901px){.hdr-drawer{display:none}}
 .hdr-in{height:var(--hdr);display:flex;align-items:center;gap:28px}
 .logo{position:relative;display:inline-flex;font:700 1.02rem/1 var(--display);font-stretch:115%;letter-spacing:.03em;text-decoration:none}
 .logo .dot{color:var(--naranja)}
@@ -90,15 +108,20 @@ button{font:inherit;color:inherit}
 .chapters{position:fixed;right:var(--gut-r);top:50%;transform:translateY(-50%);z-index:40;opacity:0;pointer-events:none;transition:opacity .3s}
 .chapters.show{opacity:1;pointer-events:auto}
 .chapters ol{list-style:none;margin:0;padding:0;display:grid;gap:12px}
-.chapters a{display:flex;align-items:center;justify-content:flex-end;gap:10px;text-decoration:none;font:500 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gris-osc);padding:3px 0}
+/* El índice ocupa solo el ancho de las rayitas (30px) para no encimarse con el contenido;
+   el rótulo aparece al pasar el mouse, flotando a la izquierda con fondo propio. */
+.chapters{right:16px}
+.chapters a{position:relative;display:flex;align-items:center;justify-content:flex-end;width:30px;text-decoration:none;font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gris-osc);padding:5px 0}
 .chapters[data-tone="dark"] a{color:var(--gris)}
-.chapters a span{opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s}
+.chapters a span{position:absolute;right:calc(100% + 10px);white-space:nowrap;padding:5px 8px;border-radius:2px;background:var(--hueso);box-shadow:0 0 0 1px var(--hueso-line);opacity:0;transform:translateX(6px);transition:opacity .2s,transform .2s;pointer-events:none}
+.chapters[data-tone="dark"] a span{background:var(--carbon);box-shadow:0 0 0 1px rgba(173,173,168,.3)}
 .chapters a::after{content:"";width:14px;height:2px;background:currentColor;opacity:.5;transition:width .3s var(--ease),background .3s,opacity .3s}
 .chapters a:hover span,.chapters a:focus-visible span{opacity:1;transform:none}
 .chapters a.on{color:var(--carbon)}
 .chapters[data-tone="dark"] a.on{color:var(--hueso)}
 .chapters a.on::after{width:30px;background:var(--naranja);opacity:1}
-@media (max-width:1180px){.chapters{display:none}}
+/* Solo cuando sobra margen al costado del contenido (1320px + rayitas): si no, se encima */
+@media (max-width:1419px){.chapters{display:none}}
 
 /* 1 · Hero */
 .hero{position:relative;padding-block:calc(var(--hdr) + clamp(72px,14vh,160px)) clamp(64px,11vh,120px)}
@@ -146,10 +169,12 @@ button{font:inherit;color:inherit}
 :root:not(.pin-on) .route-fill{width:2px!important;height:100%}
 :root:not(.pin-on) .o-stop{width:auto;padding:0 0 52px}
 :root:not(.pin-on) .o-dot{left:-36px;top:0}
-:root:not(.pin-on) .ph{max-height:none;max-width:480px;flex:none}
+/* Lista vertical (mobile o sin movimiento): sin los recuadros de "Imagen pendiente", que alargaban el recorrido
+   unos 3000px. Cuando haya fotos reales, se muestran con max-width:480px. */
+:root:not(.pin-on) .ph{max-height:none;max-width:480px;flex:none;display:none}
 
-/* Transición: llegada a la obra */
-.arrive{position:relative;height:88vh;min-height:520px;background:linear-gradient(180deg,var(--carbon) 0%,var(--carbon) 18%,var(--hueso) 74%)}
+/* Transición: llegada a la obra (más baja: antes era una franja vacía de casi una pantalla) */
+.arrive{position:relative;height:clamp(420px,62vh,600px);background:linear-gradient(180deg,var(--carbon) 0%,var(--carbon) 22%,var(--hueso) 70%)}
 .arr-v{position:absolute;left:50%;top:0;width:2px;height:64%;margin-left:-1px;background:var(--naranja);transform-origin:top;transform:scaleY(var(--pv,1))}
 .arr-h{position:absolute;left:0;right:0;top:64%;height:2px;background:var(--naranja);transform-origin:center;transform:scaleX(var(--ph,1))}
 .arr-top{position:absolute;top:12%;left:0;right:0;font:400 .72rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--gris)}
@@ -222,7 +247,7 @@ button{font:inherit;color:inherit}
 .r-price{margin:0;font-size:.92rem;color:var(--gris-osc);max-width:48ch}
 .conv{width:100%;height:auto;overflow:visible}
 .conv text{font-family:var(--body);font-size:12.5px;fill:var(--carbon)}
-.conv .prov{font-family:var(--mono);font-size:11px;fill:var(--gris-osc)}
+.conv .prov{font-family:var(--mono);font-size:13px;fill:#5E5D58}
 .conv .tb{font-family:var(--display);font-weight:700;font-size:15px;letter-spacing:.03em;fill:var(--carbon)}
 .conv .cat{font-size:15px}
 @media (max-width:700px){.conv .cat{font-size:22px}.conv .prov{font-size:18px}.conv .tb{font-size:22px}}
@@ -453,7 +478,15 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
 /* Cada piso aparece con sus productos marcados; el último agregado, con glow */
 .bld.build .fl.on .hs path{stroke:var(--naranja);stroke-width:1.5}
 .bld.build .fl.cur .hs{filter:url(#bglow)}
-@media (max-width:900px){.sc-grid{grid-template-columns:1fr}.sc-stage{height:340px}}
+@media (max-width:900px){.sc-grid{grid-template-columns:1fr}.sc-stage{height:400px}}
+/* Mobile: menos aire entre secciones y el dibujo sin cotas, que a ese tamaño no se leen */
+@media (max-width:640px){
+  :root:not(.pin-on) .showcase .pin-stick{padding-block:48px 56px}
+  :root:not(.pin-on) .resp .pin-stick{padding-block:72px 56px}
+  .clients{padding-top:56px}
+  .bld .cota,.bld .cota text{display:none}
+  .bld .lv{font-size:22px}
+}
 
 /* Empresas que confiaron */
 .clients{padding-block:clamp(80px,12vh,128px) clamp(40px,6vh,64px)}
@@ -510,6 +543,21 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
   .cat-stage-in{height:320px}
 }
 @media (max-width:480px){.cat-cards{grid-template-columns:1fr}}
+/* Mobile: los filtros no quedan fijos (tapaban media pantalla) y los rubros van en una sola fila deslizable */
+@media (max-width:640px){
+  .cat-tools{position:static}
+  .cat-chips{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;margin-left:calc(var(--gut) * -1);margin-right:calc(var(--gut-r) * -1);padding-left:var(--gut);padding-right:var(--gut-r)}
+  .cat-chips::-webkit-scrollbar{display:none}
+  .cat-chip{flex:none}
+  /* El corte del edificio, compacto: los productos aparecen en la primera pantalla */
+  .cat-stage-in{height:220px}
+}
+/* Tocables de al menos 44px de alto en pantallas táctiles */
+@media (pointer:coarse){
+  a.etg{display:inline-block;padding-block:12px;margin-block:-12px}
+  .copy{min-height:44px}
+  .contact a.link,.quote a.link{display:inline-flex;align-items:center;min-height:44px}
+}
 
 /* Link a Eurotechnologie Group: discreto, con el subrayado naranja de la marca */
 a.etg{color:inherit;text-decoration:underline;text-decoration-color:var(--naranja);text-decoration-thickness:1px;text-underline-offset:3px;transition:color .2s}
@@ -532,7 +580,12 @@ a.etg:hover{color:var(--naranja-btn)}
 .pcard-sub{font-size:.82rem;color:var(--gris-osc);line-height:1.35}
 .pcard-sw{display:flex;gap:4px;margin-top:4px}
 .pcard-sw i{width:12px;height:12px;border-radius:50%;border:1px solid rgba(28,28,28,.2)}
-.pcard-pv img,.pv img,.sel-item .thumb img{width:100%;height:100%;object-fit:cover;display:block}
+/* Fotos: van en posición absoluta para que su tamaño natural (sobre todo las verticales) no agrande la tarjeta;
+   contain muestra el producto entero, sin recortar bachas anchas ni ambientes verticales. */
+.pcard,.pcard>*{min-width:0}
+.pcard-pv,.pv,.sel-item .thumb{position:relative;overflow:hidden;min-width:0}
+.pcard-pv:has(img),.pv:has(img),.sel-item .thumb:has(img){background:#fff}
+.pcard-pv img,.pv img,.sel-item .thumb img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;display:block}
 .cat-more{display:flex;justify-content:center;margin-top:20px}
 .cat-chips .cat-chip{white-space:nowrap}
 @media (max-width:700px){.cat-row{grid-template-columns:1fr 1fr}.cat-search{grid-column:1/-1}}

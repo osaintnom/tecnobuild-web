@@ -14,7 +14,8 @@ interface Props {
 
 /** Encabezado + índice de capítulos. El tono de ambos sigue a la sección que tienen debajo. */
 export function PageChrome({ page, chapters = [] }: Props) {
-  const { selection, setSummaryOpen, showToast, pulseKey } = useSelection();
+  const { selection, setSummaryOpen, pulseKey } = useSelection();
+  const [menuOpen, setMenuOpen] = useState(false);
   const [hdrTone, setHdrTone] = useState<Tone>('dark');
   const [chTone, setChTone] = useState<Tone>('dark');
   const [chapter, setChapter] = useState<string | null>(null);
@@ -39,6 +40,14 @@ export function PageChrome({ page, chapters = [] }: Props) {
     return () => { removeEventListener('scroll', onScroll); removeEventListener('resize', onScroll); };
   }, []);
 
+  // Menú mobile: se cierra con Escape
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === 'Escape') setMenuOpen(false); };
+    addEventListener('keydown', onKey);
+    return () => removeEventListener('keydown', onKey);
+  }, [menuOpen]);
+
   // Pulso del contador cuando se suma un modelo
   useEffect(() => {
     const el = countRef.current;
@@ -58,8 +67,7 @@ export function PageChrome({ page, chapters = [] }: Props) {
             <Link href="/catalogo/" aria-current={page === 'catalog' ? 'page' : undefined}>Catálogo</Link>
           </nav>
           <div className="hdr-actions">
-            <button className="lang" type="button" aria-label="English version for suppliers"
-              onClick={() => showToast('La versión en inglés para fábricas tiene su propia página, más corta. Se arma en la próxima etapa.')}>EN</button>
+            {/* EN: oculto hasta que exista la página para fábricas */}
             <button className={`sel-btn${n ? ' has' : ''}`} type="button" aria-haspopup="dialog"
               aria-label={`Tu selección: ${n} ${n === 1 ? 'modelo' : 'modelos'}`} onClick={() => setSummaryOpen(true)}>
               <span className="sel-label">Tu selección</span>
@@ -67,8 +75,21 @@ export function PageChrome({ page, chapters = [] }: Props) {
             </button>
             {page === 'home' && <Link className="btn btn-ghost btn-sm hdr-cat" href="/catalogo/">Ver catálogo</Link>}
             <Link className="btn btn-primary btn-sm" href="/catalogo/#cotizar">Cotizar</Link>
+            <button className="hdr-menu" type="button" aria-expanded={menuOpen} aria-controls="hdr-drawer"
+              aria-label={menuOpen ? 'Cerrar menú' : 'Abrir menú'} onClick={() => setMenuOpen((o) => !o)}>
+              <span aria-hidden="true" />
+            </button>
           </div>
         </div>
+        {menuOpen && (
+          <nav className="hdr-drawer" id="hdr-drawer" aria-label="Menú" onClick={(e) => { if ((e.target as HTMLElement).closest('a')) setMenuOpen(false); }}>
+            <Link href="/" aria-current={page === 'home' ? 'page' : undefined}>Quiénes somos</Link>
+            {page === 'home' && chapters.length > 0 && (
+              <ul>{chapters.filter(([id]) => id !== 'quienes').map(([id, label]) => <li key={id}><a href={`#${id}`}>{label}</a></li>)}</ul>
+            )}
+            <Link href="/catalogo/" aria-current={page === 'catalog' ? 'page' : undefined}>Catálogo</Link>
+          </nav>
+        )}
       </header>
 
       {chapters.length > 0 && (
