@@ -28,7 +28,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 
 - Garantía con años definidos, plazos en contrato, equipo propio de instalación (hoy hay subcontratistas: decir "nos hacemos cargo de la instalación", nunca "nuestro equipo de instaladores").
 - Obras, testimonios o cifras: no existen aún, salvo el cliente de abajo. Nunca poner frases entre comillas como si las dijera un cliente.
-- **Empresas que confiaron:** `src/sections/Clients.tsx`, una tarjeta por empresa, sin espacios vacíos. Primer y único cliente hasta ahora (26/11/2026): **Sentire** (desarrolladora, Buenos Aires, sentire.com.ar): les trajimos barandas y puertas y están muy conformes. Logo pendiente: se muestra el nombre en texto. Los nombres, lo que se les trajo y los logos los pasa TECNO.BUILD; nunca inventarlos.
+- **Empresas que confiaron:** `src/sections/Clients.tsx`, una tarjeta por empresa, sin espacios vacíos. Primer y único cliente hasta ahora (26/11/2026): **Sentire** (desarrolladora, Buenos Aires, sentire.com.ar): les trajimos barandas y puertas y están muy conformes. Logo: `public/clientes/sentire.svg`, bajado de su sitio y pasado de blanco a carbón. Los nombres, lo que se les trajo y los logos los pasa TECNO.BUILD; nunca inventarlos.
 - Plazos concretos de cada etapa ("a definir").
 - Confirmación del formulario: "Recibimos tu consulta. Te vamos a contactar." — **sin plazo**.
 - "Mejor precio" solo con cautela, sin números.
