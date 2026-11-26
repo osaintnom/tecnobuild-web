@@ -46,7 +46,7 @@ export function Hero() {
         </ul>
         <div className="hero-cta">
           <Link className="btn btn-primary" href={href('catalog')}>{t.common.buildYourProject}</Link>
-          <a className="btn btn-ghost" href="#contacto">{t.common.contactUs}</a>
+          <a className="btn btn-text" href="#contacto">{t.common.contactUs}</a>
         </div>
         <p className="hero-sign">TECNO.BUILD by <EtgLink /> &nbsp;·&nbsp; Hong Kong &nbsp;·&nbsp; Shenzhen &nbsp;·&nbsp; Buenos Aires</p>
       </div>

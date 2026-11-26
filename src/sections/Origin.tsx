@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN, MQ_ANIM, clamp } from '@/lib/motion';
 import { useI18n } from '@/i18n/I18nProvider';
+import { StageIcon } from '@/components/StageIcon';
 
 // El recorrido de cada pedido, de la fábrica a la obra, está en el diccionario (origin.stops).
 // "estado" es el aviso que recibe el cliente en esa etapa.
@@ -66,7 +67,7 @@ export function Origin() {
 
   return (
     <div ref={scope}>
-      <section className="pin origin tone-dark" id="origen" data-tone="dark" data-ch="origen" style={{ '--pin-h': '320vh' } as React.CSSProperties}>
+      <section className="pin origin tone-dark" id="origen" data-tone="dark" data-ch="origen" style={{ '--pin-h': '220vh' } as React.CSSProperties}>
         <div className="pin-stick">
           <div className="origin-track">
             <div className="o-intro">
@@ -77,14 +78,14 @@ export function Origin() {
             </div>
             <div className="o-stops">
               <div className="route" aria-hidden="true"><div className="route-fill" /></div>
-              {STOPS.map((s) => (
+              {STOPS.map((s, i) => (
                 <article className="o-stop" key={s.n}>
                   <span className="o-dot" aria-hidden="true" />
+                  <StageIcon i={i} />
                   <p className="coord"><b>{s.n}</b> &nbsp;{s.place}{s.coord && <> &nbsp;·&nbsp; {s.coord}</>}</p>
                   <h3 className="h3">{s.title}</h3>
                   <p>{s.body}</p>
                   <p className="o-state"><i aria-hidden="true" /><span>{t.notice} · <b>{s.estado}</b></span></p>
-                  <figure className="ph">{t.imgPending}<br />{s.img}</figure>
                 </article>
               ))}
             </div>

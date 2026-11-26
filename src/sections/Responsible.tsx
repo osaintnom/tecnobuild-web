@@ -74,7 +74,7 @@ export function Responsible() {
             <p className="r-price">{t.price}</p>
             <div className="r-cta">
               <Link className="btn btn-primary" href={href('catalog')}>{common.buildYourProject}</Link>
-              <a className="btn btn-ghost" href="#contacto">{common.contactUs}</a>
+              <a className="btn btn-text" href="#contacto">{common.contactUs}</a>
             </div>
           </div>
           <div className="r-fig">

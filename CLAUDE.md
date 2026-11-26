@@ -36,6 +36,8 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 ## Identidad visual
 
 - **Colores:** carbón `#1C1C1C`, naranja `#D16B21` (botones con texto blanco: `#BF5F1A` por contraste), hueso `#FAFAF5`, gris cálido `#ADADA8`.
+- **Texto chico (26/11/2026):** rótulos en IBM Plex Mono con piso de 12px (`--mono-xs`) y 13px (`--mono-s`). Gris de texto sobre claro `#5C5B55`; bordes sobre carbón `#7E7D77`. Texto naranja chico sobre hueso o blanco: `#A9520F` (`--naranja-osc`), porque `#BF5F1A` no llega a 4.5:1.
+- **Jerarquía de botones:** «Armá tu cotización» es el único botón lleno; «Contactanos» va como botón de texto con subrayado naranja y flecha (`.btn-text`).
 - **Tipografía:** Archivo expandida (títulos), Inter (texto), IBM Plex Mono (rótulos, códigos, cotas). Sin coordenadas geográficas en el sitio (sacadas el 26/11/2026).
 - **Recurso de marca:** la barra/línea naranja del logo es el hilo de toda la página.
 - **Imágenes:** casi no hay material. Los espacios de imagen quedan rotulados. Se puede usar IA para ambientes y texturas; **nunca** para obras, fábricas o personas presentadas como reales.
@@ -47,7 +49,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 ### `/` Quiénes somos (corta)
 1. **Hero** (carbón) — "Construimos con el mundo." y, debajo, "Importación de terminaciones de obra:" seguido de las categorías con "+ Más" (sin rótulo arriba del título). Bajada de qué hacen. Botones: "Armá tu cotización" y "Contactanos". Fondo interactivo con TECNO.BUILD difuminado.
 2. **Quiénes somos** (carbón) — qué hacen (origen, importación, obra) y dónde están: Hong Kong, Shenzhen (zona de fábricas), Miami (administración), Buenos Aires. El pie de página muestra los mismos cuatro lugares.
-3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
+3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop, ~220 vh; un ícono de línea por etapa en `src/components/StageIcon.tsx` hasta tener fotos) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
 4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu cotización" y "Contactanos".
 5. **El edificio** (hueso, fijado, ~200 vh) — solo para mostrar: se arma piso por piso al bajar y cada piso aparece con sus productos ya marcados (el último agregado, con glow). Sin un tramo extra para encender categorías. Botón "Armá tu cotización" al catálogo.
 6. **Empresas que confiaron en nosotros** — tarjeta por empresa: nombre o logo, qué les trajimos y una línea nuestra.
@@ -57,7 +59,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 ### `/catalogo/` Catálogo
 - **Una tarjeta por FAMILIA** del maestro (`TB-XX01`). Si la familia tiene foto se muestra la foto; si no, el dibujo de su categoría (`src/lib/preview.ts`).
 - **Filtros:** rubro, categoría, color y ancho de mueble, más buscador por nombre o código TB. Aviso visible de "Datos de prueba" mientras `prueba: true`.
-- **Edificio interactivo por ambientes**, conectado con la grilla: PB–P1 balcones y escaleras → P2–P4 cocinas → P5–P6 baños → P7 vestidores. **Cada categoría aparece una sola vez** y cada piso es una escena con pocos elementos; los rótulos van en filas arriba de cada piso con una línea guía. Cada elemento del corte es una categoría real (tocarlo filtra esa categoría); la llave de un ambiente filtra el ambiente; pasar por una tarjeta marca su categoría en el corte. El dibujo está en `src/lib/building.ts`.
+- **Edificio interactivo por ambientes**, conectado con la grilla (debajo, botones por ambiente para teclado y mobile): PB–P1 balcones y escaleras → P2–P4 cocinas → P5–P6 baños → P7 vestidores. **Cada categoría aparece una sola vez** y cada piso es una escena con pocos elementos; los rótulos van en filas arriba de cada piso con una línea guía. Cada elemento del corte es una categoría real (tocarlo filtra esa categoría); la llave de un ambiente filtra el ambiente; pasar por una tarjeta marca su categoría en el corte. El dibujo está en `src/lib/building.ts`.
 - **Configurador por familia:** medida o modelo → opciones de esa medida (niveles, color, variante) → nota. El resultado es un **código TB real**, que viaja en el pedido de cotización.
 - **Página por familia:** `/catalogo/tb-xx-yy01/` y `/en/catalog/tb-xx-yy01/` (`src/views/FamilyPage.tsx`), generadas en el build: nombre, descripción, datos, tabla de modelos con códigos TB (leída de `public/catalogo/modelos/`), relacionadas y botón al configurador. La URL es el código en minúsculas, así no cambia si cambia el nombre. Las tarjetas de la grilla enlazan a esa página, pero el clic común sigue abriendo el configurador. Están en el sitemap.
 - **Pedí tu cotización** al final, con la selección precargada (códigos TB y ambientes).

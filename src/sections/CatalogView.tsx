@@ -2,7 +2,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Link from 'next/link';
 import { familyPath } from '@/i18n/config';
-import { CATALOGO, COLOR_HEX, FAMILIAS, RUBROS, type AmbId, type Familia } from '@/content/catalog';
+import { AMBIENTES, CATALOGO, COLOR_HEX, FAMILIAS, RUBROS, type AmbId, type Familia } from '@/content/catalog';
 import { useI18n } from '@/i18n/I18nProvider';
 import { floorsLabel } from '@/lib/building';
 import { useSelection } from '@/state/selection';
@@ -105,6 +105,15 @@ export function CatalogView() {
         <div className="cat-stage">
           <div className="cat-stage-in" onClick={onStageClick}>
             <BuildingSVG ref={bldRef} cat={activeAmb} className="up" />
+          </div>
+          {/* Los mismos ambientes que las llaves del corte, como botones: se usan con teclado y en mobile (donde las llaves no se ven) */}
+          <div className="cat-rooms" role="group" aria-label={t.byRoom}>
+            {AMBIENTES.map((a) => (
+              <button key={a.id} type="button" className="cat-room" aria-pressed={filtro.ambiente === a.id}
+                onClick={() => setFiltro(filtro.ambiente === a.id ? {} : { ambiente: a.id })}>
+                {ct.amb(a.id).corto}
+              </button>
+            ))}
           </div>
           <p className="b-ind" aria-live="polite">
             {activeAmb ? <><b>{ct.amb(activeAmb).nombre}</b> · {floorsLabel(activeAmb, tb, common.and)}</> : t.stageHint}
