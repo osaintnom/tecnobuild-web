@@ -40,7 +40,7 @@ export const es = {
     closeMenu: 'Cerrar menú',
     menuAria: 'Menú',
     chaptersAria: 'Capítulos',
-    langLabel: 'EN',
+    langGroup: 'Idioma',
     langAria: 'Read in English',
     chapters: {
       quienes: 'Quiénes somos', origen: 'Recorrido', responsable: 'Responsable',

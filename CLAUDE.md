@@ -17,7 +17,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 
 ## Mensaje y tono
 
-- **Tagline:** "Construimos con el mundo." — va sola, sin bajada. En inglés: "We build with the world."
+- **Tagline:** "Construimos con el mundo." — va sola, sin bajada. En inglés: "Built with the world." (decidido el 26/11/2026; reemplaza "We build with the world.").
 - **Rótulo de categoría en el hero:** "Importación de terminaciones de obra:", debajo del título y antes de las categorías.
 - **Esencia interna (no publicar como claim):** "Nos hacemos cargo."
 - **Registro:** español rioplatense con **vos** ("Pedí tu cotización", "Contanos tu obra").
@@ -97,8 +97,10 @@ Decisión del 26/11/2026: **el sitio completo se traduce al inglés** (reemplaza
 - **Rutas:** español en la raíz (`/`, `/catalogo/`), inglés bajo `/en/` (`/en/`, `/en/catalog/`). Cada idioma tiene su layout raíz (`src/app/(es)`, `src/app/(en)`) para que `<html lang>` salga bien en el HTML estático; canonical y hreflang en los metadatos.
 - **Textos:** todo el copy vive en `src/i18n/es.tsx` y `src/i18n/en.tsx` (mismas claves, controladas por el tipo `Dict`). Los componentes lo leen con `useI18n()`. **No escribir textos sueltos en los componentes:** agregarlos a los dos diccionarios.
 - **Catálogo:** el maestro está en español; los filtros usan los valores del maestro y solo se traduce lo que se ve (`src/i18n/catalog-en.ts`: rubros, categorías, colores, ambientes, rótulos del corte y nombre/subtítulo/descripción de cada familia). Familia o categoría nueva sin traducción → se ve en español hasta agregarla. Las medidas, detalles y variantes de cada modelo quedan en español (a futuro: columnas en inglés en el maestro).
-- **Selector ES/EN** en el encabezado (y en el menú mobile): lleva a la misma página en el otro idioma. La selección del catálogo sigue al cambiar de idioma.
-- **Inglés:** simple y directo, mismos hechos y mismas restricciones que en español (nada de garantías, plazos ni equipo propio). Tagline: "We build with the world." AMBA → "Greater Buenos Aires".
+- **Toggle ES | EN** en el encabezado (y en el menú mobile): el idioma activo queda relleno en naranja; el otro es el link a la misma página en ese idioma. La selección del catálogo sigue al cambiar de idioma.
+- **Inglés:** escrito como copy en inglés, no traducido frase por frase. Inglés americano. Mismos hechos y mismas restricciones que en español (nada de garantías, plazos ni equipo propio).
+  - Vocabulario: terminaciones → **fit-out** (nunca "finishes"); obra → site / project; AMBA → Greater Buenos Aires; niveles → tiers; grifería → faucets; mampara → shower enclosure; familia → product line.
+  - Hero: "Built with the world." con el rótulo "Imported fit-out for new developments:". Botones: "Plan your fit-out" y "Get in touch"; en el encabezado "View catalog" y "Get a quote".
 - Clientes (`src/sections/Clients.tsx`): cada empresa lleva su ficha `en`.
 
 ## Motion y accesibilidad

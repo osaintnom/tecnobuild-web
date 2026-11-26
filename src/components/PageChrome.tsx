@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSelection } from '@/state/selection';
 import { useI18n } from '@/i18n/I18nProvider';
-import { ROUTES } from '@/i18n/config';
+import { LOCALES, ROUTES } from '@/i18n/config';
 
 type Tone = 'dark' | 'light';
 export type ChapterId = 'quienes' | 'origen' | 'responsable' | 'edificio' | 'empresas' | 'dudas' | 'contacto';
@@ -25,9 +25,14 @@ export function PageChrome({ page, chapters = [] }: Props) {
   const countRef = useRef<HTMLSpanElement>(null);
   const n = selection.size;
   const { locale, t: { chrome: t, common }, href } = useI18n();
-  // El selector lleva a la misma página en el otro idioma
-  const other = locale === 'es' ? 'en' : 'es';
-  const langHref = ROUTES[other][page];
+  // Toggle ES | EN: el idioma activo queda marcado; el otro lleva a la misma página en ese idioma.
+  const langToggle = (cls: string) => (
+    <div className={`lang-toggle ${cls}`} role="group" aria-label={t.langGroup}>
+      {LOCALES.map((l) => l === locale
+        ? <span key={l} className="on" aria-current="true" lang={l}>{l.toUpperCase()}</span>
+        : <Link key={l} href={ROUTES[l][page]} hrefLang={l} lang={l} aria-label={t.langAria}>{l.toUpperCase()}</Link>)}
+    </div>
+  );
 
   useEffect(() => {
     const secs = [...document.querySelectorAll<HTMLElement>('main [data-tone]')];
@@ -74,7 +79,7 @@ export function PageChrome({ page, chapters = [] }: Props) {
             <Link href={href('catalog')} aria-current={page === 'catalog' ? 'page' : undefined}>{t.catalog}</Link>
           </nav>
           <div className="hdr-actions">
-            <Link className="lang" href={langHref} hrefLang={other} lang={other} aria-label={t.langAria}>{t.langLabel}</Link>
+            {langToggle('lang')}
             <button className={`sel-btn${n ? ' has' : ''}`} type="button" aria-haspopup="dialog"
               aria-label={t.selectionAria(n)} onClick={() => setSummaryOpen(true)}>
               <span className="sel-label">{common.yourSelection}</span>
@@ -95,7 +100,7 @@ export function PageChrome({ page, chapters = [] }: Props) {
               <ul>{chapters.filter((id) => id !== 'quienes').map((id) => <li key={id}><a href={`#${id}`}>{t.chapters[id]}</a></li>)}</ul>
             )}
             <Link href={href('catalog')} aria-current={page === 'catalog' ? 'page' : undefined}>{t.catalog}</Link>
-            <Link className="drawer-lang" href={langHref} hrefLang={other} lang={other}>{t.langAria}</Link>
+            {langToggle('drawer-lang')}
           </nav>
         )}
       </header>
