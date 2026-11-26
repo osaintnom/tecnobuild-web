@@ -3,11 +3,12 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { COLOR_HEX, cargarModelos, describir, famById, type Modelo } from '@/content/catalog';
 import { useSelection } from '@/state/selection';
 import { prefersReduced } from '@/lib/motion';
+import { useI18n } from '@/i18n/I18nProvider';
 import { Sheet } from './Sheet';
 import { ModelPreview } from './ModelPreview';
 
 type Attr = 'niveles' | 'color' | 'variante';
-const ATTRS: [Attr, string][] = [['niveles', 'Niveles'], ['color', 'Color'], ['variante', 'Variante']];
+const ATTRS: [Attr][] = [['niveles'], ['color'], ['variante']];
 type Pick = Partial<Record<Attr, string>>;
 const val = (m: Modelo, a: Attr) => (m[a] == null ? undefined : String(m[a]));
 const dims = (m?: Modelo) => (m?.dim ? `${m.dim.map((d) => d ?? '—').join(' × ')} mm` : undefined);
@@ -19,6 +20,8 @@ const dims = (m?: Modelo) => (m?.dim ? `${m.dim.map((d) => d ?? '—').join(' ×
 export function Configurator() {
   const { cfgFamilia, cfgCodigo, closeConfigurator, selection, upsert, pulse, setSummaryOpen } = useSelection();
   const fam = cfgFamilia ? famById[cfgFamilia] : undefined;
+  const { t: { configurator: t, common }, cat: ct } = useI18n();
+  const famTr = fam ? ct.fam(fam) : undefined;
   const [modelos, setModelos] = useState<Modelo[] | null>(null);
   const [error, setError] = useState(false);
   const [base, setBase] = useState<string | null>(null);
@@ -61,7 +64,7 @@ export function Configurator() {
   const variants = bases.find(([b]) => b === base)?.[1] ?? [];
 
   // Opciones que cambian dentro de la medida elegida, y cuáles están disponibles con lo ya elegido
-  const options = ATTRS.map(([a, label]) => ({ a, label, vals: [...new Set(variants.map((m) => val(m, a)).filter(Boolean))] as string[] }))
+  const options = ATTRS.map(([a]) => ({ a, label: t.attrs[a], vals: [...new Set(variants.map((m) => val(m, a)).filter(Boolean))] as string[] }))
     .filter((o) => o.vals.length > 0);
   const available = (a: Attr, v: string) => variants.some((m) => val(m, a) === v && ATTRS.every(([b]) => b === a || !pick[b] || val(m, b) === pick[b]));
   const model = variants.find((m) => ATTRS.every(([a]) => !pick[a] || val(m, a) === pick[a])) ?? variants[0];
@@ -83,7 +86,7 @@ export function Configurator() {
 
   function add() {
     if (!fam || !model) return;
-    upsert({ codigo: model.codigo, familia: fam.codigo, nombre: fam.nombre, detalle: describir(model), ambiente: fam.ambiente, nota: nota.trim() });
+    upsert({ codigo: model.codigo, familia: fam.codigo, nombre: famTr!.nombre, detalle: describir(model, common.levels, ct.color), ambiente: fam.ambiente, nota: nota.trim() });
     fly();
     setDone(true);
   }
@@ -110,17 +113,17 @@ export function Configurator() {
   const footer = !done ? (
     <div className="row">
       <button className="btn btn-primary" type="button" ref={addRef} onClick={add} disabled={!model}>
-        {inSel ? 'Actualizar en mi cotización' : 'Agregar a mi cotización'}
+        {inSel ? t.update : t.add}
       </button>
-      <span className="price">Precio a cotizar</span>
+      <span className="price">{common.priceOnRequest}</span>
     </div>
   ) : (
     <div>
-      <p className="done-msg">✓ {model?.codigo} sumado · {n} {n === 1 ? 'modelo' : 'modelos'} en tu selección</p>
+      <p className="done-msg">{t.added(model?.codigo ?? '', n)}</p>
       <div className="row">
-        <button className="btn btn-primary" type="button" ref={doneRef} onClick={() => { closeConfigurator(); setSummaryOpen(true); }}>Ver mi selección</button>
-        <button className="btn btn-ghost" type="button" onClick={() => setDone(false)}>Otra medida</button>
-        <button className="btn btn-ghost" type="button" onClick={closeConfigurator}>Seguir eligiendo</button>
+        <button className="btn btn-primary" type="button" ref={doneRef} onClick={() => { closeConfigurator(); setSummaryOpen(true); }}>{t.seeSelection}</button>
+        <button className="btn btn-ghost" type="button" onClick={() => setDone(false)}>{t.otherSize}</button>
+        <button className="btn btn-ghost" type="button" onClick={closeConfigurator}>{common.keepBrowsing}</button>
       </div>
     </div>
   );
@@ -130,8 +133,8 @@ export function Configurator() {
       open={!!cfgFamilia}
       onClose={closeConfigurator}
       labelledBy="cfgTitle"
-      kicker={fam ? `${fam.categoria} · ${fam.codigo}` : 'Familia'}
-      closeLabel="Cerrar configurador"
+      kicker={fam ? `${ct.categoria(fam.categoria)} · ${fam.codigo}` : t.family}
+      closeLabel={t.close}
       footer={footer}
       bodyRef={bodyRef}
     >
@@ -139,20 +142,20 @@ export function Configurator() {
         <>
           <ModelPreview className="pv" familia={fam} color={model?.color} />
           <div className="cfg-name">
-            <h2 id="cfgTitle">{fam.nombre}</h2>
-            {fam.descripcion && <p className="cfg-desc">{fam.descripcion}</p>}
-            {model && <p>Código <b>{model.codigo}</b>{dims(model) && <> · {dims(model)}</>}</p>}
+            <h2 id="cfgTitle">{famTr!.nombre}</h2>
+            {famTr!.descripcion && <p className="cfg-desc">{famTr!.descripcion}</p>}
+            {model && <p>{t.code} <b>{model.codigo}</b>{dims(model) && <> · {dims(model)}</>}</p>}
           </div>
 
-          {error && <p className="err">No pudimos cargar los modelos. Revisá la conexión y volvé a abrir la familia.</p>}
-          {!modelos && !error && <p className="sum-empty">Cargando modelos…</p>}
+          {error && <p className="err">{t.loadError}</p>}
+          {!modelos && !error && <p className="sum-empty">{t.loading}</p>}
 
           {modelos && (
             <>
               <fieldset className="grp">
-                <legend>1 · Medida o modelo <span className="cfg-count">{bases.length}</span></legend>
+                <legend>1 · {t.step1} <span className="cfg-count">{bases.length}</span></legend>
                 {bases.length > 8 && (
-                  <input className="cfg-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Buscar medida, detalle o código" aria-label="Buscar medida" />
+                  <input className="cfg-search" type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t.searchPh} aria-label={t.searchAria} />
                 )}
                 <div className="mlist">
                   {shownBases.map(([b, ms]) => (
@@ -161,32 +164,32 @@ export function Configurator() {
                       <span className="seg">
                         <span className="seg-main">{ms[0].medida ?? ms[0].detalle ?? b}{ms[0].modelo && <em> · {ms[0].modelo}</em>}</span>
                         {ms[0].medida && ms[0].detalle && <span className="seg-sub">{ms[0].detalle}</span>}
-                        <small>{b}{ms.length > 1 ? ` · ${ms.length} variantes` : ''}</small>
+                        <small>{b}{ms.length > 1 ? ` · ${t.variants(ms.length)}` : ''}</small>
                       </span>
                     </label>
                   ))}
-                  {!shownBases.length && <p className="sum-empty">Ninguna medida coincide con «{query}».</p>}
+                  {!shownBases.length && <p className="sum-empty">{t.noMatch(query)}</p>}
                 </div>
               </fieldset>
 
               {options.length > 0 && (
                 <fieldset className="grp">
-                  <legend>2 · Opciones</legend>
+                  <legend>2 · {t.step2}</legend>
                   {options.map(({ a, label, vals }) => (
                     <div className="grp" role="radiogroup" aria-label={label} key={a}>
-                      <p className="sub">{label}: <span>{pick[a] ?? '—'}</span></p>
+                      <p className="sub">{label}: <span>{pick[a] ? (a === 'color' ? ct.color(pick[a]!) : pick[a]) : '—'}</span></p>
                       <div className="opts">
                         {vals.map((v) => {
                           const checked = pick[a] === v, off = !available(a, v) && !checked;
                           return a === 'color' && COLOR_HEX[v] ? (
-                            <label className={`o${off ? ' off' : ''}`} title={v} key={v}>
-                              <input type="radio" name={`a-${a}`} value={v} checked={checked} aria-label={v} onChange={() => choose(a, v)} />
+                            <label className={`o${off ? ' off' : ''}`} title={ct.color(v)} key={v}>
+                              <input type="radio" name={`a-${a}`} value={v} checked={checked} aria-label={ct.color(v)} onChange={() => choose(a, v)} />
                               <span className="sw" style={{ background: COLOR_HEX[v] }} />
                             </label>
                           ) : (
                             <label className={`o${off ? ' off' : ''}`} key={v}>
                               <input type="radio" name={`a-${a}`} value={v} checked={checked} onChange={() => choose(a, v)} />
-                              <span className="seg">{a === 'niveles' ? `${v} niveles` : v}</span>
+                              <span className="seg">{a === 'niveles' ? common.levels(v) : a === 'color' ? ct.color(v) : v}</span>
                             </label>
                           );
                         })}
@@ -196,11 +199,11 @@ export function Configurator() {
                 </fieldset>
               )}
 
-              {model?.materiales && <p className="cfg-mat"><b>Materiales:</b> {model.materiales}</p>}
+              {model?.materiales && <p className="cfg-mat"><b>{t.materials}</b> {model.materiales}</p>}
 
               <div className="grp">
-                <label className="sub cfg-nota-label" htmlFor="cfgNota">{options.length ? '3' : '2'} · ¿Necesitás algo distinto? Contanos</label>
-                <textarea className="nota" id="cfgNota" placeholder="Ej.: otra medida, otro color o cantidades por tipología."
+                <label className="sub cfg-nota-label" htmlFor="cfgNota">{options.length ? '3' : '2'} · {t.note}</label>
+                <textarea className="nota" id="cfgNota" placeholder={t.notePh}
                   value={nota} onChange={(e) => { setNota(e.target.value); }} />
               </div>
             </>

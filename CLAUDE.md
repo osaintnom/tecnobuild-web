@@ -75,7 +75,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 - **Colores:** muestra aproximada en `COLOR_HEX` (`src/content/catalog.ts`) hasta que el maestro tenga una hoja Colores.
 - **Mensaje de quiénes somos:** sigue nombrando pisos y revestimientos, puertas, cocinas y baños (categorías confirmadas). El maestro de prueba todavía no tiene pisos ni puertas: revisar cuando se confirme.
 
-Elementos globales: encabezado con "Quiénes somos", "Catálogo", "Tu selección (n)" y "Cotizar"; índice lateral de capítulos solo en quiénes somos (desktop); selector ES/EN.
+Elementos globales: encabezado con "Quiénes somos", "Catálogo", "Tu selección (n)" y "Cotizar"; índice lateral de capítulos solo en quiénes somos (desktop); selector ES/EN (ver "Versión en inglés").
 
 ## Configurador ("armá tu 0 km")
 
@@ -90,9 +90,16 @@ Elementos globales: encabezado con "Quiénes somos", "Catálogo", "Tu selección
 - **Contacto (quiénes somos):** nombre*, teléfono o WhatsApp*, empresa, obra.
 - Hoy ninguno envía datos: falta definir backend o servicio.
 
-## Versión en inglés
+## Versión en inglés (i18n)
 
-No es una traducción. Es una página propia para **fábricas y proveedores chinos**, en inglés simple (frases cortas, sin modismos), 6 secciones: hero, quiénes somos, qué compramos, dónde vendemos, cómo trabajamos con fábricas, formulario de proveedores. Sin instalación ni cotización. Pendiente de construir.
+Decisión del 26/11/2026: **el sitio completo se traduce al inglés** (reemplaza la idea anterior de una página aparte para fábricas chinas, que queda como posible sección futura).
+
+- **Rutas:** español en la raíz (`/`, `/catalogo/`), inglés bajo `/en/` (`/en/`, `/en/catalog/`). Cada idioma tiene su layout raíz (`src/app/(es)`, `src/app/(en)`) para que `<html lang>` salga bien en el HTML estático; canonical y hreflang en los metadatos.
+- **Textos:** todo el copy vive en `src/i18n/es.tsx` y `src/i18n/en.tsx` (mismas claves, controladas por el tipo `Dict`). Los componentes lo leen con `useI18n()`. **No escribir textos sueltos en los componentes:** agregarlos a los dos diccionarios.
+- **Catálogo:** el maestro está en español; los filtros usan los valores del maestro y solo se traduce lo que se ve (`src/i18n/catalog-en.ts`: rubros, categorías, colores, ambientes, rótulos del corte y nombre/subtítulo/descripción de cada familia). Familia o categoría nueva sin traducción → se ve en español hasta agregarla. Las medidas, detalles y variantes de cada modelo quedan en español (a futuro: columnas en inglés en el maestro).
+- **Selector ES/EN** en el encabezado (y en el menú mobile): lleva a la misma página en el otro idioma. La selección del catálogo sigue al cambiar de idioma.
+- **Inglés:** simple y directo, mismos hechos y mismas restricciones que en español (nada de garantías, plazos ni equipo propio). Tagline: "We build with the world." AMBA → "Greater Buenos Aires".
+- Clientes (`src/sections/Clients.tsx`): cada empresa lleva su ficha `en`.
 
 ## Motion y accesibilidad
 

@@ -96,7 +96,10 @@ export function cargarModelos(fam: string): Promise<Modelo[]> {
   return cache.get(fam)!;
 }
 
-/** Descripción corta de un modelo elegido, por ejemplo "Mueble 300 mm · 4 niveles · Gris nube". */
-export function describir(m: Modelo): string {
-  return [m.medida, m.modelo, m.niveles ? `${m.niveles} niveles` : undefined, m.variante, m.color].filter(Boolean).join(' · ');
+/**
+ * Descripción corta de un modelo elegido, por ejemplo "Mueble 300 mm · 4 niveles · Gris nube".
+ * `levels` y `color` permiten armarla en otro idioma (ver src/i18n).
+ */
+export function describir(m: Modelo, levels = (n: number) => `${n} niveles`, color = (c: string) => c): string {
+  return [m.medida, m.modelo, m.niveles ? levels(m.niveles) : undefined, m.variante, m.color ? color(m.color) : undefined].filter(Boolean).join(' · ');
 }

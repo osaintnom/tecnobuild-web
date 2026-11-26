@@ -3,15 +3,17 @@ import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { CONTACT } from '@/content/site';
 import { useSelection } from '@/state/selection';
+import { useI18n } from '@/i18n/I18nProvider';
 
 /** Contacto de quiénes somos: una consulta corta. La cotización detallada se arma en el catálogo. Todavía no envía datos. */
 export function Contact() {
   const { showToast } = useSelection();
+  const { t: { contact: t, forms: f, common }, href } = useI18n();
   const formRef = useRef<HTMLFormElement>(null);
   const [errors, setErrors] = useState<Record<string, string | undefined>>({});
   const [sent, setSent] = useState(false);
 
-  const RULES: Record<string, string> = { nombre: 'Escribí tu nombre.', tel: 'Dejanos un teléfono o WhatsApp para contactarte.' };
+  const RULES: Record<string, string> = { nombre: f.errName, tel: f.errPhone };
   const val = (n: string) => (formRef.current?.elements.namedItem(n) as HTMLInputElement | null)?.value.trim() ?? '';
   const check = (n: string) => { const ok = val(n).length > 1; setErrors((e) => ({ ...e, [n]: ok ? undefined : RULES[n] })); return ok; };
 
@@ -23,22 +25,22 @@ export function Contact() {
   }
 
   async function copyMail() {
-    try { await navigator.clipboard.writeText(CONTACT.email); showToast('Mail copiado.'); }
-    catch { showToast(`Copiá el mail: ${CONTACT.email}`); }
+    try { await navigator.clipboard.writeText(CONTACT.email); showToast(f.mailCopied); }
+    catch { showToast(f.copyMailFallback(CONTACT.email)); }
   }
 
   return (
     <section className="quote tone-dark" id="contacto" data-tone="dark" data-ch="contacto">
       <div className="wrap q-grid">
         <div className="q-side">
-          <p className="eyebrow">Contacto</p>
-          <h2 className="h2 rv">Contanos tu obra.</h2>
-          <p className="lead">Dejanos tus datos y te llamamos. Si ya sabés qué terminaciones necesitás, armá tu cotización en el catálogo.</p>
-          <div><Link className="link" href="/catalogo/">Ir al catálogo y armar tu obra →</Link></div>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2 className="h2 rv">{t.title}</h2>
+          <p className="lead">{t.lead}</p>
+          <div><Link className="link" href={href('catalog')}>{t.toCatalog}</Link></div>
           <div className="q-alt">
-            <span>¿Preferís escribirnos?</span>
-            <div className="row"><span className="val">{CONTACT.email}</span><button className="copy" type="button" onClick={copyMail}>Copiar mail</button></div>
-            <div className="row"><span>WhatsApp:</span><span className="val">{CONTACT.whatsapp ?? 'número a confirmar'}</span></div>
+            <span>{f.preferWrite}</span>
+            <div className="row"><span className="val">{CONTACT.email}</span><button className="copy" type="button" onClick={copyMail}>{f.copyMail}</button></div>
+            <div className="row"><span>{f.whatsapp}</span><span className="val">{CONTACT.whatsapp ?? f.whatsappPending}</span></div>
           </div>
         </div>
 
@@ -47,7 +49,7 @@ export function Contact() {
             <div className="f-row">
               {(['nombre', 'tel'] as const).map((n) => (
                 <div className="field" key={n}>
-                  <label htmlFor={`c-${n}`}>{n === 'nombre' ? 'Nombre' : 'Teléfono o WhatsApp'}</label>
+                  <label htmlFor={`c-${n}`}>{n === 'nombre' ? f.name : f.phone}</label>
                   <input id={`c-${n}`} name={n} required type={n === 'tel' ? 'tel' : 'text'} autoComplete={n === 'tel' ? 'tel' : 'name'}
                     aria-describedby={`ce-${n}`} aria-invalid={errors[n] ? true : undefined}
                     onBlur={(e) => { if (e.target.value) check(n); }} onInput={() => { if (errors[n]) check(n); }} />
@@ -56,25 +58,25 @@ export function Contact() {
               ))}
             </div>
             <div className="field">
-              <label htmlFor="c-empresa">Empresa <span className="opt">(opcional)</span></label>
+              <label htmlFor="c-empresa">{f.company} <span className="opt">{common.optional}</span></label>
               <input id="c-empresa" name="empresa" autoComplete="organization" />
             </div>
             <div className="field">
-              <label htmlFor="c-msg">Tu obra <span className="opt">(opcional)</span></label>
-              <textarea id="c-msg" name="msg" placeholder="Ubicación, etapa, tipologías, qué terminaciones buscás…" />
+              <label htmlFor="c-msg">{t.project} <span className="opt">{common.optional}</span></label>
+              <textarea id="c-msg" name="msg" placeholder={t.projectPh} />
             </div>
             <div className="f-send">
               <span className="send-wrap">
-                <button className="btn btn-primary" type="submit">Enviar consulta</button>
+                <button className="btn btn-primary" type="submit">{f.send}</button>
                 <span className="end-line" aria-hidden="true" />
               </span>
-              <p className="proto-note">Versión de prueba: el formulario todavía no envía datos.</p>
+              <p className="proto-note">{f.protoNote}</p>
             </div>
           </form>
           <div className="sent" hidden={!sent}>
-            <p className="eyebrow">Consulta enviada</p>
-            <h3 className="h3">Recibimos tu consulta. Te vamos a contactar.</h3>
-            <div><button className="btn btn-ghost" type="button" onClick={() => { formRef.current?.reset(); setSent(false); }}>Enviar otra consulta</button></div>
+            <p className="eyebrow">{f.sentK}</p>
+            <h3 className="h3">{f.sentTitle}</h3>
+            <div><button className="btn btn-ghost" type="button" onClick={() => { formRef.current?.reset(); setSent(false); }}>{f.sendAnother}</button></div>
           </div>
         </div>
       </div>

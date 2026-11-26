@@ -1,6 +1,7 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { CATALOGO, COLOR_HEX, FAMILIAS, RUBROS, ambById, type AmbId, type Familia } from '@/content/catalog';
+import { CATALOGO, COLOR_HEX, FAMILIAS, RUBROS, type AmbId, type Familia } from '@/content/catalog';
+import { useI18n } from '@/i18n/I18nProvider';
 import { floorsLabel } from '@/lib/building';
 import { useSelection } from '@/state/selection';
 import { BuildingSVG } from '@/components/BuildingSVG';
@@ -23,12 +24,17 @@ export function CatalogView() {
   const [ancho, setAncho] = useState('');
   const [limit, setLimit] = useState(PAGE);
   const bldRef = useRef<SVGSVGElement>(null);
+  const { t: { catalog: t, common, building: tb }, cat: ct } = useI18n();
 
-  const categorias = useMemo(() => [...new Set(FAMILIAS.filter((f) => (!filtro.rubro || f.rubro === filtro.rubro) && (!filtro.ambiente || f.ambiente === filtro.ambiente)).map((f) => f.categoria))].sort(), [filtro.rubro, filtro.ambiente]);
+  // Ordenadas por el nombre que se ve (en inglés, por el nombre traducido)
+  const categorias = useMemo(() => [...new Set(FAMILIAS.filter((f) => (!filtro.rubro || f.rubro === filtro.rubro) && (!filtro.ambiente || f.ambiente === filtro.ambiente)).map((f) => f.categoria))].sort((a, b) => ct.categoria(a).localeCompare(ct.categoria(b))), [filtro.rubro, filtro.ambiente, ct]);
 
-  // Coincide por texto o por código; un código de modelo (TB-HN-AL03-60) encuentra su familia (TB-HN-AL03).
-  const matches = (f: (typeof FAMILIAS)[number], q: string) =>
-    !q || norm(`${f.nombre} ${f.subtitulo ?? ''} ${f.codigo} ${f.categoria} ${f.rubro}`).includes(q) || q.startsWith(norm(f.codigo));
+  // Coincide por texto (en español y en el idioma activo) o por código; un código de modelo (TB-HN-AL03-60) encuentra su familia (TB-HN-AL03).
+  const matches = (f: (typeof FAMILIAS)[number], q: string) => {
+    if (!q || q.startsWith(norm(f.codigo))) return true;
+    const tr = ct.fam(f);
+    return norm(`${f.nombre} ${f.subtitulo ?? ''} ${f.codigo} ${f.categoria} ${f.rubro} ${tr.nombre} ${tr.subtitulo ?? ''} ${ct.categoria(f.categoria)} ${ct.rubro(f.rubro)}`).includes(q);
+  };
 
   const results = useMemo(() => {
     const q = norm(query.trim());
@@ -39,7 +45,8 @@ export function CatalogView() {
       (!color || f.colores.includes(color)) &&
       (!ancho || f.muebles.includes(Number(ancho))) &&
       matches(f, q));
-  }, [filtro, color, ancho, query]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [filtro, color, ancho, query, ct]);
 
   // Si la búsqueda no da nada con los filtros puestos, cuántas hay en todo el catálogo
   const enTodo = useMemo(() => {
@@ -86,10 +93,10 @@ export function CatalogView() {
   return (
     <section className="catalog" id="catalogo" data-tone="light">
       <div className="wrap cat-head">
-        <p className="eyebrow">Catálogo</p>
-        <h1 className="h2">Armá tu obra.</h1>
-        <p className="lead">Elegí cada terminación, configurala hasta el modelo exacto y sumala a tu cotización. Tocá el edificio o usá los filtros.</p>
-        {CATALOGO.prueba && <p className="b-note">Datos de prueba: el catálogo todavía no está confirmado. Actualizado el {CATALOGO.generado.split('-').reverse().join('/')}.</p>}
+        <p className="eyebrow">{t.eyebrow}</p>
+        <h1 className="h2">{t.title}</h1>
+        <p className="lead">{t.lead}</p>
+        {CATALOGO.prueba && <p className="b-note">{t.testData(CATALOGO.generado.split('-').reverse().join('/'))}</p>}
       </div>
 
       <div className="wrap cat-grid">
@@ -98,56 +105,56 @@ export function CatalogView() {
             <BuildingSVG ref={bldRef} cat={activeAmb} className="up" />
           </div>
           <p className="b-ind" aria-live="polite">
-            {activeAmb ? <><b>{ambById[activeAmb].nombre}</b> · {floorsLabel(activeAmb)}</> : 'Corte · tocá un ambiente o un elemento'}
+            {activeAmb ? <><b>{ct.amb(activeAmb).nombre}</b> · {floorsLabel(activeAmb, tb, common.and)}</> : t.stageHint}
           </p>
         </div>
 
         <div className="cat-main" id="cat-results">
           <div className="cat-tools">
-            <div className="cat-chips" role="group" aria-label="Filtrar por rubro">
+            <div className="cat-chips" role="group" aria-label={t.byTrade}>
               <button type="button" className="cat-chip" aria-pressed={!filtro.rubro} onClick={() => setFiltro({ ambiente: filtro.ambiente })}>
-                Todos<small>{countBy((f) => !filtro.ambiente || f.ambiente === filtro.ambiente)}</small>
+                {t.all}<small>{countBy((f) => !filtro.ambiente || f.ambiente === filtro.ambiente)}</small>
               </button>
               {RUBROS.map((r) => (
                 <button key={r} type="button" className="cat-chip" aria-pressed={filtro.rubro === r} onClick={() => setFiltro({ ambiente: filtro.ambiente, rubro: r })}>
-                  {r}<small>{countBy((f) => f.rubro === r && (!filtro.ambiente || f.ambiente === filtro.ambiente))}</small>
+                  {ct.rubro(r)}<small>{countBy((f) => f.rubro === r && (!filtro.ambiente || f.ambiente === filtro.ambiente))}</small>
                 </button>
               ))}
             </div>
             <div className="cat-row">
               <label className="cat-sel">
-                <span>Categoría</span>
+                <span>{t.category}</span>
                 <select value={filtro.categoria ?? ''} onChange={(e) => setFiltro({ ...filtro, categoria: e.target.value || undefined })}>
-                  <option value="">Todas</option>
-                  {categorias.map((c) => <option key={c} value={c}>{c}</option>)}
+                  <option value="">{t.allF}</option>
+                  {categorias.map((c) => <option key={c} value={c}>{ct.categoria(c)}</option>)}
                 </select>
               </label>
               <label className="cat-sel">
-                <span>Ancho de mueble</span>
+                <span>{t.width}</span>
                 <select value={ancho} onChange={(e) => setAncho(e.target.value)}>
-                  <option value="">Todos</option>
+                  <option value="">{t.all}</option>
                   {ALL_WIDTHS.map((w) => <option key={w} value={w}>{w} mm</option>)}
                 </select>
               </label>
               <label className="cat-search">
-                <span>Buscar</span>
-                <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder="Nombre o código TB" />
+                <span>{t.search}</span>
+                <input type="search" value={query} onChange={(e) => setQuery(e.target.value)} placeholder={t.searchPh} />
               </label>
             </div>
-            <div className="cat-colors" role="group" aria-label="Filtrar por color">
+            <div className="cat-colors" role="group" aria-label={t.byColor}>
               {ALL_COLORS.map((c) => (
-                <button key={c} type="button" className="cat-color" aria-pressed={color === c} title={c} aria-label={c} onClick={() => setColor(color === c ? '' : c)}>
+                <button key={c} type="button" className="cat-color" aria-pressed={color === c} title={ct.color(c)} aria-label={ct.color(c)} onClick={() => setColor(color === c ? '' : c)}>
                   <span style={{ background: COLOR_HEX[c] }} />
                 </button>
               ))}
-              {color && <span className="cat-color-name">{color}</span>}
+              {color && <span className="cat-color-name">{ct.color(color)}</span>}
             </div>
           </div>
 
           <div className="cat-meta">
-            <span>{results.length} {results.length === 1 ? 'familia' : 'familias'} · {results.reduce((n, f) => n + f.modelos, 0)} modelos · Precio a cotizar</span>
-            {filtro.ambiente && <button type="button" className="cat-pill" onClick={() => setFiltro({ ...filtro, ambiente: undefined })}>{ambById[filtro.ambiente].nombre} ×</button>}
-            {anyFilter && <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); setQuery(''); }}>Limpiar filtros</button>}
+            <span>{common.families(results.length)} · {common.models(results.reduce((n, f) => n + f.modelos, 0))} · {common.priceOnRequest}</span>
+            {filtro.ambiente && <button type="button" className="cat-pill" onClick={() => setFiltro({ ...filtro, ambiente: undefined })}>{ct.amb(filtro.ambiente).nombre} ×</button>}
+            {anyFilter && <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); setQuery(''); }}>{t.clear}</button>}
           </div>
 
           {results.length ? (
@@ -155,39 +162,40 @@ export function CatalogView() {
               <ul className="cat-cards">
                 {results.slice(0, limit).map((f) => {
                   const k = inSel(f.codigo);
+                  const tr = ct.fam(f);
                   return (
                     <li key={f.codigo}>
                       <button type="button" className={`pcard${k ? ' in' : ''}`} onClick={() => openConfigurator(f.codigo)}
                         onMouseEnter={() => highlight(f)} onMouseLeave={() => highlight(null)} onFocus={() => highlight(f)} onBlur={() => highlight(null)}>
                         <ModelPreview className="pcard-pv" familia={f} color={color || undefined} />
-                        <span className="pcard-k">{f.categoria}</span>
-                        <span className="pcard-nm">{f.nombre}</span>
-                        {f.subtitulo && <span className="pcard-sub">{f.subtitulo}</span>}
-                        <span className="pcard-cd">{f.codigo} · {f.modelos} {f.modelos === 1 ? 'modelo' : 'modelos'}{f.colores.length ? ` · ${f.colores.length} ${f.colores.length === 1 ? 'color' : 'colores'}` : ''}</span>
+                        <span className="pcard-k">{ct.categoria(f.categoria)}</span>
+                        <span className="pcard-nm">{tr.nombre}</span>
+                        {tr.subtitulo && <span className="pcard-sub">{tr.subtitulo}</span>}
+                        <span className="pcard-cd">{f.codigo} · {common.models(f.modelos)}{f.colores.length ? ` · ${common.colors(f.colores.length)}` : ''}</span>
                         {f.colores.length > 0 && (
                           <span className="pcard-sw" aria-hidden="true">{f.colores.slice(0, 6).map((c) => <i key={c} style={{ background: COLOR_HEX[c] ?? '#ccc' }} />)}</span>
                         )}
-                        <span className="pcard-st">{k ? `✓ ${k} en tu cotización · Agregar otro` : 'Configurar y agregar'}</span>
+                        <span className="pcard-st">{k ? t.inQuote(k) : t.configure}</span>
                       </button>
                     </li>
                   );
                 })}
               </ul>
               {results.length > limit && (
-                <div className="cat-more"><button type="button" className="btn btn-ghost" onClick={() => setLimit((l) => l + PAGE)}>Ver más ({results.length - limit})</button></div>
+                <div className="cat-more"><button type="button" className="btn btn-ghost" onClick={() => setLimit((l) => l + PAGE)}>{t.more(results.length - limit)}</button></div>
               )}
             </>
           ) : (
             <div className="cat-empty">
               {enTodo > 0 ? (
                 <>
-                  <p>“{query.trim()}” no está en los filtros elegidos, pero hay {enTodo} {enTodo === 1 ? 'familia' : 'familias'} en todo el catálogo.</p>
-                  <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); }}>Buscar en todo el catálogo</button>
+                  <p>{t.notInFilters(query.trim(), enTodo)}</p>
+                  <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); }}>{t.searchAll}</button>
                 </>
               ) : (
                 <>
-                  <p>No encontramos familias con esos filtros.</p>
-                  <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); setQuery(''); }}>Ver todo el catálogo</button>
+                  <p>{t.none}</p>
+                  <button type="button" className="tbtn" onClick={() => { setFiltro({}); setColor(''); setAncho(''); setQuery(''); }}>{t.seeAll}</button>
                 </>
               )}
             </div>

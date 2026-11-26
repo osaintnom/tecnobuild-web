@@ -3,6 +3,23 @@
 // el catálogo. Los rótulos (.lbl) y las llaves por ambiente (.brk) se encienden con el ambiente activo.
 import { AMBIENTES, type AmbId } from '@/content/catalog';
 
+/** Textos del corte en el idioma activo (los arma BuildingSVG desde el diccionario). */
+export interface BuildingText {
+  ground: string; floor: (n: number) => string; roof: string; decimal: string;
+  /** Rótulo de una categoría del catálogo (recibe el nombre del maestro, en español). */
+  label: (catg: string) => string;
+  /** Rótulo corto de una categoría, para el corte. */
+  short: (catg: string) => string;
+  /** Nombre corto del ambiente para las llaves laterales. */
+  amb: (id: AmbId) => string;
+}
+
+/** Textos en español: el corte por defecto. */
+export const BUILDING_ES: BuildingText = {
+  ground: 'PB', floor: (n) => `P${n}`, roof: 'AZ', decimal: ',',
+  label: (c) => c, short: (c) => CORTO[c] ?? c, amb: (id) => AMBIENTES.find((a) => a.id === id)!.corto,
+};
+
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]!);
 const R = (x: number, y: number, w: number, h: number) => `M${x} ${y}h${w}v${h}h${-w}Z`;
 const L = (a: number, b: number, c: number, d: number) => `M${a} ${b}L${c} ${d}`;
@@ -12,7 +29,7 @@ const G = (ds: string[], cls: string) => `<g class="${cls}">${ds.map((d) => P(d)
 
 const W0 = 52, W1 = 568, IN0 = 60, IN1 = 560;
 const level = (n: number) => (n === 0 ? { fl: 930, ce: 828 } : { fl: 820 - 92 * (n - 1), ce: 820 - 92 * (n - 1) - 84 });
-export const floorName = (n: number) => (n === 0 ? 'PB' : `P${n}`);
+const floorName = (n: number, tx: Pick<BuildingText, 'ground' | 'floor'>) => (n === 0 ? tx.ground : tx.floor(n));
 
 /** Qué ambiente ocupa cada nivel (0 = planta baja), de abajo hacia arriba. */
 export const FLOORS: { nivel: number; amb: AmbId }[] = [
@@ -22,7 +39,7 @@ export const FLOORS: { nivel: number; amb: AmbId }[] = [
   { nivel: 7, amb: 'vestidor' },
 ];
 
-/** Nombre corto para el rótulo del corte. */
+/** Nombre corto para el rótulo del corte (en inglés: CORTO_EN en src/i18n/catalog-en.ts). */
 const CORTO: Record<string, string> = {
   'Herrajes de puertas de vidrio y corredizas': 'Puertas de vidrio', 'Fachadas y aleros de vidrio': 'Aleros de vidrio',
   'Pasamanos y accesorios': 'Pasamanos', 'Madera y materia prima': 'Deck de madera', 'Rellenos y barandas de aluminio': 'Barandas de aluminio',
@@ -34,17 +51,17 @@ type Part = [string, string?]; // [d, clase: 'f' tapa lo de atrás, 'g' vidrio]
 interface Spot { catg: string; parts: Part[]; hit: number[]; label?: [number, number] }
 
 const labeled = new Set<string>();
-function spot(amb: AmbId, s: Spot) {
+function spot(amb: AmbId, s: Spot, tx: BuildingText) {
   const body = s.parts.map(([d, c]) => P(d, c)).join('');
-  const g = `<g class="hs c-${amb}" data-catg="${esc(s.catg)}"><title>${esc(s.catg)}</title>${body}${P(R(s.hit[0], s.hit[1], s.hit[2], s.hit[3]), 'hit')}</g>`;
+  const g = `<g class="hs c-${amb}" data-catg="${esc(s.catg)}"><title>${esc(tx.label(s.catg))}</title>${body}${P(R(s.hit[0], s.hit[1], s.hit[2], s.hit[3]), 'hit')}</g>`;
   // Cada categoría lleva rótulo una sola vez (la primera vez que aparece)
   let lbl = '';
   if (s.label && !labeled.has(s.catg)) {
     labeled.add(s.catg);
     // Línea guía punteada del rótulo al borde superior del elemento
-    const [lx, ly] = s.label, tx = s.hit[0] + s.hit[2] / 2, ty = s.hit[1];
-    const lead = ty > ly + 6 ? `<path class="lead" d="M${lx + 2} ${ly + 4}L${tx} ${ty}"/>` : '';
-    lbl = `<g class="lbl" data-cat="${amb}" data-catg="${esc(s.catg)}">${lead}<text class="cn" x="${lx}" y="${ly}">${esc(CORTO[s.catg] ?? s.catg)}</text></g>`;
+    const [lx, ly] = s.label, gx = s.hit[0] + s.hit[2] / 2, gy = s.hit[1];
+    const lead = gy > ly + 6 ? `<path class="lead" d="M${lx + 2} ${ly + 4}L${gx} ${gy}"/>` : '';
+    lbl = `<g class="lbl" data-cat="${amb}" data-catg="${esc(s.catg)}">${lead}<text class="cn" x="${lx}" y="${ly}">${esc(tx.short(s.catg))}</text></g>`;
   }
   return { g, lbl };
 }
@@ -128,7 +145,7 @@ function floorSpots(n: number, fl: number, ce: number): { ctx: string[]; spots: 
 }
 
 /** Contenido interno del <svg class="bld">: defs, cotas, pisos, rótulos y llaves por ambiente. */
-export function buildingInner(): string {
+export function buildingInner(tx: BuildingText = BUILDING_ES): string {
   labeled.clear();
   let floors = '', labels = '', cotas = '';
   const cota = (y: number, t: string) => `<path d="${L(40, y, 50, y)}"/><text x="36" y="${y + 3.5}" text-anchor="end">${t}</text>`;
@@ -139,18 +156,18 @@ export function buildingInner(): string {
       ? `<path class="wall" d="${R(W0, ce, 8, fl - ce)}"/><path class="wall" d="${R(W1 - 8, ce, 8, 20)}"/><path class="wall" d="${R(W1 - 8, ce + 86, 8, 16)}"/>` + G([L(W1 - 4, ce + 20, W1 - 4, ce + 86)], 'glass')
       : `<path class="wall" d="${R(W0, ce, 8, 84)}"/><path class="wall" d="${R(W1 - 8, ce, 8, 14)}"/><path class="wall" d="${R(W1 - 8, ce + 64, 8, 20)}"/>` + G([L(W1 - 4, ce + 14, W1 - 4, ce + 64), L(W1 - 7, ce + 39, W1 - 1, ce + 39)], 'glass');
     const { ctx, spots } = floorSpots(nivel, fl, ce);
-    const drawn = spots.map((s) => spot(amb, s));
+    const drawn = spots.map((s) => spot(amb, s, tx));
     floors += `<g class="fl" style="--i:${nivel}"><path class="slab" d="${R(W0, fl, W1 - W0, 8)}"/>${walls}` +
       `<g class="room" data-cat="${amb}">${G([L(IN0, ce, IN0, fl), L(IN1, ce, IN1, fl), ...ctx], 'ctx')}${drawn.map((d) => d.g).join('')}</g>` +
-      `<text class="lv" x="36" y="${(ce + fl) / 2 + 4}" text-anchor="end">${floorName(nivel)}</text></g>`;
+      `<text class="lv" x="36" y="${(ce + fl) / 2 + 4}" text-anchor="end">${floorName(nivel, tx)}</text></g>`;
     labels += drawn.map((d) => d.lbl).join('');
-    cotas += cota(fl, nivel === 0 ? '±0,00' : '+' + (3.4 + 2.9 * (nivel - 1)).toFixed(2).replace('.', ','));
+    cotas += cota(fl, nivel === 0 ? `±0${tx.decimal}00` : '+' + (3.4 + 2.9 * (nivel - 1)).toFixed(2).replace('.', tx.decimal));
   });
 
   floors += `<g class="fl" style="--i:8"><path class="slab" d="${R(W0, 176, W1 - W0, 8)}"/><path class="wall" d="${R(W0, 158, 8, 18)}"/><path class="wall" d="${R(W1 - 8, 158, 8, 18)}"/>` +
     G([R(404, 122, 96, 38), L(404, 134, 500, 134), L(414, 160, 414, 176), L(490, 160, 490, 176), R(176, 140, 60, 36), L(60, 166, 140, 166), L(80, 158, 80, 176), L(100, 158, 100, 176), L(120, 158, 120, 176)], 'ctx') +
-    `<text class="lv" x="36" y="168" text-anchor="end">AZ</text></g>`;
-  cotas += cota(176, '+23,70');
+    `<text class="lv" x="36" y="168" text-anchor="end">${tx.roof}</text></g>`;
+  cotas += cota(176, `+23${tx.decimal}70`);
 
   // Llaves laterales: qué pisos ocupa cada ambiente
   let brackets = '';
@@ -158,9 +175,9 @@ export function buildingInner(): string {
     const ns = FLOORS.filter((f) => f.amb === a.id).map((f) => f.nivel);
     if (!ns.length) return;
     const top = level(Math.max(...ns)).ce + 4, bot = level(Math.min(...ns)).fl - 4, mid = (top + bot) / 2;
-    const span = ns.length > 1 ? `${floorName(Math.min(...ns))}–${floorName(Math.max(...ns))}` : floorName(ns[0]);
+    const span = ns.length > 1 ? `${floorName(Math.min(...ns), tx)}–${floorName(Math.max(...ns), tx)}` : floorName(ns[0], tx);
     brackets += `<g class="brk" data-cat="${a.id}"><path d="M644 ${top}h8V${bot}h-8"/><path d="M652 ${mid}h8"/>` +
-      `<text class="bk" x="666" y="${mid - 2}">${esc(a.corto.toUpperCase())}</text><text x="666" y="${mid + 12}">${span}</text></g>`;
+      `<text class="bk" x="666" y="${mid - 2}">${esc(tx.amb(a.id).toUpperCase())}</text><text x="666" y="${mid + 12}">${span}</text></g>`;
   });
 
   let hatch = '';
@@ -174,7 +191,8 @@ export function buildingInner(): string {
   return `${defs}${hatch}${piles}<path class="ground" d="${L(-20, 938, 700, 938)}"/><g class="cota">${cotas}</g>${floors}${brackets}${labels}`;
 }
 
-export function floorsLabel(amb: AmbId): string {
-  const ns = FLOORS.filter((f) => f.amb === amb).map((f) => floorName(f.nivel));
-  return ns.length > 1 ? `${ns.slice(0, -1).join(', ')} y ${ns[ns.length - 1]}` : ns[0] ?? '';
+/** Pisos de un ambiente, por ejemplo "P2, P3 y P4". */
+export function floorsLabel(amb: AmbId, tx: Pick<BuildingText, 'ground' | 'floor'> = BUILDING_ES, and = 'y'): string {
+  const ns = FLOORS.filter((f) => f.amb === amb).map((f) => floorName(f.nivel, tx));
+  return ns.length > 1 ? `${ns.slice(0, -1).join(', ')} ${and} ${ns[ns.length - 1]}` : ns[0] ?? '';
 }

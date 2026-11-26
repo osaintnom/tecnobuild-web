@@ -2,6 +2,7 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { AMBIENTES, type AmbId } from '@/content/catalog';
+import { useI18n } from '@/i18n/I18nProvider';
 import { floorsLabel } from '@/lib/building';
 import { BuildingSVG } from '@/components/BuildingSVG';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN } from '@/lib/motion';
@@ -15,6 +16,7 @@ export function BuildingShowcase() {
   const ref = useRef<HTMLElement>(null);
   const bldRef = useRef<SVGSVGElement>(null);
   const [cat, setCat] = useState<AmbId | undefined>();
+  const { t: { showcase: t, common, building: tb }, href, cat: ct } = useI18n();
 
   useGSAP(() => {
     const floors = [...bldRef.current!.querySelectorAll<SVGGElement>('.fl')];
@@ -42,23 +44,23 @@ export function BuildingShowcase() {
     <section className="pin showcase" id="edificio" data-tone="light" data-ch="edificio" style={{ '--pin-h': '200vh' } as React.CSSProperties} ref={ref}>
       <div className="pin-stick">
         <div className="wrap sc-grid">
-          <Link className="sc-stage" href="/catalogo/" aria-label="Abrir el catálogo para armar tu obra">
+          <Link className="sc-stage" href={href('catalog')} aria-label={t.stageAria}>
             <BuildingSVG ref={bldRef} className="up" />
           </Link>
           <div className="sc-text">
-            <p className="eyebrow">Armá tu obra</p>
-            <h2 className="h2">Tu edificio, piso por piso.</h2>
-            <p className="lead">En el catálogo elegís cada terminación sobre el corte del edificio, la configurás y la sumás a tu cotización.</p>
+            <p className="eyebrow">{t.eyebrow}</p>
+            <h2 className="h2">{t.title}</h2>
+            <p className="lead">{t.lead}</p>
             <ul className="sc-cats">
               {AMBIENTES.map((c) => (
                 <li key={c.id} className={cat === c.id ? 'on' : undefined}>
-                  <span>{c.nombre}</span><small>{floorsLabel(c.id)}</small>
+                  <span>{ct.amb(c.id).nombre}</span><small>{floorsLabel(c.id, tb, common.and)}</small>
                 </li>
               ))}
             </ul>
             <div className="sc-cta">
-              <Link className="btn btn-primary" href="/catalogo/">Armá tu cotización</Link>
-              <span className="price">Precio a cotizar</span>
+              <Link className="btn btn-primary" href={href('catalog')}>{t.cta}</Link>
+              <span className="price">{common.priceOnRequest}</span>
             </div>
           </div>
         </div>

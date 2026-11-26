@@ -4,10 +4,12 @@ import { ScrollTrigger, useGSAP, gsap, MQ_ANIM } from '@/lib/motion';
 import Link from 'next/link';
 import { HeroBackground } from '@/components/HeroBackground';
 import { EtgLink } from '@/components/EtgLink';
+import { useI18n } from '@/i18n/I18nProvider';
 
 export function Hero() {
   const ref = useRef<HTMLElement>(null);
   const line = useRef<HTMLDivElement>(null);
+  const { t, href } = useI18n();
 
   // La línea naranja se estira hacia la derecha hasta salir de pantalla al bajar.
   useGSAP(() => {
@@ -33,17 +35,16 @@ export function Hero() {
       <HeroBackground />
       <div className="wrap">
         <h1 className="hero-title">
-          <span className="ln"><span>Construimos</span></span>
-          <span className="ln"><span>con el mundo.</span></span>
+          {t.hero.title.map((l) => <span className="ln" key={l}><span>{l}</span></span>)}
         </h1>
         <div className="hero-line" ref={line} aria-hidden="true" />
-        <p className="hero-kicker" id="heroKicker">Importación de terminaciones de obra:</p>
+        <p className="hero-kicker" id="heroKicker">{t.hero.kicker}</p>
         <ul className="hero-cats" aria-labelledby="heroKicker">
-          <li>Pisos y revestimientos</li><li>Puertas</li><li>Cocinas</li><li>Baños</li><li className="more">+ Más</li>
+          {t.hero.cats.map((c) => <li key={c}>{c}</li>)}<li className="more">{t.hero.more}</li>
         </ul>
         <div className="hero-cta">
-          <Link className="btn btn-primary" href="/catalogo/">Armá tu obra</Link>
-          <a className="btn btn-ghost" href="#contacto">Contactanos</a>
+          <Link className="btn btn-primary" href={href('catalog')}>{t.common.buildYourProject}</Link>
+          <a className="btn btn-ghost" href="#contacto">{t.common.contactUs}</a>
         </div>
         <p className="hero-sign">TECNO.BUILD by <EtgLink /> &nbsp;·&nbsp; Hong Kong &nbsp;·&nbsp; Shenzhen &nbsp;·&nbsp; Buenos Aires</p>
       </div>

@@ -1,30 +1,19 @@
-import { EtgLink } from '@/components/EtgLink';
+'use client';
+import { useI18n } from '@/i18n/I18nProvider';
+import { OFFICES } from '@/content/site';
 
-/** Quiénes somos: qué hacemos, quién nos respalda y dónde estamos. */
-const PILLARS = [
-  { k: 'Origen', title: 'Elegimos las fábricas', body: 'Desde Hong Kong buscamos fábricas y en Shenzhen las visitamos. Probamos muestras antes de comprar en volumen.' },
-  { k: 'Importación', title: 'Traemos el material', body: 'Compramos en origen y el material viaja directo de la fábrica a la Argentina. Nos ocupamos de la importación y de los trámites.' },
-  { k: 'Obra', title: 'Lo instalamos', body: 'Entregamos en tu obra y nos hacemos cargo de la instalación en el AMBA. Un solo responsable de punta a punta.' },
-];
-
-const PLACES = [
-  { city: 'Hong Kong', role: 'Búsqueda de fábricas', coord: '22.32°N 114.17°E' },
-  { city: 'Shenzhen', role: 'Zona de fábricas', coord: '22.54°N 114.06°E' },
-  { city: 'Miami', role: 'Administración', coord: '25.76°N 80.19°W' },
-  { city: 'Buenos Aires', role: 'Venta e instalación · AMBA', coord: '34.60°S 58.38°W' },
-];
-
+/** Quiénes somos: qué hacemos, quién nos respalda y dónde estamos. Textos en el diccionario (about). */
 export function About() {
+  const { t: { about: t, offices } } = useI18n();
+  const PILLARS = t.pillars;
+  const PLACES = OFFICES.map((o, i) => ({ ...o, ...offices[i] }));
   return (
     <section className="about tone-dark" id="quienes" data-tone="dark" data-ch="quienes">
       <div className="wrap">
         <div className="ab-head">
-          <p className="eyebrow">Quiénes somos</p>
-          <h2 className="h2 rv">Importamos las terminaciones de tu obra.</h2>
-          <p className="lead">
-            TECNO.BUILD es parte de <EtgLink />, un grupo que importa hace más de diez años.
-            Trabajamos con desarrolladoras y constructoras: pisos y revestimientos, puertas, cocinas, baños y más.
-          </p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2 className="h2 rv">{t.title}</h2>
+          <p className="lead">{t.lead}</p>
         </div>
 
         <ol className="ab-pillars">
@@ -37,7 +26,7 @@ export function About() {
           ))}
         </ol>
 
-        <ul className="ab-places" aria-label="Dónde estamos">
+        <ul className="ab-places" aria-label={t.placesAria}>
           {PLACES.map((p) => (
             <li key={p.city}>
               <span className="ab-city">{p.city}</span>

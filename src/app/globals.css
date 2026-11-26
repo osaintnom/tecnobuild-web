@@ -76,6 +76,7 @@ button{font:inherit;color:inherit}
 .hdr-drawer a[aria-current="page"]{color:var(--naranja)}
 .hdr-drawer ul{list-style:none;margin:0 0 4px;padding:0 0 0 14px;border-left:2px solid var(--naranja)}
 .hdr-drawer ul a{min-height:40px;font:500 .78rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.8}
+.hdr-drawer a.drawer-lang{font:500 .78rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.75;border-top:1px solid rgba(173,173,168,.2);margin-top:6px}
 @media (max-width:900px){.hdr-menu{display:block}}
 @media (min-width:901px){.hdr-drawer{display:none}}
 .hdr-in{height:var(--hdr);display:flex;align-items:center;gap:28px}
@@ -87,7 +88,7 @@ button{font:inherit;color:inherit}
 .hdr-nav a:hover{opacity:1}
 .hdr-nav a[aria-current="page"]{opacity:1;border-bottom:2px solid var(--naranja)}
 .hdr-actions{margin-left:auto;display:flex;align-items:center;gap:10px}
-.lang{background:none;border:0;cursor:pointer;font:500 .75rem/1 var(--mono);letter-spacing:.08em;opacity:.75;padding:10px 6px}
+.lang{background:none;border:0;cursor:pointer;color:inherit;text-decoration:none;font:500 .75rem/1 var(--mono);letter-spacing:.08em;opacity:.75;padding:10px 6px}
 .lang:hover{opacity:1}
 .sel-btn{display:inline-flex;align-items:center;gap:8px;height:38px;padding:0 .8rem;background:transparent;border:1px solid rgba(173,173,168,.45);border-radius:2px;cursor:pointer;font-size:.85rem}
 .sel-btn:hover{border-color:var(--naranja)}

@@ -48,13 +48,14 @@ export function SelectionProvider({ children }: { children: ReactNode }) {
   const [toast, setToast] = useState<string | null>(null);
   const [pulseKey, setPulseKey] = useState(0);
   const toastTimer = useRef<ReturnType<typeof setTimeout>>(undefined);
-  const loaded = useRef(false);
+  const [ready, setReady] = useState(false);
 
-  useEffect(() => { setSelection(load()); loaded.current = true; }, []);
+  // Primero se lee lo guardado y recién después se guarda: así nunca se pisa la selección con una vacía.
+  useEffect(() => { setSelection(load()); setReady(true); }, []);
   useEffect(() => {
-    if (!loaded.current) return;
+    if (!ready) return;
     try { localStorage.setItem(STORE, JSON.stringify([...selection.values()])); } catch { /* sin almacenamiento: queda en memoria */ }
-  }, [selection]);
+  }, [selection, ready]);
 
   const upsert = useCallback((item: SelItem) => setSelection((s) => new Map(s).set(item.codigo, item)), []);
   const remove = useCallback((id: string) => setSelection((s) => { const n = new Map(s); n.delete(id); return n; }), []);

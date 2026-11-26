@@ -1,20 +1,18 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-import { AMBIENTES, ambById, type AmbId } from '@/content/catalog';
+import { AMBIENTES, type AmbId } from '@/content/catalog';
+import { useI18n } from '@/i18n/I18nProvider';
 import { CONTACT } from '@/content/site';
 import { useSelection } from '@/state/selection';
 import { SelectionList } from '@/components/SelectionList';
 
-const RULES = {
-  nombre: 'Escribí tu nombre.',
-  tel: 'Dejanos un teléfono o WhatsApp para contactarte.',
-  ubic: 'Indicá dónde está la obra.',
-} as const;
-type Required = keyof typeof RULES;
+type Required = 'nombre' | 'tel' | 'ubic';
 
 /** Pedí tu cotización: formulario con la selección precargada. Todavía no envía datos (falta backend). */
 export function Quote() {
   const { selection, showToast } = useSelection();
+  const { t: { quote: t, forms: f, common }, cat: ct } = useI18n();
+  const RULES: Record<Required, string> = { nombre: f.errName, tel: f.errPhone, ubic: f.errLocation };
   const [cats, setCats] = useState<Set<AmbId>>(new Set());
   const [errors, setErrors] = useState<Partial<Record<Required, string>>>({});
   const [sent, setSent] = useState<string | null>(null);
@@ -46,10 +44,10 @@ export function Quote() {
     const n = selection.size;
     const parts = [
       `${valueOf('nombre')}${valueOf('empresa') ? ', ' + valueOf('empresa') : ''}`,
-      `Obra en ${valueOf('ubic')}`,
+      t.sumSite(valueOf('ubic')),
       valueOf('tam'),
-      [...cats].map((c) => ambById[c].nombre).join(', '),
-      n ? `${n} ${n === 1 ? 'modelo' : 'modelos'}: ${[...selection.keys()].join(', ')}` : 'Sin modelos elegidos',
+      [...cats].map((c) => ct.amb(c).nombre).join(', '),
+      n ? t.sumModels(n, [...selection.keys()].join(', ')) : t.sumNoModels,
     ].filter(Boolean);
     setSent(parts.join(' · ') + '.');
   }
@@ -63,8 +61,8 @@ export function Quote() {
   }
 
   async function copyMail() {
-    try { await navigator.clipboard.writeText(CONTACT.email); showToast('Mail copiado.'); }
-    catch { showToast(`Copiá el mail: ${CONTACT.email}`); }
+    try { await navigator.clipboard.writeText(CONTACT.email); showToast(f.mailCopied); }
+    catch { showToast(f.copyMailFallback(CONTACT.email)); }
   }
 
   const field = (name: Required, label: string, props: React.InputHTMLAttributes<HTMLInputElement> = {}) => (
@@ -82,69 +80,69 @@ export function Quote() {
     <section className="quote tone-dark" id="cotizar" data-tone="dark" data-ch="cotizar">
       <div className="wrap q-grid">
         <div className="q-side">
-          <p className="eyebrow">Cotización</p>
-          <h2 className="h2 rv">Pedí tu cotización.</h2>
-          <p className="lead">Con estos datos te preparamos una cotización de producto e instalación.</p>
+          <p className="eyebrow">{t.eyebrow}</p>
+          <h2 className="h2 rv">{t.title}</h2>
+          <p className="lead">{t.lead}</p>
           <div className="q-sel">
-            <h3>Tu selección</h3>
+            <h3>{common.yourSelection}</h3>
             {selection.size ? <SelectionList /> : (
-              <p className="q-empty">Todavía no elegiste modelos. Podés cotizar igual o <a className="link" href="#catalogo">elegir modelos en el catálogo</a>.</p>
+              <p className="q-empty">{t.empty}</p>
             )}
           </div>
           <div className="q-alt">
-            <span>¿Preferís escribirnos?</span>
-            <div className="row"><span className="val">{CONTACT.email}</span><button className="copy" type="button" onClick={copyMail}>Copiar mail</button></div>
-            <div className="row"><span>WhatsApp:</span><span className="val">{CONTACT.whatsapp ?? 'número a confirmar'}</span></div>
+            <span>{f.preferWrite}</span>
+            <div className="row"><span className="val">{CONTACT.email}</span><button className="copy" type="button" onClick={copyMail}>{f.copyMail}</button></div>
+            <div className="row"><span>{f.whatsapp}</span><span className="val">{CONTACT.whatsapp ?? f.whatsappPending}</span></div>
           </div>
         </div>
 
         <div>
           <form className="form" ref={formRef} noValidate onSubmit={onSubmit} hidden={!!sent}>
             <div className="f-row">
-              {field('nombre', 'Nombre', { autoComplete: 'name' })}
+              {field('nombre', f.name, { autoComplete: 'name' })}
               <div className="field">
-                <label htmlFor="q-empresa">Empresa <span className="opt">(opcional)</span></label>
+                <label htmlFor="q-empresa">{f.company} <span className="opt">{common.optional}</span></label>
                 <input id="q-empresa" name="empresa" autoComplete="organization" />
               </div>
             </div>
             <div className="f-row">
-              {field('tel', 'Teléfono o WhatsApp', { type: 'tel', inputMode: 'tel', autoComplete: 'tel', placeholder: 'Ej.: 11 5555 0000' })}
-              {field('ubic', 'Ubicación de la obra', { placeholder: 'Ej.: Palermo, CABA' })}
+              {field('tel', f.phone, { type: 'tel', inputMode: 'tel', autoComplete: 'tel', placeholder: t.phonePh })}
+              {field('ubic', t.location, { placeholder: t.locationPh })}
             </div>
             <div className="field">
-              <label htmlFor="q-tam">Tamaño aproximado <span className="opt">(unidades o m²)</span></label>
-              <input id="q-tam" name="tam" placeholder="Ej.: 24 unidades o 1.800 m²" />
+              <label htmlFor="q-tam">{t.size} <span className="opt">{t.sizeHint}</span></label>
+              <input id="q-tam" name="tam" placeholder={t.sizePh} />
             </div>
             <fieldset className="field">
-              <legend>Ambientes que te interesan</legend>
+              <legend>{t.rooms}</legend>
               <div className="chips">
                 {AMBIENTES.map((c) => (
                   <label className="chip" key={c.id}>
                     <input type="checkbox" name="cats" value={c.id} checked={cats.has(c.id)}
                       onChange={(e) => setCats((s) => { const n = new Set(s); if (e.target.checked) n.add(c.id); else n.delete(c.id); return n; })} />
-                    <span>{c.nombre}</span>
+                    <span>{ct.amb(c.id).nombre}</span>
                   </label>
                 ))}
               </div>
             </fieldset>
             <div className="field">
-              <label htmlFor="q-msg">Algo más que quieras contarnos <span className="opt">(opcional)</span></label>
-              <textarea id="q-msg" name="msg" placeholder="Etapa de la obra, fechas, tipologías…" />
+              <label htmlFor="q-msg">{t.msg} <span className="opt">{common.optional}</span></label>
+              <textarea id="q-msg" name="msg" placeholder={t.msgPh} />
             </div>
             <div className="f-send">
               <span className="send-wrap">
-                <button className="btn btn-primary" type="submit">Enviar consulta</button>
+                <button className="btn btn-primary" type="submit">{f.send}</button>
                 <span className="end-line" aria-hidden="true" />
               </span>
-              <p className="proto-note">Versión de prueba: el formulario todavía no envía datos.</p>
+              <p className="proto-note">{f.protoNote}</p>
             </div>
           </form>
 
           <div className="sent" ref={sentRef} hidden={!sent} tabIndex={-1}>
-            <p className="eyebrow">Consulta enviada</p>
-            <h3 className="h3">Recibimos tu consulta. Te vamos a contactar.</h3>
+            <p className="eyebrow">{f.sentK}</p>
+            <h3 className="h3">{f.sentTitle}</h3>
             <p>{sent}</p>
-            <div><button className="btn btn-ghost" type="button" onClick={again}>Enviar otra consulta</button></div>
+            <div><button className="btn btn-ghost" type="button" onClick={again}>{f.sendAnother}</button></div>
           </div>
         </div>
       </div>

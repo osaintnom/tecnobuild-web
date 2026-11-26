@@ -2,9 +2,9 @@
 import { useRef, useState } from 'react';
 import Link from 'next/link';
 import { ScrollTrigger, useGSAP, gsap, MQ_PIN, clamp, easeInOut } from '@/lib/motion';
+import { useI18n } from '@/i18n/I18nProvider';
 
-// Una línea por categoría, más una por "todo lo demás": todas convergen en TECNO.BUILD.
-const LINES = ['Pisos', 'Puertas', 'Cocinas', 'Baños', '+ Más'];
+// Una línea por categoría, más una por "todo lo demás" (responsible.lines): todas convergen en TECNO.BUILD.
 const CY = 180, YS = [40, 110, 180, 250, 320];
 
 /** Un solo responsable: cuatro líneas de proveedores convergen en una línea naranja. */
@@ -12,6 +12,8 @@ export function Responsible() {
   const ref = useRef<HTMLElement>(null);
   const svgRef = useRef<SVGSVGElement>(null);
   const [merged, setMerged] = useState(true);
+  const { t: { responsible: t, common }, href } = useI18n();
+  const LINES = t.lines;
 
   useGSAP(() => {
     const svg = svgRef.current!;
@@ -57,34 +59,34 @@ export function Responsible() {
       <div className="pin-stick">
         <div className="wrap r-grid">
           <div className="r-text">
-            <p className="eyebrow">Un solo responsable</p>
-            <h2 className="h2">Todas las terminaciones. Un solo responsable.</h2>
+            <p className="eyebrow">{t.eyebrow}</p>
+            <h2 className="h2">{t.title}</h2>
             <div className="contrast">
               <div className="c-many">
-                <h3>Con varios proveedores</h3>
-                <ul><li>Una cotización por rubro</li><li>Un plazo por rubro</li><li>Un equipo por rubro</li><li>Nadie responde por el conjunto</li></ul>
+                <h3>{t.manyTitle}</h3>
+                <ul>{t.many.map((x) => <li key={x}>{x}</li>)}</ul>
               </div>
               <div className="c-one">
-                <h3>Con TECNO.BUILD</h3>
-                <ul><li>1 cotización</li><li>1 plan de entrega</li><li>Instalación incluida</li><li>Un responsable de punta a punta</li></ul>
+                <h3>{t.oneTitle}</h3>
+                <ul>{t.one.map((x) => <li key={x}>{x}</li>)}</ul>
               </div>
             </div>
-            <p className="r-price">Y como compramos en origen, la relación entre precio y calidad juega a favor de tu obra.</p>
+            <p className="r-price">{t.price}</p>
             <div className="r-cta">
-              <Link className="btn btn-primary" href="/catalogo/">Armá tu obra</Link>
-              <a className="btn btn-ghost" href="#contacto">Contactanos</a>
+              <Link className="btn btn-primary" href={href('catalog')}>{common.buildYourProject}</Link>
+              <a className="btn btn-ghost" href="#contacto">{common.contactUs}</a>
             </div>
           </div>
           <div className="r-fig">
             <svg ref={svgRef} className="conv" viewBox="0 0 640 360" role="img"
-              aria-label="Una línea por categoría, cada una hacia un proveedor distinto, que se unen en una sola línea naranja: TECNO.BUILD.">
+              aria-label={t.figAria}>
               {LINES.map((label, i) => (
                 <g key={label} className={i === LINES.length - 1 ? 'more' : undefined}>
                   <text className="cat" x="0" y={YS[i] + 5}>{label}</text>
                   <circle cx="168" cy={YS[i]} r="3.5" fill="#ADADA8" />
                   <path className="gl" id={`cv${i}`} />
                   <circle id={`ce${i}`} cx="470" r="3.5" fill="#ADADA8" />
-                  <text className="prov" id={`cp${i}`} x="482" y={YS[i] + 4}>Proveedor {i + 1}</text>
+                  <text className="prov" id={`cp${i}`} x="482" y={YS[i] + 4}>{t.supplier(i + 1)}</text>
                 </g>
               ))}
               <path className="ol" id="cvo" d={`M470 ${CY}H636`} pathLength={1} />

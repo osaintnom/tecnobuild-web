@@ -1,16 +1,19 @@
+'use client';
 import { OFFICES } from '@/content/site';
+import { useI18n } from '@/i18n/I18nProvider';
 import { EtgLink } from './EtgLink';
 
 export function Footer() {
+  const { t: { offices } } = useI18n();
   return (
     <footer className="foot">
       <div className="wrap">
         <div className="offices">
-          {OFFICES.map((o) => (
+          {offices.map((o, i) => (
             <div className="office" key={o.city}>
               <h3>{o.city}</h3>
               <p>{o.role}</p>
-              <p className="coord">{o.coord}</p>
+              <p className="coord">{OFFICES[i].coord}</p>
             </div>
           ))}
         </div>
