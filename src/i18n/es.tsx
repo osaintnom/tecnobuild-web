@@ -14,7 +14,7 @@ export const es = {
   },
 
   common: {
-    buildYourProject: 'Armá tu obra',
+    buildYourProject: 'Armá tu cotización',
     contactUs: 'Contactanos',
     priceOnRequest: 'Precio a cotizar',
     yourSelection: 'Tu selección',
@@ -50,6 +50,7 @@ export const es = {
 
   hero: {
     title: ['Construimos', 'con el mundo.'],
+    lead: 'Traemos las terminaciones de tu obra directo de fábrica, con un solo responsable desde la compra hasta la instalación en el AMBA.',
     kicker: 'Importación de terminaciones de obra:',
     cats: ['Pisos y revestimientos', 'Puertas', 'Cocinas', 'Baños'],
     more: '+ Más',
@@ -88,11 +89,11 @@ export const es = {
     notice: 'Aviso al cliente',
     imgPending: 'Imagen pendiente',
     stops: [
-      { place: 'Hong Kong', coord: '22.32°N 114.17°E', title: 'Búsqueda de fábricas', body: 'Buscamos y evaluamos fábricas para cada terminación. Probamos muestras antes de comprar en volumen.', estado: 'Muestras aprobadas', img: 'evaluación de muestras' },
-      { place: 'Shenzhen, China', coord: '22.54°N 114.06°E', title: 'Producción', body: 'Muchas de las fábricas con las que trabajamos están en Shenzhen. Las visitamos y coordinamos con cada una la producción de tu pedido.', estado: 'En producción', img: 'zona de fábricas, Shenzhen' },
+      { place: 'Hong Kong', title: 'Búsqueda de fábricas', body: 'Buscamos y evaluamos fábricas para cada terminación. Probamos muestras antes de comprar en volumen.', estado: 'Muestras aprobadas', img: 'evaluación de muestras' },
+      { place: 'Shenzhen, China', title: 'Producción', body: 'Muchas de las fábricas con las que trabajamos están en Shenzhen. Las visitamos y coordinamos con cada una la producción de tu pedido.', estado: 'En producción', img: 'zona de fábricas, Shenzhen' },
       { place: 'Puerto de origen', coord: 'China', title: 'Embarque', body: 'Coordinamos la carga y el embarque. El material viaja directo de la fábrica a la Argentina.', estado: 'Embarcado', img: 'carga del contenedor' },
       { place: 'En tránsito', coord: 'Océano', title: 'Seguimiento', body: 'Seguimos el envío durante todo el viaje. Tenés un solo contacto que te dice en qué etapa está tu material.', estado: 'En tránsito', img: 'ruta marítima' },
-      { place: 'Buenos Aires', coord: '34.60°S 58.38°W', title: 'Importación y despacho', body: 'Nos ocupamos de la importación y de los trámites de aduana. Vos no hacés trámites.', estado: 'Despachado', img: 'despacho en destino' },
+      { place: 'Buenos Aires', title: 'Importación y despacho', body: 'Nos ocupamos de la importación y de los trámites de aduana. Vos no hacés trámites.', estado: 'Despachado', img: 'despacho en destino' },
     ],
     arriveTop: 'Hong Kong → Shenzhen → Buenos Aires · directo de fábrica',
     arrivePlace: 'Tu obra\u00a0 · \u00a0AMBA',
@@ -114,8 +115,8 @@ export const es = {
   },
 
   showcase: {
-    stageAria: 'Abrir el catálogo para armar tu obra',
-    eyebrow: 'Armá tu obra',
+    stageAria: 'Abrir el catálogo para armar tu cotización',
+    eyebrow: 'Catálogo',
     title: 'Tu edificio, piso por piso.',
     lead: 'En el catálogo elegís cada terminación sobre el corte del edificio, la configurás y la sumás a tu cotización.',
     cta: 'Armá tu cotización',
@@ -162,7 +163,7 @@ export const es = {
     send: 'Enviar consulta',
     protoNote: 'Versión de prueba: el formulario todavía no envía datos.',
     sentK: 'Consulta enviada',
-    sentTitle: 'Recibimos tu consulta. Te vamos a contactar.',
+    sentTitle: 'Recibimos tu consulta. Te contactamos para responder tus dudas y armar tu cotización.',
     sendAnother: 'Enviar otra consulta',
     preferWrite: '¿Preferís escribirnos?',
     copyMail: 'Copiar mail',
@@ -175,8 +176,8 @@ export const es = {
   contact: {
     eyebrow: 'Contacto',
     title: 'Contanos tu obra.',
-    lead: 'Dejanos tus datos y te llamamos. Si ya sabés qué terminaciones necesitás, armá tu cotización en el catálogo.',
-    toCatalog: 'Ir al catálogo y armar tu obra →',
+    lead: 'Dejanos tus datos: te contactamos para responder tus dudas y armamos una cotización. Si ya sabés qué terminaciones necesitás, podés armarla vos en el catálogo.',
+    toCatalog: 'Armá tu cotización en el catálogo →',
     project: 'Tu obra',
     projectPh: 'Ubicación, etapa, tipologías, qué terminaciones buscás…',
   },
@@ -211,7 +212,7 @@ export const es = {
 
   catalog: {
     eyebrow: 'Catálogo',
-    title: 'Armá tu obra.',
+    title: 'Armá tu cotización.',
     lead: 'Elegí cada terminación, configurala hasta el modelo exacto y sumala a tu cotización. Tocá el edificio o usá los filtros.',
     testData: (date: string) => `Datos de prueba: el catálogo todavía no está confirmado. Actualizado el ${date}.`,
     stageHint: 'Corte · tocá un ambiente o un elemento',

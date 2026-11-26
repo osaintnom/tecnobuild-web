@@ -141,7 +141,9 @@ button{font:inherit;color:inherit}
 .hero-line{height:3px;width:120px;margin-top:2rem;background:var(--naranja);transform-origin:left;box-shadow:0 0 14px rgba(209,107,33,.45)}
 .anim .hero-line{animation:grow .8s .55s var(--ease) both}
 @keyframes grow{from{transform:scaleX(0)}}
-.hero-kicker{margin:2.2rem 0 0;font:500 .78rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hueso)}
+/* Bajada: qué hacemos, en texto normal y legible (el lema solo no lo dice) */
+.hero-lead{margin:1.8rem 0 0;max-width:46ch;font-size:clamp(1.05rem,1.6vw,1.3rem);line-height:1.5;color:var(--gris-claro)}
+.hero-kicker{margin:1.8rem 0 0;font:500 .78rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hueso)}
 .hero-cats{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 0;font:500 .78rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
 .hero-cats li+li::before{content:"/";margin:0 14px;color:var(--gris-osc)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:2.6rem}

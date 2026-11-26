@@ -39,6 +39,7 @@ export function Hero() {
           {t.hero.title.map((l, i) => <Fragment key={l}>{i > 0 && ' '}<span className="ln"><span>{l}</span></span></Fragment>)}
         </h1>
         <div className="hero-line" ref={line} aria-hidden="true" />
+        <p className="hero-lead">{t.hero.lead}</p>
         <p className="hero-kicker" id="heroKicker">{t.hero.kicker}</p>
         <ul className="hero-cats" aria-labelledby="heroKicker">
           {t.hero.cats.map((c) => <li key={c}>{c}</li>)}<li className="more">{t.hero.more}</li>

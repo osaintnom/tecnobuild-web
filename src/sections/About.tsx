@@ -1,12 +1,11 @@
 'use client';
 import { useI18n } from '@/i18n/I18nProvider';
-import { OFFICES } from '@/content/site';
 
 /** Quiénes somos: qué hacemos, quién nos respalda y dónde estamos. Textos en el diccionario (about). */
 export function About() {
   const { t: { about: t, offices } } = useI18n();
   const PILLARS = t.pillars;
-  const PLACES = OFFICES.map((o, i) => ({ ...o, ...offices[i] }));
+  const PLACES = offices;
   return (
     <section className="about tone-dark" id="quienes" data-tone="dark" data-ch="quienes">
       <div className="wrap">
@@ -31,7 +30,6 @@ export function About() {
             <li key={p.city}>
               <span className="ab-city">{p.city}</span>
               <span className="ab-role">{p.role}</span>
-              <span className="coord">{p.coord}</span>
             </li>
           ))}
         </ul>

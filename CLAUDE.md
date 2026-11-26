@@ -17,11 +17,11 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 
 ## Mensaje y tono
 
-- **Tagline:** "Construimos con el mundo." — va sola, sin bajada. En inglés: "Built with the world." (decidido el 26/11/2026; reemplaza "We build with the world.").
+- **Tagline:** "Construimos con el mundo." — lleva una bajada corta que dice qué hacen ("Traemos las terminaciones de tu obra directo de fábrica, con un solo responsable desde la compra hasta la instalación en el AMBA."; decidido el 26/11/2026). En inglés: "Built with the world." (decidido el 26/11/2026; reemplaza "We build with the world.").
 - **Rótulo de categoría en el hero:** "Importación de terminaciones de obra:", debajo del título y antes de las categorías.
 - **Esencia interna (no publicar como claim):** "Nos hacemos cargo."
 - **Registro:** español rioplatense con **vos** ("Pedí tu cotización", "Contanos tu obra").
-- **Llamados a la acción:** "Armá tu obra" (lleva al catálogo) y "Contactanos" (contacto en quiénes somos). En el encabezado: "Ver catálogo" y "Cotizar". En el catálogo, el formulario se titula "Pedí tu cotización." WhatsApp es canal secundario.
+- **Llamados a la acción (26/11/2026):** siempre los mismos dos botones: "Armá tu cotización" (lleva al configurador del catálogo) y "Contactanos" (lleva al formulario de contacto, para preguntar). No usar "Armá tu obra". En el encabezado: "Ver catálogo" y "Cotizar". En el catálogo, el formulario se titula "Pedí tu cotización." WhatsApp es canal secundario.
 - **Estilo:** hechos antes que adjetivos, frases cortas, voz activa. Evitar "líderes del mercado", "soluciones integrales", "equipo altamente capacitado".
 
 ## Lo que NO se puede afirmar todavía
@@ -30,13 +30,13 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 - Obras, testimonios o cifras: no existen aún, salvo el cliente de abajo. Nunca poner frases entre comillas como si las dijera un cliente.
 - **Empresas que confiaron:** `src/sections/Clients.tsx`, una tarjeta por empresa, sin espacios vacíos. Primer y único cliente hasta ahora (26/11/2026): **Sentire** (desarrolladora, Buenos Aires, sentire.com.ar): les trajimos barandas y puertas y están muy conformes. Logo: `public/clientes/sentire.svg`, bajado de su sitio y pasado de blanco a carbón. Los nombres, lo que se les trajo y los logos los pasa TECNO.BUILD; nunca inventarlos.
 - Plazos concretos de cada etapa ("a definir").
-- Confirmación del formulario: "Recibimos tu consulta. Te vamos a contactar." — **sin plazo**.
+- Confirmación del formulario: "Recibimos tu consulta. Te contactamos para responder tus dudas y armar tu cotización." — **sin plazo** (no "en el día").
 - "Mejor precio" solo con cautela, sin números.
 
 ## Identidad visual
 
 - **Colores:** carbón `#1C1C1C`, naranja `#D16B21` (botones con texto blanco: `#BF5F1A` por contraste), hueso `#FAFAF5`, gris cálido `#ADADA8`.
-- **Tipografía:** Archivo expandida (títulos), Inter (texto), IBM Plex Mono (rótulos, códigos, coordenadas, cotas).
+- **Tipografía:** Archivo expandida (títulos), Inter (texto), IBM Plex Mono (rótulos, códigos, cotas). Sin coordenadas geográficas en el sitio (sacadas el 26/11/2026).
 - **Recurso de marca:** la barra/línea naranja del logo es el hilo de toda la página.
 - **Imágenes:** casi no hay material. Los espacios de imagen quedan rotulados. Se puede usar IA para ambientes y texturas; **nunca** para obras, fábricas o personas presentadas como reales.
 
@@ -45,10 +45,10 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y cómo trabajan; el catálogo es donde se elige y se cotiza.
 
 ### `/` Quiénes somos (corta)
-1. **Hero** (carbón) — "Construimos con el mundo." y, debajo, "Importación de terminaciones de obra:" seguido de las categorías con "+ Más" (sin rótulo arriba del título). Botones: "Armá tu obra" y "Contactanos". Fondo interactivo con TECNO.BUILD difuminado.
+1. **Hero** (carbón) — "Construimos con el mundo." y, debajo, "Importación de terminaciones de obra:" seguido de las categorías con "+ Más" (sin rótulo arriba del título). Bajada de qué hacen. Botones: "Armá tu cotización" y "Contactanos". Fondo interactivo con TECNO.BUILD difuminado.
 2. **Quiénes somos** (carbón) — qué hacen (origen, importación, obra) y dónde están: Hong Kong, Shenzhen (zona de fábricas), Miami (administración), Buenos Aires. El pie de página muestra los mismos cuatro lugares.
 3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
-4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu obra" y "Contactanos".
+4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu cotización" y "Contactanos".
 5. **El edificio** (hueso, fijado, ~200 vh) — solo para mostrar: se arma piso por piso al bajar y cada piso aparece con sus productos ya marcados (el último agregado, con glow). Sin un tramo extra para encender categorías. Botón "Armá tu cotización" al catálogo.
 6. **Empresas que confiaron en nosotros** — tarjeta por empresa: nombre o logo, qué les trajimos y una línea nuestra.
 7. **Tus dudas** — las tres objeciones, como desplegables, todas cerradas de entrada. "No los conozco": TECNO.BUILD es una empresa nueva que nace de Eurotechnologie Group para simplificar la búsqueda de proveedores y la importación, y bajar el costo de construir; trae "terminaciones de excelente calidad al mejor precio" (frase pedida por TECNO.BUILD el 26/11/2026, se usa solo ahí).
@@ -81,7 +81,7 @@ Elementos globales: encabezado con "Quiénes somos", "Catálogo", "Tu selección
 
 - Por familia: **medida o modelo → opciones de esa medida (niveles, color, variante; las combinaciones que no existen se ven apagadas) → campo libre de personalización → "Agregar a mi cotización"** → otra medida, ver la selección o seguir eligiendo.
 - **Sin precios** ("Precio a cotizar") y **sin cantidades** (el volumen sale del tamaño de obra del formulario).
-- Vive en el catálogo; desde quiénes somos se llega con "Armá tu obra" o "Cotizar".
+- Vive en el catálogo; desde quiénes somos se llega con "Armá tu cotización" o "Cotizar".
 - Los modelos salen del maestro (ver "Datos del catálogo").
 
 ## Formulario de cotización

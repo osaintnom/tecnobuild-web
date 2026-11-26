@@ -17,7 +17,7 @@ export const en: Dict = {
   },
 
   common: {
-    buildYourProject: 'Plan your fit-out',
+    buildYourProject: 'Build your quote',
     contactUs: 'Get in touch',
     priceOnRequest: 'Price on request',
     yourSelection: 'Your selection',
@@ -53,6 +53,7 @@ export const en: Dict = {
 
   hero: {
     title: ['Built with', 'the world.'],
+    lead: 'We bring the finishes for your project straight from the factory, with one team responsible from purchase to installation in Greater Buenos Aires.',
     kicker: 'Imported fit-out for new developments:',
     cats: ['Flooring & wall cladding', 'Doors', 'Kitchens', 'Bathrooms'],
     more: '+ More',
@@ -91,11 +92,11 @@ export const en: Dict = {
     notice: 'Status update',
     imgPending: 'Image pending',
     stops: [
-      { place: 'Hong Kong', coord: '22.32°N 114.17°E', title: 'Factory sourcing', body: 'We find and vet the right factory for each product, and test samples before buying in volume.', estado: 'Samples approved', img: 'sample review' },
-      { place: 'Shenzhen, China', coord: '22.54°N 114.06°E', title: 'Production', body: 'Many of our factories are in Shenzhen. We visit them and coordinate production of your order with each one.', estado: 'In production', img: 'Shenzhen manufacturing hub' },
+      { place: 'Hong Kong', title: 'Factory sourcing', body: 'We find and vet the right factory for each product, and test samples before buying in volume.', estado: 'Samples approved', img: 'sample review' },
+      { place: 'Shenzhen, China', title: 'Production', body: 'Many of our factories are in Shenzhen. We visit them and coordinate production of your order with each one.', estado: 'In production', img: 'Shenzhen manufacturing hub' },
       { place: 'Port of origin', coord: 'China', title: 'Shipping', body: 'We coordinate loading and shipping. Your material travels straight from the factory to Argentina.', estado: 'Shipped', img: 'container loading' },
       { place: 'At sea', coord: 'Ocean', title: 'Tracking', body: 'We follow the shipment all the way. A single point of contact tells you exactly where your material is.', estado: 'In transit', img: 'shipping route' },
-      { place: 'Buenos Aires', coord: '34.60°S 58.38°W', title: 'Import & customs', body: 'We handle the import and customs clearance. No paperwork on your side.', estado: 'Cleared', img: 'customs clearance' },
+      { place: 'Buenos Aires', title: 'Import & customs', body: 'We handle the import and customs clearance. No paperwork on your side.', estado: 'Cleared', img: 'customs clearance' },
     ],
     arriveTop: 'Hong Kong → Shenzhen → Buenos Aires · factory direct',
     arrivePlace: 'Your site  ·  Greater Buenos Aires',
@@ -117,11 +118,11 @@ export const en: Dict = {
   },
 
   showcase: {
-    stageAria: 'Open the catalog to plan your fit-out',
-    eyebrow: 'Plan your fit-out',
+    stageAria: 'Open the catalog to build your quote',
+    eyebrow: 'Catalog',
     title: 'Your building, floor by floor.',
     lead: 'In the catalog you pick each product on a section of the building, configure it and add it to your quote.',
-    cta: 'Start your quote',
+    cta: 'Build your quote',
   },
 
   clients: {
@@ -165,7 +166,7 @@ export const en: Dict = {
     send: 'Send',
     protoNote: 'Preview version: this form doesn’t send data yet.',
     sentK: 'Message sent',
-    sentTitle: 'Thanks, we’ve received your message. We’ll be in touch.',
+    sentTitle: 'Thanks, we’ve received your message. We’ll get in touch to answer your questions and prepare your quote.',
     sendAnother: 'Send another message',
     preferWrite: 'Prefer email?',
     copyMail: 'Copy email',
@@ -178,8 +179,8 @@ export const en: Dict = {
   contact: {
     eyebrow: 'Contact',
     title: 'Tell us about your project.',
-    lead: 'Leave your details and we’ll give you a call. If you already know what you need, put together your quote in the catalog.',
-    toCatalog: 'Go to the catalog and plan your fit-out →',
+    lead: 'Leave your details: we’ll get in touch to answer your questions and prepare a quote. If you already know what you need, you can build it yourself in the catalog.',
+    toCatalog: 'Build your quote in the catalog →',
     project: 'Your project',
     projectPh: 'Location, stage, unit types, the products you’re after…',
   },
@@ -214,7 +215,7 @@ export const en: Dict = {
 
   catalog: {
     eyebrow: 'Catalog',
-    title: 'Plan your fit-out.',
+    title: 'Build your quote.',
     lead: 'Pick each product, configure it down to the exact model and add it to your quote. Tap the building or use the filters.',
     testData: (date: string) => `Sample data: the catalog isn’t final yet. Last updated ${date}.`,
     stageHint: 'Section · tap an area or a product',

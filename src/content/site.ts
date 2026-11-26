@@ -10,10 +10,3 @@ export const CONTACT = {
   whatsapp: null as string | null, // número a confirmar
 };
 
-// Coordenadas de cada oficina, en el mismo orden que `offices` en los diccionarios (src/i18n), que tienen ciudad y rol.
-export const OFFICES = [
-  { coord: '22.32°N 114.17°E' },
-  { coord: '22.54°N 114.06°E' },
-  { coord: '25.76°N 80.19°W' },
-  { coord: '34.60°S 58.38°W' },
-];
