@@ -3,6 +3,8 @@ import { Archivo, Inter, IBM_Plex_Mono } from 'next/font/google';
 import type { Locale } from '@/i18n/config';
 import { es } from '@/i18n/es';
 import { en } from '@/i18n/en';
+import { SITE_URL } from '@/content/site';
+import { OG_SIZE } from '@/lib/og';
 import './globals.css';
 
 // Documento raíz compartido. Cada idioma tiene su layout raíz ((es)/layout.tsx y (en)/layout.tsx)
@@ -15,10 +17,18 @@ const plexMono = IBM_Plex_Mono({ subsets: ['latin'], weight: ['400', '500'], var
 export const rootMetadata = (locale: Locale): Metadata => {
   const t = (locale === 'en' ? en : es).meta;
   return {
-    metadataBase: new URL('https://tecno.build'),
+    metadataBase: new URL(SITE_URL),
     title: t.homeTitle,
     description: t.homeDesc,
-    openGraph: { type: 'website', locale: t.ogLocale, alternateLocale: locale === 'en' ? 'es_AR' : 'en_US', siteName: 'TECNO.BUILD' },
+    openGraph: {
+      type: 'website',
+      locale: t.ogLocale,
+      alternateLocale: locale === 'en' ? 'es_AR' : 'en_US',
+      siteName: 'TECNO.BUILD',
+      // La imagen la generan src/app/(es)/og.png y src/app/(en)/en/og.png en el build.
+      images: [{ url: locale === 'en' ? '/en/og.png' : '/og.png', ...OG_SIZE, alt: t.homeTitle, type: 'image/png' }],
+    },
+    twitter: { card: 'summary_large_image' },
   };
 };
 

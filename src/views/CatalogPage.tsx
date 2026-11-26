@@ -11,6 +11,7 @@ import { Configurator } from '@/components/Configurator';
 import { SelectionSummary } from '@/components/SelectionSummary';
 import { Toast } from '@/components/Toast';
 import { Footer } from '@/components/Footer';
+import { StructuredData } from '@/components/StructuredData';
 import { CatalogView } from '@/sections/CatalogView';
 import { Quote } from '@/sections/Quote';
 
@@ -23,6 +24,7 @@ export const catalogMetadata = (locale: Locale): Metadata => {
 export function CatalogPage({ locale }: { locale: Locale }) {
   return (
     <I18nProvider locale={locale}>
+      <StructuredData locale={locale} page="catalog" />
       <SelectionProvider>
         <SmoothScroll />
         <Reveals />

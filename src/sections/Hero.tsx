@@ -1,5 +1,5 @@
 'use client';
-import { useRef } from 'react';
+import { Fragment, useRef } from 'react';
 import { ScrollTrigger, useGSAP, gsap, MQ_ANIM } from '@/lib/motion';
 import Link from 'next/link';
 import { HeroBackground } from '@/components/HeroBackground';
@@ -35,7 +35,8 @@ export function Hero() {
       <HeroBackground />
       <div className="wrap">
         <h1 className="hero-title">
-          {t.hero.title.map((l) => <span className="ln" key={l}><span>{l}</span></span>)}
+          {/* El espacio entre líneas evita que buscadores y lectores de pantalla lean «Construimoscon». */}
+          {t.hero.title.map((l, i) => <Fragment key={l}>{i > 0 && ' '}<span className="ln"><span>{l}</span></span></Fragment>)}
         </h1>
         <div className="hero-line" ref={line} aria-hidden="true" />
         <p className="hero-kicker" id="heroKicker">{t.hero.kicker}</p>

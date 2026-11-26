@@ -11,6 +11,7 @@ import { Configurator } from '@/components/Configurator';
 import { SelectionSummary } from '@/components/SelectionSummary';
 import { Toast } from '@/components/Toast';
 import { Footer } from '@/components/Footer';
+import { StructuredData } from '@/components/StructuredData';
 import { Hero } from '@/sections/Hero';
 import { About } from '@/sections/About';
 import { Origin } from '@/sections/Origin';
@@ -32,6 +33,7 @@ export const homeMetadata = (locale: Locale): Metadata => {
 export function HomePage({ locale }: { locale: Locale }) {
   return (
     <I18nProvider locale={locale}>
+      <StructuredData locale={locale} page="home" />
       <SelectionProvider>
         <SmoothScroll />
         <Reveals />
