@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { useSelection } from '@/state/selection';
 import { useI18n } from '@/i18n/I18nProvider';
-import { LOCALES, ROUTES } from '@/i18n/config';
+import { LOCALES, ROUTES, type Locale } from '@/i18n/config';
 
 type Tone = 'dark' | 'light';
 export type ChapterId = 'quienes' | 'origen' | 'responsable' | 'edificio' | 'empresas' | 'dudas' | 'contacto';
@@ -13,10 +13,12 @@ interface Props {
   page: 'home' | 'catalog';
   /** Índice lateral de capítulos (desktop). Solo la página de quiénes somos lo usa. */
   chapters?: Chapters;
+  /** Ruta de esta misma página en cada idioma, si no es una de ROUTES (por ejemplo, una familia del catálogo). */
+  langHrefs?: Record<Locale, string>;
 }
 
 /** Encabezado + índice de capítulos. El tono de ambos sigue a la sección que tienen debajo. */
-export function PageChrome({ page, chapters = [] }: Props) {
+export function PageChrome({ page, chapters = [], langHrefs }: Props) {
   const { selection, setSummaryOpen, pulseKey } = useSelection();
   const [menuOpen, setMenuOpen] = useState(false);
   const [hdrTone, setHdrTone] = useState<Tone>('dark');
@@ -30,7 +32,7 @@ export function PageChrome({ page, chapters = [] }: Props) {
     <div className={`lang-toggle ${cls}`} role="group" aria-label={t.langGroup}>
       {LOCALES.map((l) => l === locale
         ? <span key={l} className="on" aria-current="true" lang={l}>{l.toUpperCase()}</span>
-        : <Link key={l} href={ROUTES[l][page]} hrefLang={l} lang={l} aria-label={t.langAria}>{l.toUpperCase()}</Link>)}
+        : <Link key={l} href={langHrefs?.[l] ?? ROUTES[l][page]} hrefLang={l} lang={l} aria-label={t.langAria}>{l.toUpperCase()}</Link>)}
     </div>
   );
 

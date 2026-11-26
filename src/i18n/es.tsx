@@ -257,6 +257,20 @@ export const es = {
     notePh: 'Ej.: otra medida, otro color o cantidades por tipología.',
   },
 
+  family: {
+    crumbsAria: 'Ruta',
+    facts: { code: 'Código TB', category: 'Categoría', room: 'Ambiente', models: 'Modelos', colors: 'Colores', widths: 'Anchos de mueble' },
+    configure: 'Configurar y sumar a mi cotización',
+    toCatalog: 'Ver todo el catálogo',
+    modelsTitle: 'Modelos',
+    modelsLead: 'Cada modelo tiene su código TB. Elegilo en el configurador o nombralo en tu pedido de cotización.',
+    dataLang: '',
+    cols: { code: 'Código TB', size: 'Medida o modelo', dims: 'Medidas (mm)', options: 'Opciones', detail: 'Detalle' },
+    related: 'Más de esta categoría',
+    metaTitle: (name: string, cat: string) => `${name} · ${cat} · TECNO.BUILD`,
+    metaDesc: (desc: string, n: number) => `${desc} ${pl(n, 'modelo', 'modelos')} con código TB. Importación directa de fábrica. Precio a cotizar.`.trim(),
+  },
+
   building: {
     aria: 'Corte de un edificio de planta baja, siete pisos y azotea. Cada par de pisos muestra un ambiente: balcones y escaleras abajo, después cocinas, baños y vestidores arriba.',
     ground: 'PB',

@@ -18,3 +18,11 @@ export const alternates = (locale: Locale, page: PageId) => ({
   canonical: ROUTES[locale][page],
   languages: { es: ROUTES.es[page], en: ROUTES.en[page], 'x-default': ROUTES.es[page] },
 });
+
+/** Página de una familia del catálogo: /catalogo/tb-gr-be01/ y /en/catalog/tb-gr-be01/ (el código no cambia con el idioma). */
+export const familySlug = (codigo: string) => codigo.toLowerCase();
+export const familyPath = (locale: Locale, codigo: string) => `${ROUTES[locale].catalog}${familySlug(codigo)}/`;
+export const familyAlternates = (locale: Locale, codigo: string) => ({
+  canonical: familyPath(locale, codigo),
+  languages: { es: familyPath('es', codigo), en: familyPath('en', codigo), 'x-default': familyPath('es', codigo) },
+});

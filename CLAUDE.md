@@ -59,6 +59,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 - **Filtros:** rubro, categoría, color y ancho de mueble, más buscador por nombre o código TB. Aviso visible de "Datos de prueba" mientras `prueba: true`.
 - **Edificio interactivo por ambientes**, conectado con la grilla: PB–P1 balcones y escaleras → P2–P4 cocinas → P5–P6 baños → P7 vestidores. **Cada categoría aparece una sola vez** y cada piso es una escena con pocos elementos; los rótulos van en filas arriba de cada piso con una línea guía. Cada elemento del corte es una categoría real (tocarlo filtra esa categoría); la llave de un ambiente filtra el ambiente; pasar por una tarjeta marca su categoría en el corte. El dibujo está en `src/lib/building.ts`.
 - **Configurador por familia:** medida o modelo → opciones de esa medida (niveles, color, variante) → nota. El resultado es un **código TB real**, que viaja en el pedido de cotización.
+- **Página por familia:** `/catalogo/tb-xx-yy01/` y `/en/catalog/tb-xx-yy01/` (`src/views/FamilyPage.tsx`), generadas en el build: nombre, descripción, datos, tabla de modelos con códigos TB (leída de `public/catalogo/modelos/`), relacionadas y botón al configurador. La URL es el código en minúsculas, así no cambia si cambia el nombre. Las tarjetas de la grilla enlazan a esa página, pero el clic común sigue abriendo el configurador. Están en el sitemap.
 - **Pedí tu cotización** al final, con la selección precargada (códigos TB y ambientes).
 - La selección se guarda en el navegador y sigue al pasar de una página a otra.
 

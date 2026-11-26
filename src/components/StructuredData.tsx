@@ -60,8 +60,11 @@ function graph(locale: Locale, withFaq: boolean) {
   return { '@context': 'https://schema.org', '@graph': nodes };
 }
 
+/** Bloque JSON-LD. «<» escapado para que el JSON nunca cierre el <script>. */
+export function JsonLd({ data }: { data: object }) {
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(data).replace(/</g, '\\u003c') }} />;
+}
+
 export function StructuredData({ locale, page }: { locale: Locale; page: 'home' | 'catalog' }) {
-  // «<» escapado para que el JSON nunca cierre el <script>.
-  const json = JSON.stringify(graph(locale, page === 'home')).replace(/</g, '\\u003c');
-  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: json }} />;
+  return <JsonLd data={graph(locale, page === 'home')} />;
 }

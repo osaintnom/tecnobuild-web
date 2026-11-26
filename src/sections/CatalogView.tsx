@@ -1,5 +1,7 @@
 'use client';
 import { useEffect, useMemo, useRef, useState } from 'react';
+import Link from 'next/link';
+import { familyPath } from '@/i18n/config';
 import { CATALOGO, COLOR_HEX, FAMILIAS, RUBROS, type AmbId, type Familia } from '@/content/catalog';
 import { useI18n } from '@/i18n/I18nProvider';
 import { floorsLabel } from '@/lib/building';
@@ -24,7 +26,7 @@ export function CatalogView() {
   const [ancho, setAncho] = useState('');
   const [limit, setLimit] = useState(PAGE);
   const bldRef = useRef<SVGSVGElement>(null);
-  const { t: { catalog: t, common, building: tb }, cat: ct } = useI18n();
+  const { t: { catalog: t, common, building: tb }, cat: ct, locale } = useI18n();
 
   // Ordenadas por el nombre que se ve (en inglés, por el nombre traducido)
   const categorias = useMemo(() => [...new Set(FAMILIAS.filter((f) => (!filtro.rubro || f.rubro === filtro.rubro) && (!filtro.ambiente || f.ambiente === filtro.ambiente)).map((f) => f.categoria))].sort((a, b) => ct.categoria(a).localeCompare(ct.categoria(b))), [filtro.rubro, filtro.ambiente, ct]);
@@ -165,7 +167,9 @@ export function CatalogView() {
                   const tr = ct.fam(f);
                   return (
                     <li key={f.codigo}>
-                      <button type="button" className={`pcard${k ? ' in' : ''}`} onClick={() => openConfigurator(f.codigo)}
+                      {/* Enlace a la página de la familia (buscadores, abrir en otra pestaña); el clic común abre el configurador. */}
+                      <Link className={`pcard${k ? ' in' : ''}`} href={familyPath(locale, f.codigo)} prefetch={false}
+                        onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0) return; e.preventDefault(); openConfigurator(f.codigo); }}
                         onMouseEnter={() => highlight(f)} onMouseLeave={() => highlight(null)} onFocus={() => highlight(f)} onBlur={() => highlight(null)}>
                         <ModelPreview className="pcard-pv" familia={f} color={color || undefined} />
                         <span className="pcard-k">{ct.categoria(f.categoria)}</span>
@@ -176,7 +180,7 @@ export function CatalogView() {
                           <span className="pcard-sw" aria-hidden="true">{f.colores.slice(0, 6).map((c) => <i key={c} style={{ background: COLOR_HEX[c] ?? '#ccc' }} />)}</span>
                         )}
                         <span className="pcard-st">{k ? t.inQuote(k) : t.configure}</span>
-                      </button>
+                      </Link>
                     </li>
                   );
                 })}

@@ -260,6 +260,20 @@ export const en: Dict = {
     notePh: 'e.g. a different size or color, or quantities per unit type.',
   },
 
+  family: {
+    crumbsAria: 'Breadcrumb',
+    facts: { code: 'TB code', category: 'Category', room: 'Room', models: 'Models', colors: 'Colors', widths: 'Cabinet widths' },
+    configure: 'Configure and add to my quote',
+    toCatalog: 'See the full catalog',
+    modelsTitle: 'Models',
+    modelsLead: 'Every model has its own TB code. Pick it in the configurator or mention it in your quote request.',
+    dataLang: 'Sizes and model details are shown in Spanish.',
+    cols: { code: 'TB code', size: 'Size or model', dims: 'Dimensions (mm)', options: 'Options', detail: 'Details' },
+    related: 'More in this category',
+    metaTitle: (name: string, cat: string) => `${name} · ${cat} · TECNO.BUILD`,
+    metaDesc: (desc: string, n: number) => `${desc} ${pl(n, 'model', 'models')} with a TB code. Shipped direct from the factory. Price on request.`.trim(),
+  },
+
   building: {
     aria: 'Section of a building with a ground floor, seven upper floors and a roof. Each group of floors shows one area: balconies and stairs at the bottom, then kitchens, bathrooms and walk-in closets at the top.',
     ground: 'GF',

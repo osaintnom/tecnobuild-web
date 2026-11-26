@@ -9,8 +9,8 @@ Visto en navegador a 1440 px y 375 px. **No revisado todavía:** tablet (768 px)
    *Arreglo:* archivo `CNAME` con `tecno.build`, DNS del registrador apuntando a GitHub Pages (lo hace TECNO.BUILD), y quitar `PAGES_BASE_PATH` del workflow.
 2. **Ningún formulario envía datos.** Contacto y cotización muestran «Versión de prueba: el formulario todavía no envía datos»; WhatsApp figura «a confirmar». El único canal que funciona es copiar el mail.
    *Arreglo:* servicio de formularios para sitios estáticos (a definir) + número de WhatsApp.
-3. **El catálogo es invisible para buscadores e IA.** El HTML publicado de `/catalogo/` no contiene ni una familia ni un código TB: todo se arma con JavaScript y no hay una URL por familia. Las 101 familias no existen para Google ni para ChatGPT/Perplexity.
-   *Arreglo:* renderizar la grilla en el HTML estático y, en una segunda etapa, una página por familia (`/catalogo/<familia>/`), con su versión en inglés.
+3. **El catálogo casi no existe para buscadores e IA.** El HTML publicado de `/catalogo/` trae solo las primeras 24 familias (el resto aparece con «Ver más») y ninguna familia tiene una URL propia. *(Corregido: la primera versión de este informe decía 0 familias por un error al contarlas.)*
+   *Arreglo:* una página por familia (`/catalogo/<familia>/`), con su versión en inglés, enlazada desde las tarjetas y en el sitemap. **Hecho el 26/11/2026.**
 4. **Faltan lo básico:** `robots.txt` (404), `sitemap.xml` (404), favicon (404), imagen para compartir (la tarjeta de redes sale sin imagen) y datos estructurados (0 bloques JSON-LD).
    *Arreglo:* generar los cuatro en el build; schema `Organization` con `parentOrganization` Eurotechnologie Group, `areaServed` AMBA y `sameAs`; `FAQPage` para «Tus dudas».
 
