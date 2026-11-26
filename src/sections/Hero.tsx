@@ -32,13 +32,13 @@ export function Hero() {
     <section className="hero tone-dark" id="top" data-tone="dark" ref={ref}>
       <HeroBackground />
       <div className="wrap">
-        <p className="eyebrow">Importación de terminaciones para obra</p>
         <h1 className="hero-title">
           <span className="ln"><span>Construimos</span></span>
           <span className="ln"><span>con el mundo.</span></span>
         </h1>
         <div className="hero-line" ref={line} aria-hidden="true" />
-        <ul className="hero-cats" aria-label="Qué importamos">
+        <p className="hero-kicker" id="heroKicker">Importación de terminaciones de obra:</p>
+        <ul className="hero-cats" aria-labelledby="heroKicker">
           <li>Pisos y revestimientos</li><li>Puertas</li><li>Cocinas</li><li>Baños</li><li className="more">+ Más</li>
         </ul>
         <div className="hero-cta">

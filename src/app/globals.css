@@ -134,7 +134,8 @@ button{font:inherit;color:inherit}
 .hero-line{height:3px;width:120px;margin-top:2rem;background:var(--naranja);transform-origin:left;box-shadow:0 0 14px rgba(209,107,33,.45)}
 .anim .hero-line{animation:grow .8s .55s var(--ease) both}
 @keyframes grow{from{transform:scaleX(0)}}
-.hero-cats{list-style:none;margin:2.2rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 0;font:500 .78rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
+.hero-kicker{margin:2.2rem 0 0;font:500 .78rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--hueso)}
+.hero-cats{list-style:none;margin:.7rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px 0;font:500 .78rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gris)}
 .hero-cats li+li::before{content:"/";margin:0 14px;color:var(--gris-osc)}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:2.6rem}
 .hero-sign{margin:clamp(56px,9vh,96px) 0 0;font:400 .72rem/1.6 var(--mono);letter-spacing:.06em;color:var(--gris)}
@@ -260,13 +261,25 @@ button{font:inherit;color:inherit}
 
 /* 6 · Tus dudas */
 .faq-sec{padding-block:clamp(88px,13vh,140px)}
-.faq{list-style:none;margin:48px 0 0;padding:0}
-.faq li{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(16px,5vw,80px);padding:34px 0;border-top:1px solid var(--carbon)}
-.faq li:last-child{border-bottom:1px solid var(--carbon)}
-.faq q{quotes:none;font-family:var(--display);font-stretch:110%;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.8rem);line-height:1.02;letter-spacing:-.02em}
-.faq p{margin:0;font-size:1.08rem;line-height:1.6;max-width:54ch;color:var(--gris-osc)}
+.faq{margin:48px 0 0;border-bottom:1px solid var(--carbon)}
+.faq-item{border-top:1px solid var(--carbon)}
+.faq-item summary{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:30px 0;cursor:pointer;list-style:none}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary:hover q,.faq-item summary:focus-visible q{color:var(--naranja-btn)}
+.faq-item summary:focus-visible{outline:2px solid var(--naranja);outline-offset:4px}
+.faq q{quotes:none;font-family:var(--display);font-stretch:110%;font-weight:600;font-size:clamp(1.7rem,3.4vw,2.8rem);line-height:1.02;letter-spacing:-.02em;transition:color .2s}
+/* Ícono + que gira a × al abrir */
+.faq-ic{position:relative;flex:none;width:44px;height:44px;border:1px solid var(--hueso-line);border-radius:50%;transition:transform .3s var(--ease),border-color .2s,background .2s}
+.faq-ic::before,.faq-ic::after{content:"";position:absolute;left:50%;top:50%;width:16px;height:2px;margin:-1px 0 0 -8px;background:var(--carbon)}
+.faq-ic::after{transform:rotate(90deg)}
+.faq-item summary:hover .faq-ic{border-color:var(--naranja)}
+.faq-item[open] .faq-ic{transform:rotate(45deg);background:var(--naranja);border-color:var(--naranja)}
+.faq-item[open] .faq-ic::before,.faq-item[open] .faq-ic::after{background:#fff}
+.faq p{margin:0 0 34px;font-size:1.08rem;line-height:1.6;max-width:62ch;color:var(--gris-osc)}
+.faq-item[open] p{animation:faqIn .35s var(--ease) both}
+@keyframes faqIn{from{opacity:0;transform:translateY(-6px)}}
 .faq p b{color:var(--carbon);font-weight:600}
-@media (max-width:760px){.faq li{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.faq-item[open] p{animation:none}.faq-ic{transition:none}}
 
 /* Revelados */
 .anim .rv.seen{animation:mask .9s var(--ease) both}

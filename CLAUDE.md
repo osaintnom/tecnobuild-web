@@ -18,7 +18,7 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 ## Mensaje y tono
 
 - **Tagline:** "Construimos con el mundo." — va sola, sin bajada. En inglés: "We build with the world."
-- **Rótulo de categoría en el hero:** "Terminaciones de edificios".
+- **Rótulo de categoría en el hero:** "Importación de terminaciones de obra:", debajo del título y antes de las categorías.
 - **Esencia interna (no publicar como claim):** "Nos hacemos cargo."
 - **Registro:** español rioplatense con **vos** ("Pedí tu cotización", "Contanos tu obra").
 - **Llamados a la acción:** "Armá tu obra" (lleva al catálogo) y "Contactanos" (contacto en quiénes somos). En el encabezado: "Ver catálogo" y "Cotizar". En el catálogo, el formulario se titula "Pedí tu cotización." WhatsApp es canal secundario.
@@ -45,13 +45,13 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y cómo trabajan; el catálogo es donde se elige y se cotiza.
 
 ### `/` Quiénes somos (corta)
-1. **Hero** (carbón) — rótulo "Importación de terminaciones para obra" + "Construimos con el mundo." + categorías con "+ Más". Botones: "Armá tu obra" y "Contactanos". Fondo interactivo con TECNO.BUILD difuminado.
+1. **Hero** (carbón) — "Construimos con el mundo." y, debajo, "Importación de terminaciones de obra:" seguido de las categorías con "+ Más" (sin rótulo arriba del título). Botones: "Armá tu obra" y "Contactanos". Fondo interactivo con TECNO.BUILD difuminado.
 2. **Quiénes somos** (carbón) — qué hacen (origen, importación, obra) y dónde están: Hong Kong, Shenzhen (zona de fábricas), Miami (administración), Buenos Aires. El pie de página muestra los mismos cuatro lugares.
 3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
 4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu obra" y "Contactanos".
 5. **El edificio** (hueso, fijado, ~200 vh) — solo para mostrar: se arma piso por piso al bajar y cada piso aparece con sus productos ya marcados (el último agregado, con glow). Sin un tramo extra para encender categorías. Botón "Armá tu cotización" al catálogo.
 6. **Empresas que confiaron en nosotros** — logos (pendientes).
-7. **Tus dudas** — las tres objeciones.
+7. **Tus dudas** — las tres objeciones, como acordeón (la primera abierta). "No los conozco": TECNO.BUILD es una empresa nueva que nace de Eurotechnologie Group para simplificar la búsqueda de fábricas y la importación, y bajar el costo de construir sin resignar calidad (decisión del 26/11/2026).
 8. **Contacto** (carbón) — consulta corta (nombre, teléfono, empresa, obra) + mail y WhatsApp.
 
 ### `/catalogo/` Catálogo
