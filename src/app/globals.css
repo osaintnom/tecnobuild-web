@@ -504,14 +504,19 @@ dialog.sheet::backdrop{background:rgba(28,28,28,.55)}
 /* Empresas que confiaron */
 .clients{padding-block:clamp(80px,12vh,128px) clamp(40px,6vh,64px)}
 .cl-head{display:grid;gap:20px}
-.cl-grid{list-style:none;margin:40px 0 0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border-top:1px solid var(--hueso-line);border-left:1px solid var(--hueso-line)}
-.cl-grid li{display:grid;place-items:center;aspect-ratio:3/2;padding:18px;border-right:1px solid var(--hueso-line);border-bottom:1px solid var(--hueso-line)}
-.cl-grid img{max-width:100%;max-height:56px;filter:grayscale(1);opacity:.8}
-.cl-name{font-family:var(--display);font-stretch:110%;font-weight:600}
-.cl-ph span{font:400 .7rem/1.4 var(--mono);letter-spacing:.06em;color:var(--gris)}
-.cl-ph{background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(173,173,168,.08) 10px 11px)}
-@media (max-width:900px){.cl-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media (max-width:560px){.cl-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* Una tarjeta por empresa: marca a la izquierda, qué le trajimos a la derecha */
+.cl-list{list-style:none;margin:40px 0 0;padding:0;display:grid;gap:12px}
+.cl-card{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(20px,5vw,80px);align-items:center;padding:clamp(24px,4vw,40px);border:1px solid var(--hueso-line);border-left:3px solid var(--naranja);background:#fff}
+.cl-brand{display:grid;gap:8px;text-decoration:none;color:var(--carbon);justify-items:start}
+.cl-brand img{max-width:220px;max-height:64px}
+.cl-name{font-family:var(--display);font-stretch:110%;font-weight:600;font-size:clamp(2rem,4vw,3rem);line-height:1;letter-spacing:-.02em;transition:color .2s}
+.cl-brand:hover .cl-name{color:var(--naranja-btn)}
+.cl-tipo{font:500 .72rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--gris-osc)}
+.cl-body{display:grid;gap:14px}
+.cl-tags{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.cl-tags li{padding:6px 10px;border:1px solid var(--naranja);border-radius:2px;font:500 .74rem/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--naranja-btn)}
+.cl-body p{margin:0;font-size:1.08rem;line-height:1.6;color:var(--carbon);max-width:52ch}
+@media (max-width:760px){.cl-card{grid-template-columns:1fr}}
 
 /* Catálogo */
 .catalog{padding-block:calc(var(--hdr) + clamp(40px,7vh,72px)) clamp(64px,10vh,112px)}

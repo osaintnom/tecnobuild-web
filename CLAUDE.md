@@ -27,8 +27,8 @@ Contexto y decisiones del proyecto. Leer antes de modificar el sitio. Si una tar
 ## Lo que NO se puede afirmar todavía
 
 - Garantía con años definidos, plazos en contrato, equipo propio de instalación (hoy hay subcontratistas: decir "nos hacemos cargo de la instalación", nunca "nuestro equipo de instaladores").
-- Obras, testimonios o cifras: no existen aún.
-- **Empresas que confiaron:** la sección existe (`src/sections/Clients.tsx`) con espacios rotulados. Los nombres y logos los pasa TECNO.BUILD; nunca inventarlos.
+- Obras, testimonios o cifras: no existen aún, salvo el cliente de abajo. Nunca poner frases entre comillas como si las dijera un cliente.
+- **Empresas que confiaron:** `src/sections/Clients.tsx`, una tarjeta por empresa, sin espacios vacíos. Primer y único cliente hasta ahora (26/11/2026): **Sentire** (desarrolladora, Buenos Aires, sentire.com.ar): les trajimos barandas y puertas y están muy conformes. Logo pendiente: se muestra el nombre en texto. Los nombres, lo que se les trajo y los logos los pasa TECNO.BUILD; nunca inventarlos.
 - Plazos concretos de cada etapa ("a definir").
 - Confirmación del formulario: "Recibimos tu consulta. Te vamos a contactar." — **sin plazo**.
 - "Mejor precio" solo con cautela, sin números.
@@ -50,7 +50,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 3. **De la fábrica a tu obra** (carbón, fijado y horizontal en desktop) — recorrido con seguimiento: Hong Kong (búsqueda) → Shenzhen (producción) → embarque en origen → tránsito → importación y despacho en Buenos Aires. Cada parada muestra el aviso que recibe el cliente. Llegada: "Llegamos a tu obra." (entrega e instalación).
 4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu obra" y "Contactanos".
 5. **El edificio** (hueso, fijado, ~200 vh) — solo para mostrar: se arma piso por piso al bajar y cada piso aparece con sus productos ya marcados (el último agregado, con glow). Sin un tramo extra para encender categorías. Botón "Armá tu cotización" al catálogo.
-6. **Empresas que confiaron en nosotros** — logos (pendientes).
+6. **Empresas que confiaron en nosotros** — tarjeta por empresa: nombre o logo, qué les trajimos y una línea nuestra.
 7. **Tus dudas** — las tres objeciones, como desplegables, todas cerradas de entrada. "No los conozco": TECNO.BUILD es una empresa nueva que nace de Eurotechnologie Group para simplificar la búsqueda de proveedores y la importación, y bajar el costo de construir; trae "terminaciones de excelente calidad al mejor precio" (frase pedida por TECNO.BUILD el 26/11/2026, se usa solo ahí).
 8. **Contacto** (carbón) — consulta corta (nombre, teléfono, empresa, obra) + mail y WhatsApp.
 
