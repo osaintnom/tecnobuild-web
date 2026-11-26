@@ -51,7 +51,7 @@ El foco es el **servicio de importación**. Quiénes somos cuenta quiénes son y
 4. **Todas las terminaciones. Un solo responsable.** (hueso, fijado) — categorías + "Más" convergen en TECNO.BUILD. Botones: "Armá tu obra" y "Contactanos".
 5. **El edificio** (hueso, fijado, ~200 vh) — solo para mostrar: se arma piso por piso al bajar y cada piso aparece con sus productos ya marcados (el último agregado, con glow). Sin un tramo extra para encender categorías. Botón "Armá tu cotización" al catálogo.
 6. **Empresas que confiaron en nosotros** — logos (pendientes).
-7. **Tus dudas** — las tres objeciones, como acordeón (la primera abierta). "No los conozco": TECNO.BUILD es una empresa nueva que nace de Eurotechnologie Group para simplificar la búsqueda de fábricas y la importación, y bajar el costo de construir sin resignar calidad (decisión del 26/11/2026).
+7. **Tus dudas** — las tres objeciones, como desplegables, todas cerradas de entrada. "No los conozco": TECNO.BUILD es una empresa nueva que nace de Eurotechnologie Group para simplificar la búsqueda de proveedores y la importación, y bajar el costo de construir; trae "terminaciones de excelente calidad al mejor precio" (frase pedida por TECNO.BUILD el 26/11/2026, se usa solo ahí).
 8. **Contacto** (carbón) — consulta corta (nombre, teléfono, empresa, obra) + mail y WhatsApp.
 
 ### `/catalogo/` Catálogo

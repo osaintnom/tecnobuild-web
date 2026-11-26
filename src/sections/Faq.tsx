@@ -1,8 +1,8 @@
 import { EtgLink } from '@/components/EtgLink';
 
 /**
- * Tus dudas: las tres objeciones, como acordeón (<details>, sin JS: funciona con teclado y lector de pantalla).
- * La primera queda abierta para que se entienda que el resto también se abre.
+ * Tus dudas: las tres objeciones, como desplegables (<details>, sin JS: funciona con teclado y lector de pantalla).
+ * Todas cerradas de entrada para que la sección ocupe poco, sobre todo en mobile.
  */
 export function Faq() {
   return (
@@ -10,13 +10,13 @@ export function Faq() {
       <div className="wrap">
         <p className="eyebrow">Tus dudas</p>
         <div className="faq">
-          <details className="faq-item" open>
+          <details className="faq-item">
             <summary><q className="rv">No los conozco.</q><span className="faq-ic" aria-hidden="true" /></summary>
             <p>
-              Es razonable: TECNO.BUILD es una empresa nueva. <b>Nace de <EtgLink />, un grupo que importa hace más de diez años</b>, para
-              simplificar la parte más difícil de comprar afuera: encontrar buenas fábricas e importar. Las visitamos, probamos muestras
-              antes de comprar en volumen y traemos cada terminación directo de la fábrica a tu obra. <b>Así bajás el costo de construir
-              sin resignar calidad.</b>
+              Es razonable: somos una empresa nueva. <b>TECNO.BUILD nace de <EtgLink />, un grupo que importa hace más de diez años</b>,
+              con un objetivo: simplificar la búsqueda de proveedores y la importación para bajar el costo de construir.
+              Elegimos las fábricas, probamos las muestras y te traemos <b>terminaciones de excelente calidad al mejor precio</b>,
+              directo de origen a tu obra.
             </p>
           </details>
           <details className="faq-item">
